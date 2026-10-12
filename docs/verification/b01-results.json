@@ -1,0 +1,413 @@
+{
+  "scope": "B01 documentation checks only; NOT application E2E",
+  "checks": [
+    {
+      "name": "exactly two actor names",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "FC01 through FC06 supplied",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "FC01 exactly one Start across sheets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "FC01 defined edges and paired connectors",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "FC01 labelled decisions",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "FC01 all nodes reachable; no dead-end process",
+      "passed": true,
+      "detail": {
+        "nodes": 23,
+        "ends": 3
+      }
+    },
+    {
+      "name": "FC01 editable XML matches Start/sheet/actor counts",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "FC02 exactly one Start across sheets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "FC02 defined edges and paired connectors",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "FC02 labelled decisions",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "FC02 all nodes reachable; no dead-end process",
+      "passed": true,
+      "detail": {
+        "nodes": 18,
+        "ends": 2
+      }
+    },
+    {
+      "name": "FC02 editable XML matches Start/sheet/actor counts",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "FC03 exactly one Start across sheets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "FC03 defined edges and paired connectors",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "FC03 labelled decisions",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "FC03 all nodes reachable; no dead-end process",
+      "passed": true,
+      "detail": {
+        "nodes": 21,
+        "ends": 4
+      }
+    },
+    {
+      "name": "FC03 editable XML matches Start/sheet/actor counts",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "FC04 exactly one Start across sheets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "FC04 defined edges and paired connectors",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "FC04 labelled decisions",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "FC04 all nodes reachable; no dead-end process",
+      "passed": true,
+      "detail": {
+        "nodes": 39,
+        "ends": 6
+      }
+    },
+    {
+      "name": "FC04 editable XML matches Start/sheet/actor counts",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "FC05 exactly one Start across sheets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "FC05 defined edges and paired connectors",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "FC05 labelled decisions",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "FC05 all nodes reachable; no dead-end process",
+      "passed": true,
+      "detail": {
+        "nodes": 37,
+        "ends": 7
+      }
+    },
+    {
+      "name": "FC05 editable XML matches Start/sheet/actor counts",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "FC06 exactly one Start across sheets",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "FC06 defined edges and paired connectors",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "FC06 labelled decisions",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "FC06 all nodes reachable; no dead-end process",
+      "passed": true,
+      "detail": {
+        "nodes": 20,
+        "ends": 2
+      }
+    },
+    {
+      "name": "FC06 editable XML matches Start/sheet/actor counts",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "schema proposal counts",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "unique/CHECK baseline counts",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cardinality consistent with unique/nullability/columns",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "optional one-to-one is actual handover UNIQUE",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "no fictitious user_profiles entity",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "handover target delta records D05",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "ERD covers all fourteen real entities",
+      "passed": true,
+      "detail": {
+        "declared": [
+          "buildings",
+          "campus_locations",
+          "categories",
+          "claim_photos",
+          "claims",
+          "handovers",
+          "item_matches",
+          "item_photos",
+          "item_status_history",
+          "item_statuses",
+          "items",
+          "location_floors",
+          "notifications",
+          "users"
+        ]
+      }
+    },
+    {
+      "name": "ERD includes each of 25 FKs exactly once",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "dictionary covers every column/FK",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "sitemap root is Home / Landing Page",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "sitemap page/feature distinction and 12 planned routes",
+      "passed": true,
+      "detail": {
+        "routes": [
+          "admin.html",
+          "browse.html",
+          "claim.html",
+          "history.html",
+          "index.html",
+          "item.html",
+          "login.html",
+          "my-reports.html",
+          "notifications.html",
+          "profile.html",
+          "report.html",
+          "settings.html"
+        ]
+      }
+    },
+    {
+      "name": "R01–R12 traceability exists",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "acceptance plan records executed batches and pending final release",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "documentation local links resolve",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "HTML overview/wireframe links and media resolve",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "editable graph nodes have real HTML/shape styles",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "combined diagram PDF sheet count",
+      "passed": true,
+      "detail": {
+        "pages": 11
+      }
+    },
+    {
+      "name": "FC04 connector sheets bundled",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "FC05 connector sheets bundled",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "editable XML/SVG and target labelling",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "PNG exports are readable nonblank images",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "single-sheet PDFs are nonblank and one page",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "wireframes PDF contains exactly eight boards",
+      "passed": true,
+      "detail": {
+        "pages": 8
+      }
+    },
+    {
+      "name": "wireframe render has no external requests or browser errors",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "diagram text remains within SVG export canvas",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "wireframe frames fit; no horizontal clipping; bottom reachable",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "eight wireframe PNG exports exist",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "application_tests": "NOT RUN",
+  "failures": [],
+  "passed": true,
+  "check_count": 59,
+  "files_sha256": {
+    "docs/diagrams/exports/BLUEPRINT_DIAGRAMS.pdf": "6393e59d1a9c0e943723287888ca22eb9e1ec7ebab724a0cb52f5a9f8844a322",
+    "docs/diagrams/exports/ERD01-operational.pdf": "a6240a06ab37bba565d2c1f8e422e665ebc7cd9873790999e2de44a76cf1065b",
+    "docs/diagrams/exports/ERD01-operational.png": "d5ec5192d0e7392d9166c036a24446c3ed088e751123ff87510d82552bb3fb9b",
+    "docs/diagrams/exports/ERD01-operational.svg": "f36461378ab6c19c6f41661ee272573373b0fbac04fbb8928902b74840815a68",
+    "docs/diagrams/exports/ERD02-reference.pdf": "d5e0108647d909dc4f5aab79f1da23b6245a6e9b6a6f6b3c79789b1da3228143",
+    "docs/diagrams/exports/ERD02-reference.png": "3df13451e24bf4946cb75171f81a332cb15742e19e839ab224893bf83155e37a",
+    "docs/diagrams/exports/ERD02-reference.svg": "f6bd6c19e323f1c15cb94cd490795d50e6e79370af99e09f24e8293bdfaf9cef",
+    "docs/diagrams/exports/FC01.pdf": "98de6ebfeae5a25ba413fd6b141d6038de431a34edb9764f4954a738781a69dc",
+    "docs/diagrams/exports/FC01.png": "e4f4a4613c5b47bdad22e3aef83045591753f74812752b081cb82e3e2661718a",
+    "docs/diagrams/exports/FC01.svg": "41ba8be66cd3a79b12b9cd9ba835eba2d522b5c46b480b3fbf994738285ff70b",
+    "docs/diagrams/exports/FC02.pdf": "fb931c76e2962dc82f2028d02935141dbc6daba6bd4328510ef83ab82a463379",
+    "docs/diagrams/exports/FC02.png": "b14dd2373f5cf206ff28cd48c70307cbac7feb0c60c6921de2cb82a866362f64",
+    "docs/diagrams/exports/FC02.svg": "b69440d6482222abe3af8ad9da399b4b463a545a1c17ff24f087a63b2a90799c",
+    "docs/diagrams/exports/FC03.pdf": "624118237b93192172cfb715868964c1dddaa22ac79cd4696e228cf52b09e873",
+    "docs/diagrams/exports/FC03.png": "6da20f1aa092c09fec0c2c96a6b9e66cdb08421daad9c92dc419a850d03548e1",
+    "docs/diagrams/exports/FC03.svg": "11d06a789e8b10028db3fa94f60b400be067aef2c1257d8bcb299d1984a8815f",
+    "docs/diagrams/exports/FC04-A.pdf": "31c05c47e6413781bbb16a8c228b5cbdd3898096a2636828cbf3ace75925533c",
+    "docs/diagrams/exports/FC04-A.png": "d9bd318bed76ef10e7b2e18bceabcf51a0707307a88cb42fcb74210bbc463dc4",
+    "docs/diagrams/exports/FC04-A.svg": "856a2dfb422154838783ace3d78f89701849ff624bf5982bedfa5882e210cdf2",
+    "docs/diagrams/exports/FC04-B.pdf": "01e6d7a8ba7b920cf9554df0a62c3a05e0a90b27ce1d0854f0993151cbf564c2",
+    "docs/diagrams/exports/FC04-B.png": "0eb0a64d192ef2c857e2fb4276ba794e165bb05c7e8dbf31bb2735d61a4f4bf0",
+    "docs/diagrams/exports/FC04-B.svg": "d31a6be1ac8deeb19c294f684954da0a5252d5b7bc9cea6cd8f36ed265f0ee29",
+    "docs/diagrams/exports/FC04-review-handover.pdf": "20c557e2e52c3e778ebada23ec79f2827764ab2107a528e5acecf99f0980fc7e",
+    "docs/diagrams/exports/FC04.pdf": "5550ebd4452cbf8b039e40974667193f5f37cd8601840aff52f6582635efe066",
+    "docs/diagrams/exports/FC05-A.pdf": "59fbf42add3bf40caa99592f159197b3745810131bcffa0a7a1d431499fd94bd",
+    "docs/diagrams/exports/FC05-A.png": "15f0a87fb8549f399c603fa8970b0bd086260ea31a1c5bda4a604ae5da1aa8ee",
+    "docs/diagrams/exports/FC05-A.svg": "343926ddfbad3929212c141b9db501017dd26ad73707657ac38064a2fbd9af7c",
+    "docs/diagrams/exports/FC05-B.pdf": "c11d1d4d36c63ec1664b6b0435d768ee64fe799b6a1f66e3be4343838aac0b3e",
+    "docs/diagrams/exports/FC05-B.png": "c4b9cfb4fd3c7c8ca6a631390cd005efe0e0552eb8b42f8791fffc7a11ea4fb5",
+    "docs/diagrams/exports/FC05-B.svg": "723abcf26acbcc83d75b6b1546f37a58b886993b747fe13c40a016ca350a9a57",
+    "docs/diagrams/exports/FC05-bm-operations.pdf": "6cc21cb31c333d10591a316e40c7e3902ed56b7332b62e9321f996c308b19105",
+    "docs/diagrams/exports/FC05.pdf": "d3b220e472427956bf56ddc0856241f99e20f4f9d7288488d7ac9dd557d8f016",
+    "docs/diagrams/exports/FC06.pdf": "2fdbd31d98680419a2b3933a3afb338e2c4c3d03886d5bd92907595e40cc3445",
+    "docs/diagrams/exports/FC06.png": "b73f38e40aeff732d1ae6957064562e0f144531ccabe4a0c363cb728d052b631",
+    "docs/diagrams/exports/FC06.svg": "27c6d85ea0ca7871e078245ed4a8c2c61d370ec0b4981fc9abed45f4af3a9627",
+    "docs/diagrams/exports/SITEMAP.pdf": "b9cc078b6c34c315c0e010f2809af4c98cb3cf22d5d22ec355bc6224658e9a48",
+    "docs/diagrams/exports/SITEMAP.png": "cd90d9bc94e515ba3acaf92782c5f94bfafa6e26fee8a205abbcd4a8644eabe5",
+    "docs/diagrams/exports/SITEMAP.svg": "c8ed730d92788126d857397a646fd79bdf2db3f6b0841e0705da4ecd48970e16",
+    "docs/diagrams/flow-model.json": "d45659e2f2d57f9b242683c6000f7e7c94edd4959cf40f5dfc40ab2cadf0b06e",
+    "docs/diagrams/manifest.json": "2a524657d57905c644090577cdc5eb405be16363f08fcb5dbdfb9d43d8095bcd",
+    "docs/diagrams/README.md": "f39376545c1fab2e0334b7961d8606bed7cafe5a339b3bfe28368275637c3640",
+    "docs/diagrams/sources/ERD01-operational.dot": "a797197c9014020877ac9fbb9a5246b0fcd22cf2a1dcc1e3bb8e2b2e6066d721",
+    "docs/diagrams/sources/ERD01-operational.drawio": "141d9a3715cca41e08584e0bc11abfc9d7e280f63b08ae11b5d40d97a033f5f2",
+    "docs/diagrams/sources/ERD02-reference.dot": "19e73109bd1f0f8d78a0304e4538d5949972b6a2732e0c4561bcb29dd27d31f4",
+    "docs/diagrams/sources/ERD02-reference.drawio": "f0cf442545d4554f826f7320b5fccc26cceb7a21309cba4bb3e93525db3ea1ec",
+    "docs/diagrams/sources/FC01-login-session-logout.drawio": "1a0add80933763bb797ed0178fa4971d6ce2825fb47e1c7fb54875a02a3c7a0e",
+    "docs/diagrams/sources/FC02-report.drawio": "cc5ca049c5ab60d6352401261a7f14c071512b8219427414ccb371525b2323c4",
+    "docs/diagrams/sources/FC03-browse-claim.drawio": "fd2cd3936a93ba3d283cc9830b3d87eb996ed839af87fd84e42a978efa37f12b",
+    "docs/diagrams/sources/FC04-review-handover.drawio": "6585209d7adf2627e22910f5388305545e36633fd55ff73ba0a8c37564e567df",
+    "docs/diagrams/sources/FC05-bm-operations.drawio": "ff41a992deefa1b5dd2598f520e24ea0736d268241490938a6ebaf5c3d404c3a",
+    "docs/diagrams/sources/FC06-profile-settings.drawio": "bd74d7ef008085322ebdd41fb40dd3ae9d228ac3549858929e77ca732fb82704",
+    "docs/diagrams/sources/SITEMAP.dot": "2ee3ce3b5131fbb4ae50ebb52fa892408bb86f95cea4f46d19002ecf57840f47",
+    "docs/diagrams/sources/SITEMAP.drawio": "019d4ce1272127aa80f4e5ea8ed297a714ddc24a156661936d034cd9ab40e289"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "scope": "B06 synthetic seed integration/idempotency on isolated _test only",
+  "results": [
+    "Real report/claim/review/pickup functions produce 40 reports, 12 claims and 6 handovers on isolated _test",
+    "20 Lost/20 Found, all seven report states, four claim states and all three pickup states are demonstrable",
+    "Public/private stock collections, claimant proof, notifications/history and 17 invariants remain consistent",
+    "Repeated seed adds no records/media/events and preserves the entire business snapshot",
+    "Explicitly edited bookmarked example is preserved on reseed",
+    "Deliberately deleted bookmarked report is not silently recreated",
+    "Exact-ID/media cleanup restores the pre-seed test dataset and account/password snapshot"
+  ],
+  "passed": 7,
+  "complete": true,
+  "invariants": {
+    "database": "refind_db_0_2_0_test",
+    "passed": true,
+    "checks": {
+      "public_private_limits": true,
+      "claim_photo_limits": true,
+      "ownership_only_lost": true,
+      "claim_relations": true,
+      "one_approved_owner": true,
+      "one_confirmed_lost": true,
+      "one_confirmed_found": true,
+      "confirmed_pair_status": true,
+      "approved_handover": true,
+      "completed_handover": true,
+      "latest_history_status": true,
+      "handover_approved_claim": true,
+      "scheduled_pickup_timestamp": true,
+      "active_claim_not_assigned": true,
+      "media_collection_paths": true,
+      "media_exists": true,
+      "no_orphan_media": true
+    },
+    "missing": [],
+    "orphan": [],
+    "invalid": []
+  }
+}

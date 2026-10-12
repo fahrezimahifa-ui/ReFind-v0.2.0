@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="app-base" content="{{BASE_PATH}}">
+  <title>My profile — ReFind</title><link rel="icon" href="assets/refind-logo-mark.png"><link rel="stylesheet" href="vendor/bootstrap.min.css"><link rel="stylesheet" href="css/auth.css"><link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="profile" data-requires-auth="true">
+  {{APP_NAVBAR}}
+  <main class="account-main">
+    <div class="account-heading"><span class="eyebrow">YOUR ACCOUNT</span><h1>Your profile</h1><p>Update how your name appears in ReFind. Your account identifiers stay private.</p></div>
+    <p class="loading-note" id="account-loading" role="status">Loading your profile…</p>
+    <div class="feedback" id="account-load-error" role="alert" tabindex="-1" hidden></div><button class="btn btn-outline retry-load" id="retry-account" type="button" hidden>Retry loading profile</button>
+    <div class="account-layout" id="account-content" hidden>
+      <section class="account-card profile-summary" aria-label="Profile summary"><div class="profile-avatar" data-profile-initials aria-hidden="true"></div><h2 data-profile-name></h2><span class="role-chip" data-profile-role></span><p class="small muted">Profile details are visible only to your signed-in account.</p><a class="text-link" href="settings.html">Account settings</a></section>
+      <section class="account-card" aria-labelledby="profile-edit-title">
+        <h2 id="profile-edit-title">Account details</h2><p>Your display name is editable. Email, role and identifier are readonly.</p>
+        <form id="profile-form" novalidate>
+          <fieldset id="profile-fields" disabled>
+            <div class="field"><label for="display-name">Display name</label><input class="form-control" id="display-name" type="text" maxlength="120" autocomplete="name" required aria-describedby="name-hint name-error"><span class="hint" id="name-hint">1–120 characters. This name appears on your reports.</span><span class="field-error" id="name-error" hidden></span></div>
+            <div class="field"><label for="profile-email">Email · readonly</label><input class="form-control readonly-control" id="profile-email" type="email" readonly autocomplete="email"></div>
+            <div class="field" id="student-id-field" hidden><label for="profile-student-id">Student identifier · private, readonly</label><input class="form-control readonly-control" id="profile-student-id" type="text" readonly><span class="hint">Never shown on public item cards.</span></div>
+            <div class="field"><label for="profile-role">Role · readonly</label><input class="form-control readonly-control" id="profile-role" type="text" readonly></div>
+            <div class="account-actions"><button class="btn btn-primary" id="profile-save" type="submit">Save display name</button><button class="btn btn-outline" id="profile-reset" type="button">Reset changes</button></div>
+          </fieldset>
+          <div class="feedback" id="profile-feedback" role="status" tabindex="-1" hidden></div>
+        </form>
+      </section>
+    </div>
+  </main>
+  <footer class="footer">ReFind 0.2.0 · Your account, your activity</footer>
+  <script src="vendor/jquery.min.js"></script><script src="js/api.js"></script><script src="js/shell.js"></script><script src="js/account-ui.js"></script>
+</body>
+</html>

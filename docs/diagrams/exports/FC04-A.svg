@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="2820" viewBox="0 0 1400 2820">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="700" y="34" text-anchor="middle" font-family="Arial" font-size="24" font-weight="700" fill="#17266d">FC04 · Claim review dan handover</text>
+<text x="700" y="62" text-anchor="middle" font-family="Arial" font-size="17" fill="#64748b">As-built / B06 · Sheet 1 · Claim review / resubmit</text>
+<rect x="120" y="96" width="580" height="2650" fill="#f8fbfd" stroke="#cbd5e1"/>
+<rect x="120" y="96" width="580" height="50" fill="#17266d"/>
+<text x="410" y="128" text-anchor="middle" font-family="Arial" font-size="20" font-weight="700" fill="white">Student</text>
+<rect x="700" y="96" width="580" height="2650" fill="#f6f7fc" stroke="#cbd5e1"/>
+<rect x="700" y="96" width="580" height="50" fill="#17266d"/>
+<text x="990" y="128" text-anchor="middle" font-family="Arial" font-size="20" font-weight="700" fill="white">Building Management</text>
+<path d="M 410.0,231.0 L 410.0,292.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M 410.0,370.0 L 410.0,394.0 L 700.0,394.0 L 700.0,418.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M 700.0,496.0 L 700.0,514.5 L 410.0,514.5 L 410.0,533.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M 410.0,633.0 L 410.0,670.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="405.8" y="637.5" width="48.5" height="20" fill="white" opacity=".97"/>
+<text x="430.0" y="651.5" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">Tidak</text>
+<path d="M 410.0,748.0 L 410.0,809.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M 585.0,583.0 L 1347.0,583.0 L 1347.0,961.0 L 1215.0,961.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="1314.6" y="634.0" width="25.4" height="20" fill="white" opacity=".97"/>
+<text x="1327.3" y="648.0" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">Ya</text>
+<path d="M 990.0,1000.0 L 990.0,1048.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M 990.0,1126.0 L 990.0,1163.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M 990.0,1263.0 L 990.0,1281.5 L 700.0,1281.5 L 700.0,1300.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="778.4" y="1271.5" width="133.2" height="20" fill="white" opacity=".97"/>
+<text x="845.0" y="1285.5" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">Reject + confirm</text>
+<path d="M 700.0,1378.0 L 700.0,1408.5 L 410.0,1408.5 L 410.0,1439.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M 815.0,1213.0 L 71.0,1213.0 L 71.0,1591.0 L 475.0,1591.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="78.0" y="1264.0" width="156.3" height="20" fill="white" opacity=".97"/>
+<text x="156.2" y="1278.0" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">More info + confirm</text>
+<path d="M 700.0,1630.0 L 700.0,1654.0 L 410.0,1654.0 L 410.0,1678.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M 410.0,1756.0 L 410.0,1780.0 L 700.0,1780.0 L 700.0,1804.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M 700.0,1882.0 L 700.0,1900.5 L 410.0,1900.5 L 410.0,1919.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M 410.0,2019.0 L 410.0,2056.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="405.8" y="2023.5" width="48.5" height="20" fill="white" opacity=".97"/>
+<text x="430.0" y="2037.5" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">Tidak</text>
+<path d="M 185.0,2095.0 L 89.0,2095.0 L 89.0,1717.0 L 185.0,1717.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="22.4" y="2073.0" width="133.2" height="20" fill="white" opacity=".97"/>
+<text x="89.0" y="2087.0" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">Perbaiki + retry</text>
+<path d="M 585.0,1969.0 L 1365.0,1969.0 L 1365.0,1087.0 L 1215.0,1087.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="1224.8" y="1890.0" width="133.2" height="20" fill="white" opacity=".97"/>
+<text x="1291.4" y="1904.0" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">Ya; merge review</text>
+<path d="M 1165.0,1213.0 L 1347.0,1213.0 L 1347.0,2221.0 L 925.0,2221.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="1160.6" y="1390.0" width="179.4" height="20" fill="white" opacity=".97"/>
+<text x="1250.3" y="1404.0" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">Approve + confirmation</text>
+<path d="M 700.0,2260.0 L 700.0,2278.5 L 990.0,2278.5 L 990.0,2297.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M 990.0,2397.0 L 990.0,2434.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="985.8" y="2401.5" width="48.5" height="20" fill="white" opacity=".97"/>
+<text x="1010.0" y="2415.5" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">Tidak</text>
+<path d="M 990.0,2512.0 L 990.0,2573.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M 1165.0,2347.0 L 1347.0,2347.0 L 1347.0,2725.0 L 725.0,2725.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="1237.6" y="2398.0" width="102.4" height="20" fill="white" opacity=".97"/>
+<text x="1288.8" y="2412.0" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">Ya → sheet 2</text>
+<ellipse cx="410.0" cy="205.0" rx="155.0" ry="26.0" fill="#edfafd" stroke="#16899b" stroke-width="1.8"/>
+<text x="410.0" y="210.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">Start</text>
+<polygon points="207.0,292.0 635.0,292.0 613.0,370.0 185.0,370.0" fill="#edfafd" stroke="#16899b" stroke-width="1.8"/>
+<text x="410.0" y="336.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">Student: submit identifying answer / proof (FC03)</text>
+<rect x="475.0" y="418.0" width="450" height="78" fill="#ffffff" stroke="#17266d" stroke-width="1.8"/>
+<text x="700.0" y="462.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">(System) Validate + transaction save PENDING</text>
+<polygon points="410.0,533.0 585.0,583.0 410.0,633.0 235.0,583.0" fill="#edfafd" stroke="#16899b" stroke-width="1.8"/>
+<text x="410.0" y="579.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">Claim tersimpan dan</text>
+<text x="410.0" y="597.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">eligible?</text>
+<polygon points="207.0,670.0 635.0,670.0 613.0,748.0 185.0,748.0" fill="#edfafd" stroke="#16899b" stroke-width="1.8"/>
+<text x="410.0" y="714.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">Error / rollback; claim tidak tersimpan</text>
+<ellipse cx="410.0" cy="835.0" rx="155.0" ry="26.0" fill="#edfafd" stroke="#16899b" stroke-width="1.8"/>
+<text x="410.0" y="840.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">End · Claim tidak diajukan</text>
+<rect x="765.0" y="922.0" width="450" height="78" fill="#eef1fb" stroke="#17266d" stroke-width="1.8"/>
+<text x="990.0" y="966.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">BM: buka queued claim yang tepat</text>
+<rect x="765.0" y="1048.0" width="450" height="78" fill="#eef1fb" stroke="#17266d" stroke-width="1.8"/>
+<text x="990.0" y="1083.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">BM: review private evidence; prepare note +</text>
+<text x="990.0" y="1101.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">confirmation</text>
+<polygon points="990.0,1163.0 1165.0,1213.0 990.0,1263.0 815.0,1213.0" fill="#eef1fb" stroke="#17266d" stroke-width="1.8"/>
+<text x="990.0" y="1218.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">Keputusan BM?</text>
+<rect x="475.0" y="1300.0" width="450" height="78" fill="#ffffff" stroke="#17266d" stroke-width="1.8"/>
+<text x="700.0" y="1335.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">(System) REJECTED; history + private reason</text>
+<text x="700.0" y="1353.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">notification</text>
+<ellipse cx="410.0" cy="1465.0" rx="155.0" ry="26.0" fill="#edfafd" stroke="#16899b" stroke-width="1.8"/>
+<text x="410.0" y="1470.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">End · Claim rejected</text>
+<rect x="475.0" y="1552.0" width="450" height="78" fill="#ffffff" stroke="#17266d" stroke-width="1.8"/>
+<text x="700.0" y="1587.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">(System) NEED_MORE_INFO; review note + notify</text>
+<text x="700.0" y="1605.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">Student</text>
+<polygon points="207.0,1678.0 635.0,1678.0 613.0,1756.0 185.0,1756.0" fill="#edfafd" stroke="#16899b" stroke-width="1.8"/>
+<text x="410.0" y="1713.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">Student: baca note, tambah detail / proof;</text>
+<text x="410.0" y="1731.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">resubmit</text>
+<rect x="475.0" y="1804.0" width="450" height="78" fill="#ffffff" stroke="#17266d" stroke-width="1.8"/>
+<text x="700.0" y="1848.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">(System) Revalidate + save same claim PENDING</text>
+<polygon points="410.0,1919.0 585.0,1969.0 410.0,2019.0 235.0,1969.0" fill="#edfafd" stroke="#16899b" stroke-width="1.8"/>
+<text x="410.0" y="1974.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">Resubmit berhasil?</text>
+<polygon points="207.0,2056.0 635.0,2056.0 613.0,2134.0 185.0,2134.0" fill="#edfafd" stroke="#16899b" stroke-width="1.8"/>
+<text x="410.0" y="2100.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">Perbaiki error; draft dan next action tersedia</text>
+<rect x="475.0" y="2182.0" width="450" height="78" fill="#ffffff" stroke="#17266d" stroke-width="1.8"/>
+<text x="700.0" y="2217.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">(System) Atomic approval, pair/HANDOVER, one</text>
+<text x="700.0" y="2235.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">handover, competing rejection, audit/notif</text>
+<polygon points="990.0,2297.0 1165.0,2347.0 990.0,2397.0 815.0,2347.0" fill="#eef1fb" stroke="#17266d" stroke-width="1.8"/>
+<text x="990.0" y="2352.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">Approval commit berhasil?</text>
+<polygon points="787.0,2434.0 1215.0,2434.0 1193.0,2512.0 765.0,2512.0" fill="#eef1fb" stroke="#17266d" stroke-width="1.8"/>
+<text x="990.0" y="2469.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">BM: draft tetap; refresh exact record dan</text>
+<text x="990.0" y="2487.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">reconfirm</text>
+<ellipse cx="990.0" cy="2599.0" rx="155.0" ry="26.0" fill="#eef1fb" stroke="#17266d" stroke-width="1.8"/>
+<text x="990.0" y="2604.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">End · Approval tidak diterapkan</text>
+<ellipse cx="700.0" cy="2725.0" rx="25.0" ry="25.0" fill="#ffffff" stroke="#17266d" stroke-width="1.8"/>
+<text x="700.0" y="2730.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">A</text>
+<text x="120" y="2773" font-family="Arial" font-size="14" fill="#475569">Semua keputusan: note 8–500, CSRF, confirmation, fresh revision/state di bawah lock; error/409 mempertahankan draft dan explicit refresh. A ke sheet 2; resubmit</text>
+<text x="120" y="2791" font-family="Arial" font-size="14" fill="#475569">merge ke review.</text>
+</svg>

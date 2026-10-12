@@ -1,0 +1,139 @@
+{
+  "scope": "UX01 actual submission ZIP fresh setup, isolated new MariaDB datadir/server3307 + browser lifecycle",
+  "run": "ux01-1791795607079",
+  "archive_sha256": "c94e09aa275da646bd34f5602e6b51d99f046dcba431fc0d3e023daf89f855be",
+  "runtime_sha256": "bc5bb6f5aa1925d0054be150ed2e0a06d69dae59665c290e6f4bc1d2eae8e73c",
+  "fresh_folder": "C:\\xampp\\htdocs\\ReFind_0.2.0_Fresh_ux01_1791795607079",
+  "isolated_datadir": "C:\\Users\\LENOVO\\AppData\\Local\\Temp\\opencode\\refind-fresh-ux01-1791795607079-sfvr8y5i\\mariadb",
+  "database_port": 3307,
+  "checks": {
+    "new_empty_database": true,
+    "documented_setup_and_full_mock_dataset": true,
+    "setup_and_seed_idempotent": true,
+    "schema_nine_checks": true,
+    "actual_browser_role_privacy_responsive_and_return": true,
+    "seventeen_workflow_media_invariants": true,
+    "main_database_unchanged": true,
+    "archive_file_hashes": true
+  },
+  "passed": true,
+  "initial_dataset": {
+    "users": 3,
+    "items": 40,
+    "claims": 12,
+    "handovers": 6,
+    "notifications": 176,
+    "item_photos": 60,
+    "claim_photos": 12,
+    "item_matches": 90,
+    "item_status_history": 132
+  },
+  "schema": {
+    "database": "refind_db_0_2_0_test",
+    "passed": true,
+    "checks": {
+      "table_names": true,
+      "views": true,
+      "columns_types_nullability": true,
+      "foreign_key_columns": true,
+      "unique_constraints": true,
+      "constraint_counts": true,
+      "hashed_accounts": true,
+      "no_implicit_profile_table": true,
+      "schema_fingerprint": true
+    },
+    "tables": 14,
+    "foreign_keys": 25,
+    "users": 3
+  },
+  "browser": {
+    "scope": "UX01 actual extracted ZIP / isolated server3307 browser lifecycle",
+    "results": [
+      "All three newly generated credentials login with correct DB roles and own profiles",
+      "Fresh Explore/filter/paging projects all40 records without private clues/proof",
+      "Own claims/pickups are scoped while Student cannot access BM/evidence/storage",
+      "Real browser BM request-more-info returns a private note to the correct Student",
+      "Student browser resubmits same-ID claim with retained proof",
+      "BM browser approval creates one pickup and locks linked reports",
+      "Browser future schedule and reschedule store explicit UTC pickup time",
+      "Cancel appointment retains Approved ownership/same pickup and permits another schedule",
+      "Actual browser physical-return confirmation synchronizes Lost/Found Returned",
+      "Reviewed deep link and terminal pickup remain exact/read-only",
+      "Actual Student/BM workflow screen recordings are exported as demo clips",
+      "Actual final dataset renders Student discovery and all BM tabs at all five required viewports",
+      "Logout destroys fresh browser authorization"
+    ],
+    "passed": 13,
+    "complete": true,
+    "browserErrors": [],
+    "viewportChecks": [
+      {
+        "width": 360,
+        "height": 800,
+        "studentDiscovery": true,
+        "bmTabs": 3,
+        "horizontalOverflow": false
+      },
+      {
+        "width": 390,
+        "height": 844,
+        "studentDiscovery": true,
+        "bmTabs": 3,
+        "horizontalOverflow": false
+      },
+      {
+        "width": 768,
+        "height": 1024,
+        "studentDiscovery": true,
+        "bmTabs": 3,
+        "horizontalOverflow": false
+      },
+      {
+        "width": 1280,
+        "height": 800,
+        "studentDiscovery": true,
+        "bmTabs": 3,
+        "horizontalOverflow": false
+      },
+      {
+        "width": 1440,
+        "height": 900,
+        "studentDiscovery": true,
+        "bmTabs": 3,
+        "horizontalOverflow": false
+      }
+    ],
+    "recordings": [
+      "DEMO_STUDENT_WORKFLOW.webm",
+      "DEMO_BM_WORKFLOW.webm"
+    ],
+    "chrome": "154.0.8037.98"
+  },
+  "invariants": {
+    "database": "refind_db_0_2_0_test",
+    "passed": true,
+    "checks": {
+      "public_private_limits": true,
+      "claim_photo_limits": true,
+      "ownership_only_lost": true,
+      "claim_relations": true,
+      "one_approved_owner": true,
+      "one_confirmed_lost": true,
+      "one_confirmed_found": true,
+      "confirmed_pair_status": true,
+      "approved_handover": true,
+      "completed_handover": true,
+      "latest_history_status": true,
+      "handover_approved_claim": true,
+      "scheduled_pickup_timestamp": true,
+      "active_claim_not_assigned": true,
+      "media_collection_paths": true,
+      "media_exists": true,
+      "no_orphan_media": true
+    },
+    "missing": [],
+    "orphan": [],
+    "invalid": []
+  },
+  "fresh_server_stopped": true
+}

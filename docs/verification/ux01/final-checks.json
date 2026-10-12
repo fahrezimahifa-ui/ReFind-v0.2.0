@@ -1,0 +1,19 @@
+{
+  "scope": "UX01 executed fixes/regression/accessibility/source/export/fresh-install checkpoint",
+  "ux_groups": 12,
+  "regression_groups": {"auth": 28, "account": 24, "student": 24, "bm": 27},
+  "fresh_browser_groups": 13,
+  "fresh_setup_checks": 8,
+  "artefact_checks": 81,
+  "schema_checks_per_database": 9,
+  "workflow_invariants": 17,
+  "syntax": {"php": 34, "js_cjs": 18, "python": 9},
+  "main_business_dataset_unchanged": true,
+  "colour_ratios": {"primary_text": 13.69, "secondary_page_text": 5.28, "focus": 4.69, "search_boundary": 3.27, "pending_text": 12.12},
+  "viewports": ["360x800", "390x844", "768x1024", "1280x800", "1440x900"],
+  "small_viewport_simulation": "390x420",
+  "physical_phone_keyboard": "Manual check pending",
+  "release": "releases/ReFind_0.2.0_UX01.zip",
+  "exact_archive_acceptance": "releases/ReFind_0.2.0_UX01.verification.json",
+  "passed": true
+}

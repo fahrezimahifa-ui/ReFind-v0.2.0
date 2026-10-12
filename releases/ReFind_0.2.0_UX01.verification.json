@@ -1,0 +1,20 @@
+{
+  "scope": "External acceptance receipt for exact tested archive",
+  "archive": "ReFind_0.2.0_UX01.zip",
+  "archive_sha256": "c94e09aa275da646bd34f5602e6b51d99f046dcba431fc0d3e023daf89f855be",
+  "runtime_sha256": "bc5bb6f5aa1925d0054be150ed2e0a06d69dae59665c290e6f4bc1d2eae8e73c",
+  "run": "ux01-1791795607079",
+  "checks": {
+    "new_empty_database": true,
+    "documented_setup_and_full_mock_dataset": true,
+    "setup_and_seed_idempotent": true,
+    "schema_nine_checks": true,
+    "actual_browser_role_privacy_responsive_and_return": true,
+    "seventeen_workflow_media_invariants": true,
+    "main_database_unchanged": true,
+    "archive_file_hashes": true
+  },
+  "browser_groups": 13,
+  "fresh_server_stopped": true,
+  "passed": true
+}

@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="2946" viewBox="0 0 1400 2946">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="700" y="34" text-anchor="middle" font-family="Arial" font-size="24" font-weight="700" fill="#17266d">AF01 · As-built application / route flow</text>
+<text x="700" y="62" text-anchor="middle" font-family="Arial" font-size="17" fill="#64748b">As-built / B06 · Pages, protected endpoints and persistence</text>
+<rect x="120" y="96" width="580" height="2776" fill="#f8fbfd" stroke="#cbd5e1"/>
+<rect x="120" y="96" width="580" height="50" fill="#17266d"/>
+<text x="410" y="128" text-anchor="middle" font-family="Arial" font-size="20" font-weight="700" fill="white">Student</text>
+<rect x="700" y="96" width="580" height="2776" fill="#f6f7fc" stroke="#cbd5e1"/>
+<rect x="700" y="96" width="580" height="50" fill="#17266d"/>
+<text x="990" y="128" text-anchor="middle" font-family="Arial" font-size="20" font-weight="700" fill="white">Building Management</text>
+<path d="M 700.0,231.0 L 700.0,292.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M 700.0,370.0 L 700.0,407.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M 700.0,507.0 L 700.0,544.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="657.2" y="511.5" width="125.5" height="20" fill="white" opacity=".97"/>
+<text x="720.0" y="525.5" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">Guest / expired</text>
+<path d="M 700.0,622.0 L 700.0,659.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M 875.0,457.0 L 1365.0,457.0 L 1365.0,709.0 L 875.0,709.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="1294.1" y="508.0" width="63.9" height="20" fill="white" opacity=".97"/>
+<text x="1326.0" y="522.0" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">Allowed</text>
+<path d="M 525.0,457.0 L 53.0,457.0 L 53.0,2725.0 L 475.0,2725.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="60.0" y="508.0" width="87.0" height="20" fill="white" opacity=".97"/>
+<text x="103.5" y="522.0" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">Wrong role</text>
+<path d="M 700.0,2764.0 L 700.0,2825.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M 700.0,759.0 L 700.0,777.5 L 410.0,777.5 L 410.0,796.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="523.0" y="767.5" width="63.9" height="20" fill="white" opacity=".97"/>
+<text x="555.0" y="781.5" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">STUDENT</text>
+<path d="M 700.0,759.0 L 700.0,777.5 L 990.0,777.5 L 990.0,796.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="766.9" y="767.5" width="156.3" height="20" fill="white" opacity=".97"/>
+<text x="845.0" y="781.5" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">BUILDING_MANAGEMENT</text>
+<path d="M 410.0,874.0 L 410.0,911.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M 990.0,874.0 L 990.0,911.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M 410.0,1011.0 L 410.0,1048.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="363.4" y="1015.5" width="133.2" height="20" fill="white" opacity=".97"/>
+<text x="430.0" y="1029.5" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">Discover / claim</text>
+<path d="M 235.0,961.0 L 35.0,961.0 L 35.0,1213.0 L 185.0,1213.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="42.0" y="1012.0" width="56.2" height="20" fill="white" opacity=".97"/>
+<text x="70.1" y="1026.0" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">Report</text>
+<path d="M 235.0,961.0 L 53.0,961.0 L 53.0,2095.0 L 475.0,2095.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="60.0" y="1138.0" width="102.4" height="20" fill="white" opacity=".97"/>
+<text x="111.2" y="1152.0" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">Shared pages</text>
+<path d="M 635.0,1087.0 L 1329.0,1087.0 L 1329.0,1339.0 L 925.0,1339.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M 410.0,1252.0 L 410.0,1276.0 L 700.0,1276.0 L 700.0,1300.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M 925.0,1339.0 L 1365.0,1339.0 L 1365.0,1591.0 L 925.0,1591.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M 1165.0,961.0 L 1347.0,961.0 L 1347.0,1465.0 L 925.0,1465.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="1145.2" y="1138.0" width="194.8" height="20" fill="white" opacity=".97"/>
+<text x="1242.6" y="1152.0" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">Review / status / pickup</text>
+<path d="M 1165.0,961.0 L 1329.0,961.0 L 1329.0,2095.0 L 925.0,2095.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="1104.1" y="1264.0" width="217.9" height="20" fill="white" opacity=".97"/>
+<text x="1213.0" y="1278.0" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">Explore / history / account</text>
+<path d="M 700.0,1504.0 L 700.0,1552.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M 700.0,1630.0 L 700.0,1667.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M 700.0,1767.0 L 700.0,1804.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="688.0" y="1771.5" width="63.9" height="20" fill="white" opacity=".97"/>
+<text x="720.0" y="1785.5" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">Success</text>
+<path d="M 525.0,1717.0 L 71.0,1717.0 L 71.0,1969.0 L 475.0,1969.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="78.0" y="1768.0" width="210.2" height="20" fill="white" opacity=".97"/>
+<text x="183.1" y="1782.0" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">Rejected / stale / failure</text>
+<path d="M 925.0,1843.0 L 1311.0,1843.0 L 1311.0,2347.0 L 875.0,2347.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="1140.0" y="1894.0" width="164.0" height="20" fill="white" opacity=".97"/>
+<text x="1222.0" y="1908.0" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">Exact record refresh</text>
+<path d="M 475.0,1969.0 L 35.0,1969.0 L 35.0,2347.0 L 525.0,2347.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="42.0" y="2020.0" width="194.8" height="20" fill="white" opacity=".97"/>
+<text x="139.4" y="2034.0" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">No automatic POST replay</text>
+<path d="M 700.0,2134.0 L 700.0,2182.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M 700.0,2260.0 L 700.0,2297.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M 875.0,2347.0 L 1311.0,2347.0 L 1311.0,709.0 L 875.0,709.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="1132.3" y="2268.0" width="171.7" height="20" fill="white" opacity=".97"/>
+<text x="1218.2" y="2282.0" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">Continue; guard again</text>
+<path d="M 700.0,2397.0 L 700.0,2434.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="691.9" y="2401.5" width="56.2" height="20" fill="white" opacity=".97"/>
+<text x="720.0" y="2415.5" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">Logout</text>
+<path d="M 700.0,2512.0 L 700.0,2573.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M 525.0,2347.0 L 71.0,2347.0 L 71.0,2599.0 L 545.0,2599.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="78.0" y="2398.0" width="125.5" height="20" fill="white" opacity=".97"/>
+<text x="140.8" y="2412.0" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">Finish scenario</text>
+<ellipse cx="700.0" cy="205.0" rx="155.0" ry="26.0" fill="#ffffff" stroke="#17266d" stroke-width="1.8"/>
+<text x="700.0" y="210.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">Start</text>
+<polygon points="497.0,292.0 925.0,292.0 903.0,370.0 475.0,370.0" fill="#ffffff" stroke="#17266d" stroke-width="1.8"/>
+<text x="700.0" y="327.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">Protected .html route via page.php; public entry</text>
+<text x="700.0" y="345.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">in note</text>
+<polygon points="700.0,407.0 875.0,457.0 700.0,507.0 525.0,457.0" fill="#ffffff" stroke="#17266d" stroke-width="1.8"/>
+<text x="700.0" y="453.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">Valid session + allowed</text>
+<text x="700.0" y="471.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">role?</text>
+<rect x="475.0" y="544.0" width="450" height="78" fill="#ffffff" stroke="#17266d" stroke-width="1.8"/>
+<text x="700.0" y="579.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">login.html → session.php + auth.php → safe return</text>
+<text x="700.0" y="597.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">(FC01)</text>
+<polygon points="700.0,659.0 875.0,709.0 700.0,759.0 525.0,709.0" fill="#ffffff" stroke="#17266d" stroke-width="1.8"/>
+<text x="700.0" y="714.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">Authenticated DB role?</text>
+<rect x="185.0" y="796.0" width="450" height="78" fill="#edfafd" stroke="#16899b" stroke-width="1.8"/>
+<text x="410.0" y="840.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">index.html Home → browse.html Explore</text>
+<rect x="765.0" y="796.0" width="450" height="78" fill="#eef1fb" stroke="#17266d" stroke-width="1.8"/>
+<text x="990.0" y="840.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">admin.html: Claims / Reports / Handover tabs</text>
+<polygon points="410.0,911.0 585.0,961.0 410.0,1011.0 235.0,961.0" fill="#edfafd" stroke="#16899b" stroke-width="1.8"/>
+<text x="410.0" y="966.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">Student route/action?</text>
+<polygon points="990.0,911.0 1165.0,961.0 990.0,1011.0 815.0,961.0" fill="#eef1fb" stroke="#17266d" stroke-width="1.8"/>
+<text x="990.0" y="966.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">BM route/action?</text>
+<rect x="185.0" y="1048.0" width="450" height="78" fill="#edfafd" stroke="#16899b" stroke-width="1.8"/>
+<text x="410.0" y="1092.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">item.html → claim.html → my-reports.html</text>
+<rect x="185.0" y="1174.0" width="450" height="78" fill="#edfafd" stroke="#16899b" stroke-width="1.8"/>
+<text x="410.0" y="1218.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">report.html: Lost/Found/create/eligible edit</text>
+<rect x="475.0" y="1300.0" width="450" height="78" fill="#ffffff" stroke="#17266d" stroke-width="1.8"/>
+<text x="700.0" y="1335.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">items.php / claims.php: own object +</text>
+<text x="700.0" y="1353.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">eligibility/CSRF</text>
+<rect x="475.0" y="1426.0" width="450" height="78" fill="#ffffff" stroke="#17266d" stroke-width="1.8"/>
+<text x="700.0" y="1461.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">staff.php / handovers.php: BM +</text>
+<text x="700.0" y="1479.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">CSRF/confirm/revision</text>
+<rect x="475.0" y="1552.0" width="450" height="78" fill="#ffffff" stroke="#17266d" stroke-width="1.8"/>
+<text x="700.0" y="1587.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">(System) Prepared SQL / locks / atomic records +</text>
+<text x="700.0" y="1605.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">media</text>
+<polygon points="700.0,1667.0 875.0,1717.0 700.0,1767.0 525.0,1717.0" fill="#ffffff" stroke="#17266d" stroke-width="1.8"/>
+<text x="700.0" y="1722.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">Request outcome?</text>
+<rect x="475.0" y="1804.0" width="450" height="78" fill="#ffffff" stroke="#17266d" stroke-width="1.8"/>
+<text x="700.0" y="1839.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">Commit → refresh exact</text>
+<text x="700.0" y="1857.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">detail/activity/notifications</text>
+<polygon points="497.0,1930.0 925.0,1930.0 903.0,2008.0 475.0,2008.0" fill="#ffffff" stroke="#17266d" stroke-width="1.8"/>
+<text x="700.0" y="1974.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">400/401/403/409/422/500: feedback; refresh/retry</text>
+<rect x="475.0" y="2056.0" width="450" height="78" fill="#ffffff" stroke="#17266d" stroke-width="1.8"/>
+<text x="700.0" y="2091.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">history.html / notifications.html / profile.html</text>
+<text x="700.0" y="2109.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">/ settings.html</text>
+<rect x="475.0" y="2182.0" width="450" height="78" fill="#ffffff" stroke="#17266d" stroke-width="1.8"/>
+<text x="700.0" y="2217.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">Own account/notifs APIs; public history/photo</text>
+<text x="700.0" y="2235.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">projection</text>
+<polygon points="700.0,2297.0 875.0,2347.0 700.0,2397.0 525.0,2347.0" fill="#ffffff" stroke="#17266d" stroke-width="1.8"/>
+<text x="700.0" y="2352.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">Next navigation?</text>
+<rect x="475.0" y="2434.0" width="450" height="78" fill="#ffffff" stroke="#17266d" stroke-width="1.8"/>
+<text x="700.0" y="2478.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">auth.php CSRF logout → login.html</text>
+<ellipse cx="700.0" cy="2599.0" rx="155.0" ry="26.0" fill="#ffffff" stroke="#17266d" stroke-width="1.8"/>
+<text x="700.0" y="2604.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">End · Route scenario selesai</text>
+<polygon points="497.0,2686.0 925.0,2686.0 903.0,2764.0 475.0,2764.0" fill="#ffffff" stroke="#17266d" stroke-width="1.8"/>
+<text x="700.0" y="2730.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">403: privileged HTML/data blocked; role-home link</text>
+<ellipse cx="700.0" cy="2851.0" rx="155.0" ry="26.0" fill="#ffffff" stroke="#17266d" stroke-width="1.8"/>
+<text x="700.0" y="2856.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">End · Forbidden route rejected</text>
+<text x="120" y="2899" font-family="Arial" font-size="14" fill="#475569">Guest index/login are public; Landing Login CTA is voluntary. All12 routes covered; shared Explore uses browse/item. Wrong role403 + role home;</text>
+<text x="120" y="2917" font-family="Arial" font-size="14" fill="#475569">expired401/Login. Private API/photo guards precede data; no POST replay.</text>
+</svg>

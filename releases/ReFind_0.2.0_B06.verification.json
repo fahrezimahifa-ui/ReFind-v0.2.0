@@ -1,0 +1,19 @@
+{
+  "scope": "External acceptance receipt for the exact delivered archive, emitted after ZIP fresh-install verification",
+  "archive": "ReFind_0.2.0_B06.zip",
+  "archive_sha256": "fa721fc3bcc985c0d149fd0d11d53928c38c460e85dbf7af7e49c9bc24e442fb",
+  "runtime_sha256": "558c7681402029ac0e4e414960b6f3b01817f388489e675ea6fea368a2e9cefa",
+  "fresh_install_run": "b06-1791779114654",
+  "fresh_install_checks": 8,
+  "fresh_browser_groups": 13,
+  "browser_errors": [],
+  "schema_checks": 9,
+  "workflow_invariants": 17,
+  "initial_reports": 40,
+  "initial_claims": 12,
+  "initial_handovers": 6,
+  "main_database_unchanged": true,
+  "fresh_server_stopped": true,
+  "evidence": "../docs/verification/b06/fresh-install-results.json",
+  "passed": true
+}

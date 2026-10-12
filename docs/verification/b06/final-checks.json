@@ -1,0 +1,17 @@
+{
+  "scope": "B06 final checkpoint; actual executed suite evidence, syntax and as-built verification",
+  "syntax": {"php_files": 33, "application_js_and_cjs_files": 17, "python_files": 9, "passed": true},
+  "regression": {
+    "auth": {"groups": 28, "complete": true, "evidence": "docs/verification/b02/auth-results.json"},
+    "account": {"groups": 24, "complete": true, "evidence": "docs/verification/b03/account-results.json"},
+    "student": {"groups": 24, "complete": true, "evidence": "docs/verification/b04/student-results.json"},
+    "bm": {"groups": 27, "complete": true, "evidence": "docs/verification/b05/workflow-results.json"}
+  },
+  "seed": {"groups": 7, "complete": true, "evidence": "docs/verification/b06/seed-results.json"},
+  "as_built": {"checks": 81, "failures": 0, "diagrams": 11, "diagram_sheets": 13, "editable_wireframe_boards": 8, "evidence": "docs/verification/b06/artifact-results.json"},
+  "fresh_install": {"setup_checks": 8, "browser_groups": 13, "complete": true, "schema_checks": 9, "workflow_invariants": 17, "evidence": "docs/verification/b06/fresh-install-results.json"},
+  "main": {"accounts": 3, "role_types": 2, "reports": 40, "claims": 12, "handovers": 6, "smoke_business_data_unchanged": true, "evidence": "docs/verification/b06/main-smoke.json"},
+  "release_manifest": "releases/ReFind_0.2.0_B06.manifest.json",
+  "recordings": ["docs/verification/b06/DEMO_STUDENT_WORKFLOW.webm", "docs/verification/b06/DEMO_BM_WORKFLOW.webm"],
+  "passed": true
+}

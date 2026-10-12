@@ -1,0 +1,29 @@
+{
+  "scope": "B05 final syntax/documentation and read-only workflow checks; application suites referenced from their executed evidence",
+  "syntax": {
+    "php": {"command": "C:\\xampp\\php\\php.exe -l <file>", "files": 31, "passed": true},
+    "node": {"command": "node --check <file>", "application_js_files": 8, "cjs_tool_files": 7, "passed": true},
+    "python": {"method": "ast.parse with tokenize.open; no bytecode generated", "files": 6, "passed": true}
+  },
+  "documentation": {
+    "command": "python tools/verify-blueprint.py",
+    "checks": 59,
+    "failures": 0,
+    "passed": true,
+    "evidence": "docs/verification/b01-results.json",
+    "scope": "Blueprint semantics/exports and current documentation links, not final as-built or application E2E"
+  },
+  "workflow_invariants": {
+    "command": "C:\\xampp\\php\\php.exe tools/check-workflow.php in main and isolated test projects",
+    "main": {"database": "refind_db_0_2_0", "checks": 17, "passed": true, "missing": [], "orphan": [], "invalid": []},
+    "test": {"database": "refind_db_0_2_0_test", "checks": 17, "passed": true, "missing": [], "orphan": [], "invalid": []}
+  },
+  "existing_application_evidence": [
+    {"file": "docs/verification/b05/workflow-results.json", "passed": 27, "complete": true, "browserErrors": []},
+    {"file": "docs/verification/b04/student-results.json", "passed": 24, "complete": true, "browserErrors": []},
+    {"file": "docs/verification/b02/auth-results.json", "passed": 28, "complete": true, "browserErrors": []},
+    {"file": "docs/verification/b03/account-results.json", "passed": 24, "complete": true, "browserErrors": []},
+    {"file": "docs/verification/b05/main-smoke.json", "passed": true, "dataUnchanged": true, "accounts": 3, "schema_checks_per_database": 9, "browserErrors": []}
+  ],
+  "passed": true
+}

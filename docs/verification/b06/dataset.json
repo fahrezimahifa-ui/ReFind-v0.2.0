@@ -1,0 +1,491 @@
+{
+    "database": "refind_db_0_2_0",
+    "counts": {
+        "users": 3,
+        "items": 40,
+        "claims": 12,
+        "handovers": 6,
+        "notifications": 176,
+        "item_photos": 60,
+        "claim_photos": 12,
+        "item_matches": 90,
+        "item_status_history": 133
+    },
+    "accounts": [
+        {
+            "user_id": 1,
+            "full_name": "Student Demo A",
+            "email": "student-a@refind.test",
+            "role": "STUDENT",
+            "is_active": 1
+        },
+        {
+            "user_id": 2,
+            "full_name": "Student Demo B",
+            "email": "student-b@refind.test",
+            "role": "STUDENT",
+            "is_active": 1
+        },
+        {
+            "user_id": 3,
+            "full_name": "Building Management",
+            "email": "bm@refind.test",
+            "role": "BUILDING_MANAGEMENT",
+            "is_active": 1
+        }
+    ],
+    "report_types": [
+        {
+            "item_type": "LOST",
+            "count": 20
+        },
+        {
+            "item_type": "FOUND",
+            "count": 20
+        }
+    ],
+    "report_states": [
+        {
+            "status_code": "HANDOVER",
+            "count": 8
+        },
+        {
+            "status_code": "OPEN",
+            "count": 4
+        },
+        {
+            "status_code": "POTENTIAL_MATCH",
+            "count": 14
+        },
+        {
+            "status_code": "RESOLVED",
+            "count": 5
+        },
+        {
+            "status_code": "UNCLAIMED_CLOSED",
+            "count": 3
+        },
+        {
+            "status_code": "UNDER_REVIEW",
+            "count": 2
+        },
+        {
+            "status_code": "VERIFICATION",
+            "count": 4
+        }
+    ],
+    "claim_states": [
+        {
+            "claim_status": "PENDING",
+            "count": 2
+        },
+        {
+            "claim_status": "NEED_MORE_INFO",
+            "count": 2
+        },
+        {
+            "claim_status": "APPROVED",
+            "count": 6
+        },
+        {
+            "claim_status": "REJECTED",
+            "count": 2
+        }
+    ],
+    "pickup_states": [
+        {
+            "handover_status": "PENDING",
+            "count": 2
+        },
+        {
+            "handover_status": "SCHEDULED",
+            "count": 2
+        },
+        {
+            "handover_status": "COMPLETED",
+            "count": 2
+        }
+    ],
+    "photo_kinds": [
+        {
+            "photo_kind": "ITEM",
+            "count": 40
+        },
+        {
+            "photo_kind": "OWNERSHIP",
+            "count": 20
+        }
+    ],
+    "match_states": [
+        {
+            "match_status": "SUGGESTED",
+            "count": 84
+        },
+        {
+            "match_status": "CONFIRMED",
+            "count": 6
+        }
+    ],
+    "reports": [
+        {
+            "item_id": 1,
+            "item_type": "LOST",
+            "title": "Demo · AKG headphones lost",
+            "event_date": "2026-10-11",
+            "event_time": null,
+            "reporter": "Student Demo A",
+            "status_code": "POTENTIAL_MATCH"
+        },
+        {
+            "item_id": 2,
+            "item_type": "FOUND",
+            "title": "Demo · Headphones found near Gedung C lift",
+            "event_date": "2026-10-11",
+            "event_time": null,
+            "reporter": "Student Demo B",
+            "status_code": "POTENTIAL_MATCH"
+        },
+        {
+            "item_id": 3,
+            "item_type": "FOUND",
+            "title": "Demo · Brown folding umbrella",
+            "event_date": "2026-10-11",
+            "event_time": null,
+            "reporter": "Student Demo B",
+            "status_code": "POTENTIAL_MATCH"
+        },
+        {
+            "item_id": 4,
+            "item_type": "LOST",
+            "title": "Demo B06 · C01 AKG over-ear headphones (lost)",
+            "event_date": "2026-10-10",
+            "event_time": "09:15:00",
+            "reporter": "Student Demo A",
+            "status_code": "HANDOVER"
+        },
+        {
+            "item_id": 5,
+            "item_type": "FOUND",
+            "title": "Demo B06 · C01 AKG over-ear headphones (found)",
+            "event_date": "2026-10-10",
+            "event_time": "09:15:00",
+            "reporter": "Student Demo B",
+            "status_code": "HANDOVER"
+        },
+        {
+            "item_id": 6,
+            "item_type": "LOST",
+            "title": "Demo B06 · C02 Brown leather wallet (lost)",
+            "event_date": "2026-10-08",
+            "event_time": "10:30:00",
+            "reporter": "Student Demo B",
+            "status_code": "HANDOVER"
+        },
+        {
+            "item_id": 7,
+            "item_type": "FOUND",
+            "title": "Demo B06 · C02 Brown leather wallet (found)",
+            "event_date": "2026-10-08",
+            "event_time": "10:30:00",
+            "reporter": "Student Demo A",
+            "status_code": "HANDOVER"
+        },
+        {
+            "item_id": 8,
+            "item_type": "LOST",
+            "title": "Demo B06 · C03 Leather shoulder satchel (lost)",
+            "event_date": "2026-10-06",
+            "event_time": null,
+            "reporter": "Student Demo A",
+            "status_code": "HANDOVER"
+        },
+        {
+            "item_id": 9,
+            "item_type": "FOUND",
+            "title": "Demo B06 · C03 Leather shoulder satchel (found)",
+            "event_date": "2026-10-06",
+            "event_time": null,
+            "reporter": "Student Demo B",
+            "status_code": "HANDOVER"
+        },
+        {
+            "item_id": 10,
+            "item_type": "LOST",
+            "title": "Demo B06 · C04 Casio scientific calculator (lost)",
+            "event_date": "2026-10-04",
+            "event_time": "12:00:00",
+            "reporter": "Student Demo B",
+            "status_code": "HANDOVER"
+        },
+        {
+            "item_id": 11,
+            "item_type": "FOUND",
+            "title": "Demo B06 · C04 Casio scientific calculator (found)",
+            "event_date": "2026-10-04",
+            "event_time": "12:00:00",
+            "reporter": "Student Demo A",
+            "status_code": "HANDOVER"
+        },
+        {
+            "item_id": 12,
+            "item_type": "LOST",
+            "title": "Demo B06 · C05 Brown folding umbrella (lost)",
+            "event_date": "2026-10-02",
+            "event_time": "13:15:00",
+            "reporter": "Student Demo A",
+            "status_code": "RESOLVED"
+        },
+        {
+            "item_id": 13,
+            "item_type": "FOUND",
+            "title": "Demo B06 · C05 Brown folding umbrella (found)",
+            "event_date": "2026-10-02",
+            "event_time": "13:15:00",
+            "reporter": "Student Demo B",
+            "status_code": "RESOLVED"
+        },
+        {
+            "item_id": 14,
+            "item_type": "LOST",
+            "title": "Demo B06 · C06 AKG over-ear headphones (lost)",
+            "event_date": "2026-09-30",
+            "event_time": null,
+            "reporter": "Student Demo B",
+            "status_code": "RESOLVED"
+        },
+        {
+            "item_id": 15,
+            "item_type": "FOUND",
+            "title": "Demo B06 · C06 AKG over-ear headphones (found)",
+            "event_date": "2026-09-30",
+            "event_time": null,
+            "reporter": "Student Demo A",
+            "status_code": "RESOLVED"
+        },
+        {
+            "item_id": 16,
+            "item_type": "LOST",
+            "title": "Demo B06 · C07 Brown leather wallet (lost)",
+            "event_date": "2026-09-28",
+            "event_time": "15:45:00",
+            "reporter": "Student Demo A",
+            "status_code": "POTENTIAL_MATCH"
+        },
+        {
+            "item_id": 17,
+            "item_type": "FOUND",
+            "title": "Demo B06 · C07 Brown leather wallet (found)",
+            "event_date": "2026-09-28",
+            "event_time": "15:45:00",
+            "reporter": "Student Demo B",
+            "status_code": "VERIFICATION"
+        },
+        {
+            "item_id": 18,
+            "item_type": "LOST",
+            "title": "Demo B06 · C08 Leather shoulder satchel (lost)",
+            "event_date": "2026-09-26",
+            "event_time": "16:00:00",
+            "reporter": "Student Demo B",
+            "status_code": "POTENTIAL_MATCH"
+        },
+        {
+            "item_id": 19,
+            "item_type": "FOUND",
+            "title": "Demo B06 · C08 Leather shoulder satchel (found)",
+            "event_date": "2026-09-26",
+            "event_time": "16:00:00",
+            "reporter": "Student Demo A",
+            "status_code": "VERIFICATION"
+        },
+        {
+            "item_id": 20,
+            "item_type": "LOST",
+            "title": "Demo B06 · C09 Casio scientific calculator (lost)",
+            "event_date": "2026-09-24",
+            "event_time": null,
+            "reporter": "Student Demo A",
+            "status_code": "POTENTIAL_MATCH"
+        },
+        {
+            "item_id": 21,
+            "item_type": "FOUND",
+            "title": "Demo B06 · C09 Casio scientific calculator (found)",
+            "event_date": "2026-09-24",
+            "event_time": null,
+            "reporter": "Student Demo B",
+            "status_code": "OPEN"
+        },
+        {
+            "item_id": 22,
+            "item_type": "LOST",
+            "title": "Demo B06 · C10 Brown folding umbrella (lost)",
+            "event_date": "2026-09-22",
+            "event_time": "09:30:00",
+            "reporter": "Student Demo B",
+            "status_code": "POTENTIAL_MATCH"
+        },
+        {
+            "item_id": 23,
+            "item_type": "FOUND",
+            "title": "Demo B06 · C10 Brown folding umbrella (found)",
+            "event_date": "2026-09-22",
+            "event_time": "09:30:00",
+            "reporter": "Student Demo A",
+            "status_code": "OPEN"
+        },
+        {
+            "item_id": 24,
+            "item_type": "LOST",
+            "title": "Demo B06 · C11 AKG over-ear headphones (lost)",
+            "event_date": "2026-09-20",
+            "event_time": "10:45:00",
+            "reporter": "Student Demo A",
+            "status_code": "POTENTIAL_MATCH"
+        },
+        {
+            "item_id": 25,
+            "item_type": "FOUND",
+            "title": "Demo B06 · C11 AKG over-ear headphones (found)",
+            "event_date": "2026-09-20",
+            "event_time": "10:45:00",
+            "reporter": "Student Demo B",
+            "status_code": "VERIFICATION"
+        },
+        {
+            "item_id": 26,
+            "item_type": "LOST",
+            "title": "Demo B06 · C12 Brown leather wallet (lost)",
+            "event_date": "2026-09-18",
+            "event_time": null,
+            "reporter": "Student Demo B",
+            "status_code": "POTENTIAL_MATCH"
+        },
+        {
+            "item_id": 27,
+            "item_type": "FOUND",
+            "title": "Demo B06 · C12 Brown leather wallet (found)",
+            "event_date": "2026-09-18",
+            "event_time": null,
+            "reporter": "Student Demo A",
+            "status_code": "VERIFICATION"
+        },
+        {
+            "item_id": 28,
+            "item_type": "LOST",
+            "title": "Demo B06 · C13 Leather shoulder satchel (lost)",
+            "event_date": "2026-09-16",
+            "event_time": "12:15:00",
+            "reporter": "Student Demo A",
+            "status_code": "UNDER_REVIEW"
+        },
+        {
+            "item_id": 29,
+            "item_type": "FOUND",
+            "title": "Demo B06 · C13 Leather shoulder satchel (found)",
+            "event_date": "2026-09-16",
+            "event_time": "12:15:00",
+            "reporter": "Student Demo B",
+            "status_code": "UNDER_REVIEW"
+        },
+        {
+            "item_id": 30,
+            "item_type": "LOST",
+            "title": "Demo B06 · C14 Casio scientific calculator (lost)",
+            "event_date": "2026-09-14",
+            "event_time": "13:30:00",
+            "reporter": "Student Demo B",
+            "status_code": "POTENTIAL_MATCH"
+        },
+        {
+            "item_id": 31,
+            "item_type": "FOUND",
+            "title": "Demo B06 · C14 Casio scientific calculator (found)",
+            "event_date": "2026-09-14",
+            "event_time": "13:30:00",
+            "reporter": "Student Demo A",
+            "status_code": "UNCLAIMED_CLOSED"
+        },
+        {
+            "item_id": 32,
+            "item_type": "LOST",
+            "title": "Demo B06 · C15 Brown folding umbrella (lost)",
+            "event_date": "2026-09-12",
+            "event_time": null,
+            "reporter": "Student Demo A",
+            "status_code": "UNCLAIMED_CLOSED"
+        },
+        {
+            "item_id": 33,
+            "item_type": "FOUND",
+            "title": "Demo B06 · C15 Brown folding umbrella (found)",
+            "event_date": "2026-09-12",
+            "event_time": null,
+            "reporter": "Student Demo B",
+            "status_code": "UNCLAIMED_CLOSED"
+        },
+        {
+            "item_id": 34,
+            "item_type": "LOST",
+            "title": "Demo B06 · C16 AKG over-ear headphones (lost)",
+            "event_date": "2026-09-10",
+            "event_time": "15:00:00",
+            "reporter": "Student Demo B",
+            "status_code": "RESOLVED"
+        },
+        {
+            "item_id": 35,
+            "item_type": "FOUND",
+            "title": "Demo B06 · C16 AKG over-ear headphones (found)",
+            "event_date": "2026-09-10",
+            "event_time": "15:00:00",
+            "reporter": "Student Demo A",
+            "status_code": "POTENTIAL_MATCH"
+        },
+        {
+            "item_id": 36,
+            "item_type": "LOST",
+            "title": "Demo B06 · C17 Brown leather wallet (lost)",
+            "event_date": "2026-09-08",
+            "event_time": "16:15:00",
+            "reporter": "Student Demo A",
+            "status_code": "OPEN"
+        },
+        {
+            "item_id": 37,
+            "item_type": "FOUND",
+            "title": "Demo B06 · C17 Brown leather wallet (found)",
+            "event_date": "2026-09-08",
+            "event_time": "16:15:00",
+            "reporter": "Student Demo B",
+            "status_code": "OPEN"
+        },
+        {
+            "item_id": 38,
+            "item_type": "LOST",
+            "title": "Demo B06 · C18 Leather shoulder satchel (lost)",
+            "event_date": "2026-09-06",
+            "event_time": null,
+            "reporter": "Student Demo B",
+            "status_code": "POTENTIAL_MATCH"
+        },
+        {
+            "item_id": 39,
+            "item_type": "FOUND",
+            "title": "Demo B06 · C18 Leather shoulder satchel (found)",
+            "event_date": "2026-09-06",
+            "event_time": null,
+            "reporter": "Student Demo A",
+            "status_code": "POTENTIAL_MATCH"
+        },
+        {
+            "item_id": 40,
+            "item_type": "LOST",
+            "title": "Demo B06 · C19 spare scientific calculator (lost)",
+            "event_date": "2026-07-24",
+            "event_time": null,
+            "reporter": "Student Demo A",
+            "status_code": "POTENTIAL_MATCH"
+        }
+    ]
+}

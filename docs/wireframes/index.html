@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ReFind — Conceptual wireframes, UX01 updates</title>
+  <style>
+    :root { --navy:#17266d; --cyan:#10b7cf; --ink:#202a40; --muted:#59687e; --line:#dce3ec; --control:#7b8aa0; --paper:#f5f7fa; --mint:#e9f9f4; --amber:#fff6df; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:#e9edf3; color:var(--ink); font:15px/1.45 "Segoe UI",Arial,sans-serif; }
+    h1,h2,h3,p { margin:0; } h1 { font-size:29px; line-height:1.15; } h2 { font-size:23px; line-height:1.2; } h3 { font-size:17px; line-height:1.25; }
+    .doc-header { max-width:1420px; padding:28px 0; margin:0 auto; }
+    .doc-header p { margin-top:8px; color:var(--muted); max-width:1000px; }
+    .doc-header a { color:var(--navy); margin-right:16px; }
+    .board { width:1420px; height:1040px; margin:0 auto 28px; padding:28px 36px; background:white; border:1px solid var(--line); border-radius:12px; overflow:hidden; }
+    .board-head { display:flex; justify-content:space-between; align-items:start; gap:28px; margin-bottom:22px; }
+    .board-head p { color:var(--muted); font-size:14px; margin-top:5px; max-width:1000px; }
+    .target { flex:none; border:1px solid #d1dbef; background:#eef1fb; color:var(--navy); border-radius:7px; padding:8px 11px; font-size:12px; font-weight:700; }
+    .phones { display:flex; justify-content:center; gap:28px; align-items:start; }
+    .device-label { color:var(--muted); font-size:13px; margin:0 0 8px; text-align:center; }
+    .phone { width:390px; height:844px; border:1px solid #a7b5c8; border-radius:23px; background:var(--paper); overflow:hidden; position:relative; box-shadow:0 8px 22px #17266d0b; }
+    .topnav { height:62px; padding:0 17px; display:flex; align-items:center; justify-content:space-between; gap:12px; background:white; border-bottom:1px solid var(--line); }
+    .brand { color:var(--navy); font-size:22px; font-weight:800; letter-spacing:-1px; }
+    .nav-actions { display:flex; gap:8px; align-items:center; font-size:13px; }
+    .touch { height:44px; min-width:44px; display:flex; align-items:center; justify-content:center; color:var(--navy); border:1px solid var(--line); border-radius:10px; background:white; padding:0 10px; }
+    .screen { padding:18px; height:calc(100% - 62px); overflow-y:auto; scrollbar-width:thin; }
+    .screen > * + * { margin-top:15px; }
+    .eyebrow { color:var(--muted); font-size:11px; text-transform:uppercase; letter-spacing:.09em; font-weight:700; margin-bottom:5px; }
+    .small { color:var(--muted); font-size:13px; } .muted { color:var(--muted); }
+    .headline p { color:var(--muted); font-size:14px; margin-top:7px; }
+    .button { min-height:44px; padding:10px 14px; border:1px solid var(--navy); border-radius:11px; background:var(--navy); color:white; display:flex; justify-content:center; align-items:center; text-align:center; font-size:14px; font-weight:650; }
+    .button.outline { background:white; color:var(--navy); border-color:var(--control); }
+    .button.soft { color:var(--navy); background:#edfafd; border-color:#b8e7ef; }
+    .button.danger { background:white; color:#9e3346; border-color:#e7c2ca; }
+    .actions { display:flex; gap:9px; } .actions > * { flex:1; }
+    .search { display:flex; gap:8px; align-items:center; } .search-box { flex:1; height:46px; border:1px solid var(--line); border-radius:12px; background:white; padding:12px; color:var(--muted); }
+    .tabs { display:flex; gap:7px; flex-wrap:wrap; } .tab { min-height:44px; padding:11px 17px; background:white; color:var(--muted); border:1px solid var(--line); border-radius:12px; font-size:14px; }
+    .tab.active { color:var(--navy); background:#edf1fd; border-color:#a6b5e0; font-weight:700; }
+    .chip { display:inline-block; border-radius:7px; background:#edf1fd; color:var(--navy); padding:4px 8px; font-size:11px; font-weight:700; }
+    .chip.found { color:#136576; background:#e2f7fb; } .chip.wait { color:#78591a; background:var(--amber); } .chip.done { color:#226a55; background:var(--mint); }
+    .chips { display:flex; gap:6px; flex-wrap:wrap; }
+    .card { overflow:hidden; border:1px solid var(--line); background:white; border-radius:17px; }
+    .photo { height:180px; background:#e4eaf2; display:flex; align-items:center; justify-content:center; color:#778aa4; flex-direction:column; gap:8px; font-size:12px; border-bottom:1px solid var(--line); }
+    .photo:before { content:""; display:block; width:84px; height:56px; border:2px solid #9aabc2; border-radius:8px; background:#d4deeb; }
+    .photo.wallet { background:#f0e7de; color:#8c7562; } .photo.wallet:before { border-color:#b5a28c; background:#e4d5c4; }
+    .card-body { padding:14px; } .card-body > * + * { margin-top:9px; }
+    .card-body .button { margin-top:12px; }
+    .meta { color:var(--muted); font-size:13px; }
+    .section-head { display:flex; justify-content:space-between; align-items:center; gap:12px; }
+    .text-link { color:var(--navy); font-size:13px; font-weight:650; }
+    .mini-card { padding:13px; border:1px solid var(--line); border-radius:13px; background:white; display:flex; gap:12px; align-items:center; }
+    .mini-photo { flex:none; width:60px; height:60px; border-radius:10px; background:#e1e8f1; display:flex; align-items:center; justify-content:center; color:#70849f; font-size:10px; }
+    .mini-copy { flex:1; } .mini-copy p { font-size:13px; color:var(--muted); margin:5px 0; }
+    .callout { padding:13px; border:1px solid #b9ded8; border-radius:13px; background:var(--mint); font-size:13px; }
+    .callout.warning { background:var(--amber); border-color:#ead49b; }
+    .callout > * + * { margin-top:5px; }
+    .field { margin-top:12px; } .field label { display:block; font-size:13px; font-weight:650; margin-bottom:5px; }
+    .input { height:44px; border:1px solid var(--control); border-radius:10px; background:white; padding:10px 12px; font-size:14px; color:var(--muted); }
+    .input.readonly { background:#eef1f5; } .textarea { height:100px; }
+    .field-row { display:flex; gap:10px; } .field-row > * { flex:1; min-width:0; }
+    .divider { border-top:1px solid var(--line); padding-top:14px; }
+    .upload { border:1px dashed #b1bdcd; background:white; border-radius:12px; padding:13px; font-size:13px; }
+    .upload.private { border-color:#cfb775; background:#fffaf0; }
+    .upload .small { margin-top:4px; }
+    .timeline { border-left:2px solid #bbdce1; margin-left:5px; padding-left:14px; font-size:13px; }
+    .timeline p + p { margin-top:10px; } .timeline strong { color:var(--navy); }
+    .activity { padding:14px; border:1px solid var(--line); background:white; border-radius:15px; }
+    .activity > * + * { margin-top:9px; }
+    .avatar { width:68px; height:68px; border-radius:50%; color:var(--navy); background:#e8edf9; margin:0 auto 12px; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:23px; }
+    .profile-heading { text-align:center; }
+    .evidence { display:flex; gap:9px; } .evidence > div { width:90px; height:72px; background:#e5dfd5; border:1px solid #cfc4b1; border-radius:9px; display:flex; align-items:center; justify-content:center; font-size:11px; color:#7f705b; }
+    .compact .screen > * + * { margin-top:12px; } .compact .field { margin-top:10px; }
+    .report-actions { position:sticky; bottom:0; padding-top:10px; background:var(--paper); }
+    .desktop { width:1280px; height:800px; border:1px solid #a7b5c8; border-radius:14px; overflow:hidden; background:var(--paper); margin:28px auto 0; }
+    .desktop .topnav { padding:0 42px; height:70px; }
+    .desktop-nav { display:flex; align-items:center; gap:26px; font-size:14px; color:var(--muted); }
+    .desktop-nav .active { color:var(--navy); font-weight:700; border-bottom:3px solid var(--cyan); padding:22px 0; }
+    .desktop-main { padding:26px 42px; height:calc(100% - 70px); overflow-y:auto; } .desktop-main > * + * { margin-top:20px; }
+    .desktop-head { display:flex; align-items:end; justify-content:space-between; }
+    .desktop-search { display:flex; align-items:center; gap:14px; } .desktop-search .search-box { max-width:520px; }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
+    .grid .photo { height:205px; }
+    .queue-layout { display:grid; grid-template-columns:330px 1fr; gap:20px; }
+    .queue-column > * + * { margin-top:10px; }
+    .queue-column .activity { padding:14px; } .queue-column .selected { border-color:#798fce; background:#f0f3fd; }
+    .detail-panel { border:1px solid var(--line); border-radius:17px; background:white; padding:20px; }
+    .detail-panel > * + * { margin-top:16px; }
+    .compare { display:grid; grid-template-columns:1fr 1fr; gap:15px; }
+    .compare > div { padding:14px; border:1px solid var(--line); border-radius:12px; }
+    .compare .private { background:#fffaf0; }
+    .compare p { margin-top:8px; font-size:14px; }
+    .board-foot { font-size:13px; color:var(--muted); margin-top:18px; text-align:center; }
+    @page { size:400mm 300mm; margin:8mm; }
+    @media print { body { background:white; } .doc-header { display:none; } .board { margin:0; border:0; border-radius:0; break-after:page; page-break-after:always; } .board:last-child { break-after:auto; page-break-after:auto; } }
+  </style>
+</head>
+<body data-blueprint="B06" data-status="concept">
+  <header class="doc-header">
+    <h1>ReFind — Conceptual wireframe references</h1>
+    <p><strong>Static design reference · UX01 updates.</strong> Controls inside these boards are illustrations. The actual application, API, persistence and responsive tests are verified separately. UX01 reconciles button hierarchy, focus/contrast, optional media and Returned presentation.</p>
+    <p><a href="#WF01">Student discovery</a><a href="#WF04">Login &amp; account</a><a href="#WF05">BM review</a><a href="#WF07">Desktop</a><a href="exports/WIREFRAMES.pdf">PDF export</a></p>
+  </header>
+
+  <section class="board" id="WF01" data-board="WF01">
+    <div class="board-head"><div><h2>WF01 · Student Home &amp; Explore</h2><p>One task at a time, meaningful recent activity, photo-led discovery. Advanced filters open below the top header; main navigation is a top collapse menu.</p></div><span class="target">CONCEPT / UX01</span></div>
+    <div class="phones">
+      <div><p class="device-label">Student Home · mobile concept</p><div class="phone">
+        <div class="topnav"><span class="brand">ReFind</span><div class="nav-actions"><span class="touch">Updates</span><span class="touch">Menu</span></div></div>
+        <div class="screen">
+          <div class="headline"><span class="eyebrow">UMN Lost &amp; Found</span><h1>Let's find it<br>together.</h1><p>Look for your item or help someone get theirs back.</p></div>
+          <div class="search"><div class="search-box">Search item or location</div><span class="touch">Find</span></div>
+          <div class="actions"><div class="button">I lost something</div><div class="button soft">I found something</div></div>
+          <div class="callout"><strong>Your claim is ready for pickup</strong><p>Check the pickup details in My Activity.</p><span class="text-link">View my claim →</span></div>
+          <div class="section-head"><h3>Recently reported</h3><span class="text-link">Explore all</span></div>
+          <div class="mini-card"><div class="mini-photo">PHOTO</div><div class="mini-copy"><h3>Black headphones</h3><p>Gedung C · 7 Oct</p><span class="chip found">Found</span></div></div>
+          <div class="mini-card"><div class="mini-photo">PHOTO</div><div class="mini-copy"><h3>Brown leather wallet</h3><p>Gedung A · 7 Oct</p><span class="chip">Lost</span></div></div>
+          <div class="divider"><h3>How it works</h3><p class="small" style="margin-top:8px">Report → discover → BM verifies → return.</p></div>
+        </div>
+      </div></div>
+      <div><p class="device-label">Explore · mobile concept</p><div class="phone">
+        <div class="topnav"><span class="brand">ReFind</span><div class="nav-actions"><span class="touch">Updates</span><span class="touch">Menu</span></div></div>
+        <div class="screen">
+          <div class="headline"><h1>Explore</h1><p>Someone may have found what you're looking for.</p></div>
+          <div class="search"><div class="search-box">Search reports</div><span class="touch">Filter</span></div>
+          <div class="tabs"><span class="tab active">All</span><span class="tab">Lost</span><span class="tab">Found</span></div>
+          <div class="section-head"><span class="small">Results · newest first</span><span class="text-link">Clear filters</span></div>
+          <div class="card"><div class="photo">Public item photo placeholder</div><div class="card-body"><div class="chips"><span class="chip found">Found</span><span class="chip">Reported</span></div><h3>Black headphones</h3><p class="meta">Electronics · Gedung C<br>Found 7 Oct · time not specified</p><div class="button outline">View details</div></div></div>
+          <div class="mini-card"><div class="mini-photo">PHOTO</div><div class="mini-copy"><h3>Brown leather wallet</h3><p>Lost · Gedung A</p><span class="chip">Possible match</span></div></div>
+        </div>
+      </div></div>
+    </div><p class="board-foot">Media, records and notifications are illustrative demo content. An item remains revisit-able; discovery interaction never submits a claim.</p>
+  </section>
+
+  <section class="board" id="WF02" data-board="WF02">
+    <div class="board-head"><div><h2>WF02 · Item Detail &amp; Ownership Claim</h2><p>Public details stay separate from verification. Claim requires an explicit action and private proof form; the finder's identifying clue is never shown to Student.</p></div><span class="target">CONCEPT / UX01</span></div>
+    <div class="phones">
+      <div><p class="device-label">Item Detail · mobile concept</p><div class="phone">
+        <div class="topnav"><span class="brand">ReFind</span><span class="touch">Menu</span></div><div class="screen">
+          <span class="text-link">← Back to Explore</span>
+          <div class="card"><div class="photo" style="height:238px">Public gallery · 1 / 3</div><div class="card-body"><div class="chips"><span class="chip found">Found</span><span class="chip">Reported</span></div><h1 style="font-size:25px">Black headphones</h1><p class="meta">Electronics · Gedung C, near lift<br>7 Oct · time not specified</p><p class="small">Black over-ear headphones with gold rings. Handed in to Building Management.</p></div></div>
+          <div class="button">I think this is mine</div>
+          <p class="small">Your claim will be reviewed by BM. Public reports do not confirm ownership.</p>
+          <div><h3>Status</h3><div class="timeline" style="margin-top:12px"><p><strong>Reported</strong> · report saved</p><p class="muted">Claim review → ready for pickup → returned</p></div></div>
+          <div class="section-head"><h3>Possible matches</h3><span class="small">Suggestions only</span></div>
+          <div class="mini-card"><div class="mini-photo">PHOTO</div><div class="mini-copy"><h3>Lost headphones</h3><p>Similar report · view details</p></div></div>
+        </div>
+      </div></div>
+      <div><p class="device-label">Claim / resubmit · mobile concept</p><div class="phone">
+        <div class="topnav"><span class="brand">ReFind</span><span class="touch">Menu</span></div><div class="screen">
+          <span class="text-link">← Back to item</span><div class="headline"><h1>Is this yours?</h1><p>Help BM verify ownership with a detail only you would know.</p></div>
+          <div class="mini-card"><div class="mini-photo">PHOTO</div><div class="mini-copy"><h3>Black headphones</h3><p>Found · Gedung C</p></div></div>
+          <div class="field"><label>Related own Lost report · optional</label><div class="input">Choose your Lost report</div></div>
+          <div class="field"><label>Identifying detail *</label><div class="input textarea">Describe a private scratch, repair,<br>contents or other identifying detail…</div><p class="small" style="margin-top:6px">Private to you and authorized BM.</p></div>
+          <div class="upload private"><strong>Ownership evidence · optional</strong><p class="small">Up to 2 supporting photos. Never public.</p><div class="button outline" style="margin-top:9px">Add supporting photos</div></div>
+          <div class="callout warning"><strong>Updating a claim?</strong><p>The review note appears here; previous answer and retained-photo count are preserved.</p></div>
+          <div class="button">Submit claim for review</div><div class="button outline">Cancel</div>
+        </div>
+      </div></div>
+    </div><p class="board-foot">Pending, own-item, terminal and duplicate states replace the CTA with an explanation. Claim errors keep the draft available for correction.</p>
+  </section>
+
+  <section class="board" id="WF03" data-board="WF03">
+    <div class="board-head"><div><h2>WF03 · Report &amp; My Activity</h2><p>One report form with clear sections and type-dependent private fields. Activity cards expose status and the next action without a wide claims table.</p></div><span class="target">CONCEPT / UX01</span></div>
+    <div class="phones">
+      <div><p class="device-label">Lost report · mobile concept</p><div class="phone compact">
+        <div class="topnav"><span class="brand">ReFind</span><span class="touch">Menu</span></div><div class="screen">
+          <div class="headline"><span class="eyebrow">Report · Lost</span><h1>What did you lose?</h1><p>Public details help others recognize the item.</p></div>
+          <div><h3>1 · Item details</h3><div class="field-row"><div class="field"><label>Item name *</label><div class="input">Black headphones</div></div><div class="field"><label>Category *</label><div class="input">Select category</div></div></div><div class="field"><label>Description *</label><div class="input" style="height:67px">Brand, color and visible details…</div></div></div>
+          <div><h3>2 · Where &amp; when</h3><div class="field"><label>Campus area *</label><div class="input">Select campus area</div></div><div class="field"><label>Specific spot · optional</label><div class="input">Floor / room / nearby landmark</div></div><div class="field-row"><div class="field"><label>Date *</label><div class="input">dd / mm / yyyy</div></div><div class="field"><label>Time · optional</label><div class="input">Unknown allowed</div></div></div></div>
+          <div class="upload"><strong>3 · Public item photos · up to 4</strong><p class="small">Expand to add/remove previews</p></div>
+          <div class="upload private"><strong>4 · Private clue &amp; evidence</strong><p class="small">Staff-only clue; Lost evidence optional, max 2</p></div>
+          <div class="report-actions"><div class="button">Submit report</div></div>
+        </div>
+      </div></div>
+      <div><p class="device-label">My Activity · mobile concept</p><div class="phone">
+        <div class="topnav"><span class="brand">ReFind</span><div class="nav-actions"><span class="touch">Updates</span><span class="touch">Menu</span></div></div><div class="screen">
+          <div class="headline"><h1>My Activity</h1><p>Your reports, claims and pickup updates.</p></div>
+          <div class="tabs"><span class="tab">Reports</span><span class="tab active">Claims</span><span class="tab">Closed</span></div>
+          <div class="activity"><div class="chips"><span class="chip wait">More info requested</span></div><h3>Black headphones</h3><p class="small">BM: Please clarify the identifying mark.</p><div class="button">Update my claim</div></div>
+          <div class="activity"><div class="chips"><span class="chip done">Approved · pickup scheduled</span></div><h3>Brown leather satchel</h3><p class="small">12 Oct · 14:00 WIB · campus desk</p><div class="button outline">View pickup details</div></div>
+          <div class="activity"><span class="chip done">Returned</span><h3>Scientific calculator</h3><p class="small">Returned 12 Oct · 14:00 WIB · Gedung C</p><span class="text-link">View returned item</span></div>
+          <div class="divider"><span class="text-link">View campus history →</span><p class="small" style="margin-top:8px">Own pickup details and review notes are private.</p></div>
+        </div>
+      </div></div>
+    </div><p class="board-foot">Expanded media/private sections scroll naturally; required clue is validated before submit. Found mode changes location labels and excludes Lost evidence upload.</p>
+  </section>
+
+  <section class="board" id="WF04" data-board="WF04">
+    <div class="board-head"><div><h2>WF04 · Login, Profile &amp; Settings</h2><p>Shared account capability for Student and BM. Identity comes from credential login; profile identifiers are private and roles are readonly.</p></div><span class="target">CONCEPT / UX01</span></div>
+    <div class="phones">
+      <div><p class="device-label">Login · mobile concept</p><div class="phone">
+        <div class="topnav"><span class="brand">ReFind</span><span class="small">UMN Lost &amp; Found</span></div><div class="screen" style="padding-top:65px">
+          <div class="headline"><span class="eyebrow">Welcome back</span><h1>Let's get you<br>back to it.</h1><p>Sign in to report, claim or review items.</p></div>
+          <div class="field"><label>Email</label><div class="input">Your account email</div></div>
+          <div class="field"><label>Password</label><div class="input">••••••••••••</div></div>
+          <div class="button">Log in</div>
+          <div class="callout warning"><strong>Error state example</strong><p>Email or password could not be verified.</p></div>
+          <p class="small">Repeated attempts show an appropriate wait message. Role is read from your account.</p>
+          <div class="divider"><span class="text-link">← Back to landing</span></div>
+          <p class="small">Demo email shown on the profile screen is synthetic. No SSO integration is claimed.</p>
+        </div>
+      </div></div>
+      <div><p class="device-label">Own Profile · mobile concept</p><div class="phone">
+        <div class="topnav"><span class="brand">ReFind</span><span class="touch">Menu</span></div><div class="screen">
+          <div class="profile-heading"><div class="avatar">SA</div><h1>My profile</h1><p class="small" style="margin-top:7px">Student · private account details</p></div>
+          <div class="field"><label>Display name</label><div class="input">Student Demo A</div></div>
+          <div class="field"><label>Email · readonly</label><div class="input readonly">student-a@refind.test</div></div>
+          <div class="field"><label>Student identifier · private, readonly</label><div class="input readonly">REFIND-DEMO-A</div></div>
+          <div class="field"><label>Role · readonly</label><div class="input readonly">Student</div></div>
+          <div class="button">Save display name</div>
+          <p class="small">Saved changes remain after reload/relogin.</p>
+          <div class="button outline">Account settings</div>
+          <div class="callout"><strong>BM profile</strong><p>The same layout shows Building Management role without a Student identifier field.</p></div>
+        </div>
+      </div></div>
+      <div><p class="device-label">Account Settings · mobile concept</p><div class="phone">
+        <div class="topnav"><span class="brand">ReFind</span><span class="touch">Menu</span></div><div class="screen">
+          <div class="headline"><h1>Account settings</h1><p>Keep your account secure.</p></div>
+          <h3>Change password</h3>
+          <div class="field"><label>Current password</label><div class="input">••••••••••••</div></div>
+          <div class="field"><label>New password</label><div class="input">••••••••••••</div></div>
+          <div class="field"><label>Confirm new password</label><div class="input">••••••••••••</div></div>
+          <p class="small">At least 10 characters; maximum 72 UTF-8 bytes. Current password is required.</p>
+          <div class="button">Update password</div>
+          <div class="callout"><strong>Success state example</strong><p>Password updated. Other sessions require login again.</p></div>
+          <div class="divider"><h3>Session</h3><div class="button outline" style="margin-top:12px">Log out</div></div>
+          <p class="small">Logout invalidates access on the server.</p>
+        </div>
+      </div></div>
+    </div><p class="board-foot">Account forms here are static design references. Their actual profile/password/session workflows are implemented and verified; no avatar upload or notification preference control is implied.</p>
+  </section>
+
+  <section class="board" id="WF05" data-board="WF05">
+    <div class="board-head"><div><h2>WF05 · BM Review Queue &amp; Claim Review</h2><p>Queue cards on mobile; private review data is role-protected. Sensitive decisions use a review note and confirmation, not a gesture.</p></div><span class="target">CONCEPT / UX01</span></div>
+    <div class="phones">
+      <div><p class="device-label">BM queue · mobile concept</p><div class="phone">
+        <div class="topnav"><span class="brand">ReFind</span><div class="nav-actions"><span class="chip">BM</span><span class="touch">Menu</span></div></div><div class="screen">
+          <div class="headline"><span class="eyebrow">Building Management</span><h1>Review Queue</h1><p>See what needs your attention.</p></div>
+          <div class="tabs"><span class="tab">Reports</span><span class="tab active">Claims</span></div>
+          <div class="search"><div class="search-box">Search claims / items</div><span class="touch">Filter</span></div>
+          <div class="section-head"><h3>Pending review</h3><span class="small">3 claims</span></div>
+          <div class="activity"><span class="chip">Pending</span><h3>Black headphones</h3><p class="small">Student Demo A · submitted 7 Oct</p><div class="button">Review claim</div></div>
+          <div class="activity"><span class="chip wait">Awaiting Student info</span><h3>Scientific calculator</h3><p class="small">Student Demo B · note sent</p><div class="button outline">View claim</div></div>
+          <div class="activity"><span class="chip">Pending</span><h3>Brown leather satchel</h3><p class="small">Student Demo A · linked Lost report</p><div class="button outline">Review claim</div></div>
+          <p class="small">Completed claim links open that exact record in outcome/read-only mode.</p>
+        </div>
+      </div></div>
+      <div><p class="device-label">BM claim detail · mobile concept</p><div class="phone compact">
+        <div class="topnav"><span class="brand">ReFind</span><div class="nav-actions"><span class="chip">BM</span><span class="touch">Menu</span></div></div><div class="screen">
+          <span class="text-link">← Back to queue</span><div class="headline"><span class="chip">Pending</span><h1 style="margin-top:8px">Black headphones</h1><p>Claim by Student Demo A</p></div>
+          <div class="activity"><h3>Claimant answer</h3><p class="small">Illustrative identifying detail supplied by the claimant.</p></div>
+          <div class="upload private"><strong>Finder's private clue · BM only</strong><p class="small">Illustrative verification detail. Never available in Student item detail.</p></div>
+          <div><h3>Claim evidence · private</h3><div class="evidence" style="margin-top:9px"><div>Proof 1</div><div>Proof 2</div></div><p class="small" style="margin-top:6px">Tap to enlarge in a protected modal.</p></div>
+          <div class="activity"><h3>Linked Lost report</h3><p class="small">Own Lost link, clue and supporting evidence.</p><span class="text-link">Open evidence</span></div>
+          <div class="button outline">Request more info</div><div class="actions"><div class="button danger">Reject</div><div class="button">Approve</div></div>
+          <p class="small">Confirmation names the item and claimant. Refresh retains the note and requires a new confirmation.</p>
+        </div>
+      </div></div>
+    </div><p class="board-foot">These synthetic evidence placeholders demonstrate separation. They are not publicly served ownership files or a screenshot of a working BM screen.</p>
+  </section>
+
+  <section class="board" id="WF06" data-board="WF06">
+    <div class="board-head"><div><h2>WF06 · BM Handover &amp; History</h2><p>Scheduling is separate from ownership approval. Cancel schedule returns to Pending; a physical-return confirmation is required for Completed/Returned.</p></div><span class="target">CONCEPT / UX01</span></div>
+    <div class="phones">
+      <div><p class="device-label">Handover detail · mobile concept</p><div class="phone">
+        <div class="topnav"><span class="brand">ReFind</span><div class="nav-actions"><span class="chip">BM</span><span class="touch">Menu</span></div></div><div class="screen">
+          <div class="headline"><span class="eyebrow">Handover</span><h1>Ready for pickup</h1><p>One approved owner, one handover record.</p></div>
+          <div class="mini-card"><div class="mini-photo">PHOTO</div><div class="mini-copy"><h3>Brown leather satchel</h3><p>Student Demo A · claim approved</p></div></div>
+          <div class="activity"><span class="chip">Scheduled</span><div class="field"><label>Pickup location</label><div class="input">Gedung C · campus desk</div></div><div class="field"><label>Schedule · Asia/Jakarta</label><div class="input">12 Oct 2026 · 14:00 WIB</div></div></div>
+          <div class="actions"><div class="button outline">Reschedule</div><div class="button outline">Cancel schedule</div></div>
+          <div class="callout warning"><strong>If the appointment is cancelled</strong><p>Pickup becomes Pending. Ownership stays approved; BM can schedule again.</p></div>
+          <div class="timeline"><p><strong>Approved</strong> · BM verified ownership</p><p><strong>Scheduled</strong> · Student notified</p></div>
+          <div class="button">Confirm item returned</div><p class="small">Opens a physical-return confirmation. Updates are transactionally saved with history and notifications.</p>
+        </div>
+      </div></div>
+      <div><p class="device-label">Read-only History · mobile concept</p><div class="phone">
+        <div class="topnav"><span class="brand">ReFind</span><div class="nav-actions"><span class="chip">BM</span><span class="touch">Menu</span></div></div><div class="screen">
+          <div class="headline"><h1>History</h1><p>Reports and their recorded outcomes.</p></div><div class="search"><div class="search-box">Search history</div><span class="touch">Filter</span></div>
+          <div class="tabs"><span class="tab active">All</span><span class="tab">Returned</span><span class="tab">Unclaimed</span></div>
+          <div class="activity"><span class="chip done">Returned</span><h3>Brown leather satchel</h3><p class="small">Gedung C · verified handover completed</p><div class="button outline">View read-only details</div></div>
+          <div class="activity"><span class="chip wait">Never retrieved</span><h3>Folding umbrella</h3><p class="small">Gedung C · archived by BM</p><div class="button outline">View read-only details</div></div>
+          <div class="callout"><strong>Public vs private history</strong><p>Public timeline uses generic events. Pickup and review details remain authorized-only.</p></div>
+          <p class="small">Student campus history uses the same read-only cards with Student top navigation.</p>
+        </div>
+      </div></div>
+    </div><p class="board-foot">Scheduled examples use synthetic demo data. Completion can also follow an unscheduled PENDING handover after BM confirms the physical return.</p>
+  </section>
+
+  <section class="board" id="WF07" data-board="WF07">
+    <div class="board-head"><div><h2>WF07 · Student Explore — desktop</h2><p>The same mobile-first hierarchy expands into a comfortable card grid. Search/filter stay above content; no permanent primary sidebar.</p></div><span class="target">CONCEPT / UX01</span></div>
+    <div class="desktop"><div class="topnav"><span class="brand">ReFind</span><div class="desktop-nav"><span>Home</span><span class="active">Explore</span><span>Report</span><span>My Activity</span><span>Notifications</span><span class="touch">Account</span></div></div><div class="desktop-main">
+      <div class="desktop-head"><div class="headline"><h1>Find your way back to it.</h1><p>Explore Lost &amp; Found reports around campus.</p></div><div class="button">Report an item</div></div>
+      <div class="desktop-search"><div class="search-box">Search item, category or location</div><div class="tabs"><span class="tab active">All</span><span class="tab">Lost</span><span class="tab">Found</span></div><span class="touch">Filters</span><span class="text-link">Clear filters</span></div>
+      <div class="section-head"><h3>Latest reports</h3><span class="small">Photos are public · suggestions are not approvals</span></div>
+      <div class="grid">
+        <div class="card"><div class="photo">Public photo placeholder</div><div class="card-body"><div class="chips"><span class="chip found">Found</span><span class="chip">Reported</span></div><h3>Black headphones</h3><p class="meta">Electronics · Gedung C<br>7 Oct · time not specified</p><div class="button outline">View details</div></div></div>
+        <div class="card"><div class="photo wallet">Public photo placeholder</div><div class="card-body"><div class="chips"><span class="chip">Lost</span><span class="chip">Possible match</span></div><h3>Brown leather wallet</h3><p class="meta">ID / Wallet · Gedung A<br>7 Oct · 10:30 WIB</p><div class="button outline">View details</div></div></div>
+        <div class="card"><div class="photo">Public photo placeholder</div><div class="card-body"><div class="chips"><span class="chip found">Found</span><span class="chip">Reported</span></div><h3>Scientific calculator</h3><p class="meta">Stationery · Gedung A<br>7 Oct · 10:30 WIB</p><div class="button outline">View details</div></div></div>
+      </div><div class="callout"><strong>Looking for an item you reported?</strong> Open My Activity to see possible matches, claim notes and pickup updates.</div>
+    </div></div><p class="board-foot">Conceptual desktop reference · 1280×800 frame. Actual overflow/interaction checks are recorded in the B06/UX01 runtime evidence.</p>
+  </section>
+
+  <section class="board" id="WF08" data-board="WF08">
+    <div class="board-head"><div><h2>WF08 · BM Review — desktop</h2><p>Queue and selected detail can sit side by side as page content. Role-specific top navigation stays consistent with mobile.</p></div><span class="target">CONCEPT / UX01</span></div>
+    <div class="desktop"><div class="topnav"><span class="brand">ReFind</span><div class="desktop-nav"><span class="active">Review Queue</span><span>Handover</span><span>History</span><span>Explore</span><span>Notifications</span><span class="touch">BM Account</span></div></div><div class="desktop-main">
+      <div class="desktop-head"><div class="headline"><span class="eyebrow">Building Management</span><h1>Review Queue</h1><p>Compare private identifying details before deciding.</p></div><div class="tabs"><span class="tab">Reports</span><span class="tab active">Claims</span></div></div>
+      <div class="queue-layout"><div class="queue-column"><div class="search-box">Search pending claims</div><div class="activity selected"><span class="chip">Pending</span><h3>Black headphones</h3><p class="small">Student Demo A · linked Lost report</p></div><div class="activity"><span class="chip wait">Awaiting Student info</span><h3>Scientific calculator</h3><p class="small">Student Demo B</p></div><div class="activity"><span class="chip">Pending</span><h3>Brown leather satchel</h3><p class="small">Student Demo A</p></div><p class="small">This list is content, not primary navigation.</p></div>
+        <div class="detail-panel"><div class="section-head"><div><h2>Black headphones</h2><p class="small" style="margin-top:6px">Claim by Student Demo A · pending review</p></div><span class="chip">BM-only review</span></div>
+          <div class="compare"><div><h3>Claimant answer</h3><p>Illustrative identifying detail provided by the claimant.</p></div><div class="private"><h3>Finder's private clue</h3><p>Illustrative verification detail. Authorized BM only.</p></div></div>
+          <div class="compare"><div><h3>Claim proof</h3><div class="evidence" style="margin-top:10px"><div>Proof 1</div><div>Proof 2</div></div></div><div class="private"><h3>Linked Lost evidence</h3><div class="evidence" style="margin-top:10px"><div>Lost proof 1</div><div>Lost proof 2</div></div></div></div>
+          <div class="callout warning"><strong>Manual ownership decision</strong><p>Suggestions are not verification. Approval creates one handover and closes competing active claims.</p></div>
+          <div class="actions"><div class="button outline">Request more info</div><div class="button danger">Reject</div><div class="button">Approve claim</div></div>
+          <p class="small">Filter changes reset selection. Confirmation identifies the item/claimant; refresh retains the draft and requires reconfirmation.</p>
+        </div>
+      </div>
+    </div></div><p class="board-foot">Desktop target concept · 1280×800 content frame. All private examples are synthetic placeholders.</p>
+  </section>
+</body>
+</html>

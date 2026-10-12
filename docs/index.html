@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ReFind B06 — Final App, draw.io &amp; Release</title>
+  <style>
+    * { box-sizing:border-box; }
+    body { margin:0; font:16px/1.55 "Segoe UI",Arial,sans-serif; color:#253047; background:#f4f6fa; }
+    main { max-width:1120px; margin:auto; padding:34px 20px 60px; }
+    h1 { margin:5px 0 10px; font-size:34px; color:#17266d; line-height:1.15; }
+    h2 { font-size:23px; margin:28px 0 13px; } h3 { margin:0 0 8px; font-size:18px; }
+    p { margin:8px 0; } a { color:#17266d; text-underline-offset:3px; } a:focus-visible { outline:3px solid #10b7cf; outline-offset:4px; }
+    .label { color:#617087; font-size:13px; font-weight:700; letter-spacing:.07em; text-transform:uppercase; }
+    .notice { background:#edfafd; border:1px solid #b9e3eb; padding:16px 19px; border-radius:12px; margin-top:20px; }
+    .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+    .card { background:white; border:1px solid #dce3ec; border-radius:14px; padding:20px; }
+    ul { margin:8px 0 0; padding-left:20px; } li + li { margin-top:8px; }
+    .downloads { display:flex; gap:10px; flex-wrap:wrap; margin-top:18px; }
+    .downloads a { min-height:44px; padding:10px 15px; border-radius:10px; background:#17266d; color:white; text-decoration:none; }
+    .gallery { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+    figure { margin:0; background:white; border:1px solid #dce3ec; border-radius:12px; overflow:hidden; }
+    figure img { display:block; width:100%; height:auto; } figcaption { padding:12px 16px; font-size:14px; }
+    code { font-size:14px; overflow-wrap:anywhere; }
+    footer { margin-top:30px; color:#617087; font-size:14px; }
+    @media(max-width:680px) { .grid,.gallery { grid-template-columns:1fr; } h1 { font-size:29px; } main { padding-top:24px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <span class="label">ReFind 0.2.0 · UX01 polish · 6/6 foundation batches</span>
+    <h1>Final app, draw.io &amp; release</h1>
+    <p>Mobile-first Lost &amp; Found untuk Student dan Building Management.</p>
+    <div class="notice"><strong>B06 — final artefacts, expanded mock data &amp; fresh install verified.</strong><p>40 synthetic reports,12 claims,6 handovers; auth/account/Student/BM workflows berjalan. Full Lost → Returned, privacy, cancellation, stale/races dan rollback lulus. Final draw.io source/export reconciliation:81 checks; fresh-install13 actual browser groups PASS pada server terisolasi.</p><p><a href="../admin.html?tab=claims">Review Queue</a> · <a href="../admin.html?tab=handover">Handover</a> · <a href="../browse.html">Explore</a> · <a href="B06_REPORT.md">Laporan B06</a> · <a href="DEMO_ACCOUNTS.md">Akun &amp; mock inventory</a> · <a href="INSTALLATION_AND_RELEASE.md">Install/release</a></p></div>
+    <div class="downloads"><a href="wireframes/sources/WIREFRAMES.drawio">Editable wireframes · draw.io</a><a href="wireframes/exports/WIREFRAMES.pdf">Wireframes PDF · 8 boards</a><a href="diagrams/exports/AS_BUILT_DIAGRAMS.pdf">Final diagrams PDF · 13 sheets</a></div>
+    <div class="notice"><strong>Latest UX01 fixes.</strong><p>Synced selection, focused mobile detail/Back, identified confirmations, consistent status colours, Returned timestamps, direct pickup notifications and accessible optional uploads.12 UX groups plus28/24/24/27 regressions PASS; computed text/focus/control contrast improved.</p><p><a href="UX01_REPORT.md">UX01 report</a> · <a href="verification/ux01/ux-results.json">12 UX checks + contrast</a> · <a href="verification/ux01/main-smoke.json">Current main smoke</a>. Latest ZIP locally: <code>releases/ReFind_0.2.0_UX01.zip</code>.</p></div>
+    <p><a href="verification/ux01/fresh-install-results.json">Latest UX01 fresh-install acceptance</a> · <a href="verification/ux01/DEMO_STUDENT_WORKFLOW.webm">Current Student clip</a> · <a href="verification/ux01/DEMO_BM_WORKFLOW.webm">Current BM clip</a>.13 browser groups PASS on the isolated empty-DB installation.</p>
+
+    <h2>Dokumen blueprint</h2>
+    <div class="grid">
+      <section class="card"><h3>Scope, arsitektur &amp; izin</h3><ul><li><a href="B01_BLUEPRINT.md">Blueprint utama + traceability R01–R12</a></li><li><a href="ROLE_ROUTE_MATRIX.md">Role / routes / API / auth</a></li><li><a href="WORKFLOW_CONTRACT.md">Workflow &amp; handover policy</a></li><li><a href="SOURCES_AND_DECISIONS.md">Sumber &amp; keputusan pengguna</a></li></ul></section>
+      <section class="card"><h3>Data, acceptance &amp; hasil batch</h3><ul><li><a href="DATA_DICTIONARY.md">Data dictionary · 14 tabel / 25 FK</a> / <a href="schema-contract.json">actual schema contract</a></li><li><a href="ACCEPTANCE_TESTS.md">Final acceptance coverage</a></li><li><a href="B06_REPORT.md">B06 report</a> / <a href="verification/b06/artifact-results.json">81 artefact checks</a> / <a href="verification/b06/fresh-install-results.json">fresh install</a> / <a href="verification/b06/seed-results.json">seed tests</a></li><li><a href="verification/b06/dataset.json">Mock inventory</a> / <a href="verification/b06/main-smoke.json">main smoke/schema</a></li><li><a href="B05_REPORT.md">B05</a> / <a href="verification/b05/workflow-results.json">27 BM tests</a> · <a href="B04_REPORT.md">B04</a> / <a href="verification/b04/student-results.json">24 Student tests</a></li><li><a href="B03_REPORT.md">B03</a> / <a href="verification/b03/account-results.json">24 account tests</a> · <a href="B02_REPORT.md">B02</a> / <a href="verification/b02/auth-results.json">28 auth tests</a> · <a href="B01_REPORT.md">B01</a></li></ul></section>
+    </div>
+
+    <h2>Diagram &amp; editable source</h2>
+    <div class="grid">
+      <section class="card"><h3>Sitemap &amp; ERD</h3><ul>
+        <li>Sitemap: <a href="diagrams/exports/SITEMAP.pdf">PDF</a> · <a href="diagrams/exports/SITEMAP.png">PNG</a> · <a href="diagrams/sources/SITEMAP.drawio">.drawio</a></li>
+        <li>ERD operational: <a href="diagrams/exports/ERD01-operational.pdf">PDF</a> · <a href="diagrams/exports/ERD01-operational.png">PNG</a> · <a href="diagrams/sources/ERD01-operational.drawio">.drawio</a></li>
+        <li>ERD reference: <a href="diagrams/exports/ERD02-reference.pdf">PDF</a> · <a href="diagrams/exports/ERD02-reference.png">PNG</a> · <a href="diagrams/sources/ERD02-reference.drawio">.drawio</a></li>
+      </ul><p>Final as-built SQL14 tables/25 FK, tanpa migration B03–B06. Nullability, UNIQUE dan kardinalitas dijelaskan dalam dictionary. Semua diagram memiliki editable draw.io sources.</p></section>
+      <section class="card"><h3>FC01–FC06</h3><ul>
+        <li>Login/session/logout: <a href="diagrams/exports/FC01.pdf">PDF</a> · <a href="diagrams/sources/FC01-login-session-logout.drawio">source</a></li>
+        <li>Lost/Found submission: <a href="diagrams/exports/FC02.pdf">PDF</a> · <a href="diagrams/sources/FC02-report.drawio">source</a></li>
+        <li>Browse → claim: <a href="diagrams/exports/FC03.pdf">PDF</a> · <a href="diagrams/sources/FC03-browse-claim.drawio">source</a></li>
+        <li>Review/handover · 2 sheets: <a href="diagrams/exports/FC04.pdf">PDF</a> · <a href="diagrams/sources/FC04-review-handover.drawio">source</a></li>
+        <li>BM operations · 2 sheets: <a href="diagrams/exports/FC05.pdf">PDF</a> · <a href="diagrams/sources/FC05-bm-operations.drawio">source</a></li>
+        <li>Profile/settings: <a href="diagrams/exports/FC06.pdf">PDF</a> · <a href="diagrams/sources/FC06-profile-settings.drawio">source</a></li>
+        <li>User flow: <a href="diagrams/exports/UF01.pdf">PDF</a> · <a href="diagrams/exports/UF01.png">PNG</a> · <a href="diagrams/sources/UF01-user-flow.drawio">draw.io</a></li>
+        <li>App/route flow: <a href="diagrams/exports/AF01.pdf">PDF</a> · <a href="diagrams/exports/AF01.png">PNG</a> · <a href="diagrams/sources/AF01-app-flow.drawio">draw.io</a></li>
+      </ul></section>
+    </div>
+
+    <h2>Conceptual wireframe references · editable draw.io tersedia</h2>
+    <div class="gallery">
+      <figure><a href="wireframes/exports/WF01.png"><img src="wireframes/exports/WF01.png" alt="Target Student Home dan Explore, dua mobile frames"></a><figcaption>WF01 · Student Home &amp; Explore</figcaption></figure>
+      <figure><a href="wireframes/exports/WF04.png"><img src="wireframes/exports/WF04.png" alt="Conceptual Login, Profile, Settings wireframe; actual implementation is available" loading="lazy"></a><figcaption>WF04 · Login &amp; akun design reference</figcaption></figure>
+      <figure><a href="wireframes/exports/WF05.png"><img src="wireframes/exports/WF05.png" alt="Target BM review queue dan private claim review" loading="lazy"></a><figcaption>WF05 · BM Queue &amp; Review</figcaption></figure>
+      <figure><a href="wireframes/exports/WF08.png"><img src="wireframes/exports/WF08.png" alt="Target desktop BM dengan top navbar dan queue sebagai konten" loading="lazy"></a><figcaption>WF08 · BM desktop</figcaption></figure>
+    </div>
+    <h2>Screenshot actual UX01 · visual/navigation fixes</h2>
+    <div class="gallery">
+      <figure><a href="verification/ux01/main-student-a-browse.png"><img src="verification/ux01/main-student-a-browse.png" alt="Current Student Explore with human headings and explicit classroom badges" loading="lazy"></a><figcaption>Current main Explore · synthetic labels preserved</figcaption></figure>
+      <figure><a href="verification/ux01/main-student-a-my-reports-claims.png"><img src="verification/ux01/main-student-a-my-reports-claims.png" alt="Current own activity showing Returned with completion time" loading="lazy"></a><figcaption>My Activity · correct Returned status</figcaption></figure>
+      <figure><a href="verification/ux01/main-student-a-report.png"><img src="verification/ux01/main-student-a-report.png" alt="Current report form with optional photo disclosures and accessible styled picker" loading="lazy"></a><figcaption>Report · optional custom uploads</figcaption></figure>
+      <figure><a href="verification/ux01/review-390.png"><img src="verification/ux01/review-390.png" alt="Current BM focused mobile detail, Back to queue and one-primary review hierarchy" loading="lazy"></a><figcaption>BM review · isolated UX acceptance fixture</figcaption></figure>
+    </div>
+    <h2>Screenshot actual B06 checkpoint · expanded dataset &amp; fresh install</h2>
+    <div class="gallery">
+      <figure><a href="verification/b06/main-student-a-browse.png"><img src="verification/b06/main-student-a-browse.png" alt="Actual main Student Explore with 40 synthetic photo-backed reports and pagination" loading="lazy"></a><figcaption>Main Explore · 40 synthetic classroom reports</figcaption></figure>
+      <figure><a href="verification/b06/fresh-bm-handover-1440.png"><img src="verification/b06/fresh-bm-handover-1440.png" alt="Actual fresh-install BM completed pickup with private before-after audit" loading="lazy"></a><figcaption>Fresh-install Handover · actual Completed outcome</figcaption></figure>
+    </div>
+    <h2>Actual screen-only demo recordings</h2>
+    <p><a href="DEMO_SCRIPT_5_MIN.md">Five-minute presentation narration / sequence</a> · <a href="verification/b06/DEMO_STUDENT_WORKFLOW.webm">Student clip</a> · <a href="verification/b06/DEMO_BM_WORKFLOW.webm">BM clip</a>. Recorded on the isolated fresh installation with synthetic cases.</p>
+    <h2>Screenshot actual B05 checkpoint</h2>
+    <div class="gallery">
+      <figure><a href="verification/b05/claims-390.png"><img src="verification/b05/claims-390.png" alt="Actual BM mobile queue and authorized private claim review, isolated test records" loading="lazy"></a><figcaption>Claims mobile · actual isolated test</figcaption></figure>
+      <figure><a href="verification/b05/handover-1440.png"><img src="verification/b05/handover-1440.png" alt="Actual BM desktop completed handover, private pickup audit and top navigation" loading="lazy"></a><figcaption>Handover desktop · actual isolated test</figcaption></figure>
+      <figure><a href="verification/b05/reports-390.png"><img src="verification/b05/reports-390.png" alt="Actual BM mobile operational report detail and eligible status actions" loading="lazy"></a><figcaption>Reports mobile · actual isolated test</figcaption></figure>
+      <figure><a href="verification/b05/main-bm-admin-reports.png"><img src="verification/b05/main-bm-admin-reports.png" alt="Actual main BM Reports with synthetic classroom examples, read-only smoke" loading="lazy"></a><figcaption>Main Reports · business dataset unchanged</figcaption></figure>
+    </div>
+    <h2>Screenshot actual B04</h2>
+    <div class="gallery">
+      <figure><a href="verification/b04/main-student-a-browse.png"><img src="verification/b04/main-student-a-browse.png" alt="Actual main Student Explore with credited synthetic photo examples" loading="lazy"></a><figcaption>Main Explore · synthetic classroom records</figcaption></figure>
+      <figure><a href="verification/b04/student-item-mobile.png"><img src="verification/b04/student-item-mobile.png" alt="Actual tested Student item detail and gallery" loading="lazy"></a><figcaption>Item detail · actual isolated test</figcaption></figure>
+    </div>
+    <h2>Screenshot actual B03</h2>
+    <div class="gallery">
+      <figure><a href="verification/b03/main-student-a-profile.png"><img src="verification/b03/main-student-a-profile.png" alt="Actual Student profile B03" loading="lazy"></a><figcaption>Profile actual · main app</figcaption></figure>
+      <figure><a href="verification/b03/bm-settings-1440.png"><img src="verification/b03/bm-settings-1440.png" alt="Actual BM settings B03 tested desktop viewport" loading="lazy"></a><figcaption>Settings actual · isolated test app</figcaption></figure>
+    </div>
+    <footer><strong>All six approved batches complete.</strong> Final .drawio sources dapat dibuka/import di diagrams.net. Wireframes adalah conceptual design references; screenshots/recordings menunjukkan actual tested application. ZIP lokal: <code>releases/ReFind_0.2.0_B06.zip</code>; installation generates its own credentials/media.</footer>
+  </main>
+</body>
+</html>

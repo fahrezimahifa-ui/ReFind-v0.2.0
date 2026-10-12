@@ -1,0 +1,8 @@
+Options -Indexes
+DirectoryIndex index.html
+RewriteEngine On
+RewriteRule (^|/)\. - [F,END]
+RewriteRule ^(?:app|database|storage|tools|releases)(?:/|$) - [F,END,NC]
+RewriteRule ^api/bootstrap\.php(?:/|$) - [F,END,NC]
+RewriteRule ^$ page.php [END]
+RewriteRule ^(?:index|login|browse|item|report|claim|my-reports|admin|history|notifications|profile|settings)\.html$ page.php [END,NC]

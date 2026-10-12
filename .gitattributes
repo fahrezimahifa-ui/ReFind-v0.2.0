@@ -1,0 +1,2 @@
+# Setup verifies byte-exact SQL/vendor hashes. Preserve original line endings on checkout.
+* -text

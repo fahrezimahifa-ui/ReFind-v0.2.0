@@ -1,0 +1,63 @@
+{
+  "scope": "UX01 actual extracted ZIP / isolated server3307 browser lifecycle",
+  "results": [
+    "All three newly generated credentials login with correct DB roles and own profiles",
+    "Fresh Explore/filter/paging projects all40 records without private clues/proof",
+    "Own claims/pickups are scoped while Student cannot access BM/evidence/storage",
+    "Real browser BM request-more-info returns a private note to the correct Student",
+    "Student browser resubmits same-ID claim with retained proof",
+    "BM browser approval creates one pickup and locks linked reports",
+    "Browser future schedule and reschedule store explicit UTC pickup time",
+    "Cancel appointment retains Approved ownership/same pickup and permits another schedule",
+    "Actual browser physical-return confirmation synchronizes Lost/Found Returned",
+    "Reviewed deep link and terminal pickup remain exact/read-only",
+    "Actual Student/BM workflow screen recordings are exported as demo clips",
+    "Actual final dataset renders Student discovery and all BM tabs at all five required viewports",
+    "Logout destroys fresh browser authorization"
+  ],
+  "passed": 13,
+  "complete": true,
+  "browserErrors": [],
+  "viewportChecks": [
+    {
+      "width": 360,
+      "height": 800,
+      "studentDiscovery": true,
+      "bmTabs": 3,
+      "horizontalOverflow": false
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "studentDiscovery": true,
+      "bmTabs": 3,
+      "horizontalOverflow": false
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "studentDiscovery": true,
+      "bmTabs": 3,
+      "horizontalOverflow": false
+    },
+    {
+      "width": 1280,
+      "height": 800,
+      "studentDiscovery": true,
+      "bmTabs": 3,
+      "horizontalOverflow": false
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "studentDiscovery": true,
+      "bmTabs": 3,
+      "horizontalOverflow": false
+    }
+  ],
+  "recordings": [
+    "DEMO_STUDENT_WORKFLOW.webm",
+    "DEMO_BM_WORKFLOW.webm"
+  ],
+  "chrome": "154.0.8037.98"
+}

@@ -1,0 +1,1165 @@
+{
+  "status": "As-built / B06",
+  "baseline_sql_sha256": "8b2fe2c560b524c4e8710280c1a7222551f0e52ee047f0201e7993b09f0ae289",
+  "schema_implemented": true,
+  "actual_sql_sha256": "c32b9a38110ea7ab02884d11fb18f6ddc0704ba3b23a845bfdfe37c7705a8eba",
+  "tables": {
+    "users": {
+      "columns": [
+        {
+          "name": "user_id",
+          "definition": "int(10) unsigned NOT NULL AUTO_INCREMENT",
+          "nullable": false
+        },
+        {
+          "name": "student_id",
+          "definition": "varchar(30) DEFAULT NULL",
+          "nullable": true
+        },
+        {
+          "name": "full_name",
+          "definition": "varchar(120) NOT NULL",
+          "nullable": false
+        },
+        {
+          "name": "email",
+          "definition": "varchar(150) NOT NULL",
+          "nullable": false
+        },
+        {
+          "name": "password_hash",
+          "definition": "varchar(255) NOT NULL",
+          "nullable": false
+        },
+        {
+          "name": "role",
+          "definition": "enum('STUDENT','BUILDING_MANAGEMENT') NOT NULL DEFAULT 'STUDENT'",
+          "nullable": false
+        },
+        {
+          "name": "is_active",
+          "definition": "tinyint(1) NOT NULL DEFAULT 1",
+          "nullable": false
+        },
+        {
+          "name": "created_at",
+          "definition": "datetime NOT NULL DEFAULT current_timestamp()",
+          "nullable": false
+        },
+        {
+          "name": "updated_at",
+          "definition": "datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()",
+          "nullable": false
+        }
+      ],
+      "primary": [
+        "user_id"
+      ],
+      "uniques": [
+        {
+          "name": "uq_user_email",
+          "columns": [
+            "email"
+          ]
+        },
+        {
+          "name": "uq_student_id",
+          "columns": [
+            "student_id"
+          ]
+        }
+      ],
+      "foreign_keys": [],
+      "checks": [
+        "CONSTRAINT `chk_user_active` CHECK (`is_active` in (0,1))"
+      ]
+    },
+    "buildings": {
+      "columns": [
+        {
+          "name": "building_id",
+          "definition": "int(10) unsigned NOT NULL AUTO_INCREMENT",
+          "nullable": false
+        },
+        {
+          "name": "building_name",
+          "definition": "varchar(120) NOT NULL",
+          "nullable": false
+        }
+      ],
+      "primary": [
+        "building_id"
+      ],
+      "uniques": [
+        {
+          "name": "uq_building_name",
+          "columns": [
+            "building_name"
+          ]
+        }
+      ],
+      "foreign_keys": [],
+      "checks": []
+    },
+    "categories": {
+      "columns": [
+        {
+          "name": "category_id",
+          "definition": "int(10) unsigned NOT NULL AUTO_INCREMENT",
+          "nullable": false
+        },
+        {
+          "name": "category_name",
+          "definition": "varchar(80) NOT NULL",
+          "nullable": false
+        },
+        {
+          "name": "display_order",
+          "definition": "tinyint(3) unsigned NOT NULL DEFAULT 0",
+          "nullable": false
+        },
+        {
+          "name": "is_active",
+          "definition": "tinyint(1) NOT NULL DEFAULT 1",
+          "nullable": false
+        }
+      ],
+      "primary": [
+        "category_id"
+      ],
+      "uniques": [
+        {
+          "name": "uq_category_name",
+          "columns": [
+            "category_name"
+          ]
+        }
+      ],
+      "foreign_keys": [],
+      "checks": [
+        "CONSTRAINT `chk_category_active` CHECK (`is_active` in (0,1))"
+      ]
+    },
+    "item_statuses": {
+      "columns": [
+        {
+          "name": "status_id",
+          "definition": "tinyint(3) unsigned NOT NULL AUTO_INCREMENT",
+          "nullable": false
+        },
+        {
+          "name": "status_code",
+          "definition": "varchar(40) NOT NULL",
+          "nullable": false
+        },
+        {
+          "name": "status_name",
+          "definition": "varchar(80) NOT NULL",
+          "nullable": false
+        },
+        {
+          "name": "display_order",
+          "definition": "tinyint(3) unsigned NOT NULL",
+          "nullable": false
+        }
+      ],
+      "primary": [
+        "status_id"
+      ],
+      "uniques": [
+        {
+          "name": "uq_status_code",
+          "columns": [
+            "status_code"
+          ]
+        },
+        {
+          "name": "uq_status_name",
+          "columns": [
+            "status_name"
+          ]
+        }
+      ],
+      "foreign_keys": [],
+      "checks": []
+    },
+    "campus_locations": {
+      "columns": [
+        {
+          "name": "location_id",
+          "definition": "int(10) unsigned NOT NULL AUTO_INCREMENT",
+          "nullable": false
+        },
+        {
+          "name": "location_code",
+          "definition": "varchar(40) DEFAULT NULL",
+          "nullable": true
+        },
+        {
+          "name": "location_name",
+          "definition": "varchar(120) NOT NULL",
+          "nullable": false
+        },
+        {
+          "name": "location_kind",
+          "definition": "enum('AREA','DETAIL') NOT NULL DEFAULT 'DETAIL'",
+          "nullable": false
+        },
+        {
+          "name": "display_order",
+          "definition": "smallint(5) unsigned NOT NULL DEFAULT 0",
+          "nullable": false
+        },
+        {
+          "name": "is_active",
+          "definition": "tinyint(1) NOT NULL DEFAULT 1",
+          "nullable": false
+        },
+        {
+          "name": "building_id",
+          "definition": "int(10) unsigned DEFAULT NULL",
+          "nullable": true
+        }
+      ],
+      "primary": [
+        "location_id"
+      ],
+      "uniques": [
+        {
+          "name": "uq_location_code",
+          "columns": [
+            "location_code"
+          ]
+        },
+        {
+          "name": "uq_location",
+          "columns": [
+            "location_name",
+            "building_id"
+          ]
+        }
+      ],
+      "foreign_keys": [
+        {
+          "name": "fk_location_building",
+          "columns": [
+            "building_id"
+          ],
+          "parent": "buildings",
+          "parent_columns": [
+            "building_id"
+          ],
+          "actions": "ON UPDATE CASCADE",
+          "child": "campus_locations",
+          "cardinality": "1:M",
+          "parent_per_child": "0..1",
+          "children_per_parent": "0..M"
+        }
+      ],
+      "checks": [
+        "CONSTRAINT `chk_location_active` CHECK (`is_active` in (0,1))"
+      ]
+    },
+    "location_floors": {
+      "columns": [
+        {
+          "name": "location_floor_id",
+          "definition": "int(10) unsigned NOT NULL AUTO_INCREMENT",
+          "nullable": false
+        },
+        {
+          "name": "location_id",
+          "definition": "int(10) unsigned NOT NULL",
+          "nullable": false
+        },
+        {
+          "name": "floor_name",
+          "definition": "varchar(50) NOT NULL",
+          "nullable": false
+        }
+      ],
+      "primary": [
+        "location_floor_id"
+      ],
+      "uniques": [
+        {
+          "name": "uq_location_floor",
+          "columns": [
+            "location_id",
+            "floor_name"
+          ]
+        },
+        {
+          "name": "uq_floor_location_pair",
+          "columns": [
+            "location_floor_id",
+            "location_id"
+          ]
+        }
+      ],
+      "foreign_keys": [
+        {
+          "name": "fk_floor_location",
+          "columns": [
+            "location_id"
+          ],
+          "parent": "campus_locations",
+          "parent_columns": [
+            "location_id"
+          ],
+          "actions": "RESTRICT (default)",
+          "child": "location_floors",
+          "cardinality": "1:M",
+          "parent_per_child": "1",
+          "children_per_parent": "0..M"
+        }
+      ],
+      "checks": []
+    },
+    "items": {
+      "columns": [
+        {
+          "name": "item_id",
+          "definition": "int(10) unsigned NOT NULL AUTO_INCREMENT",
+          "nullable": false
+        },
+        {
+          "name": "reporter_user_id",
+          "definition": "int(10) unsigned NOT NULL",
+          "nullable": false
+        },
+        {
+          "name": "category_id",
+          "definition": "int(10) unsigned NOT NULL",
+          "nullable": false
+        },
+        {
+          "name": "location_id",
+          "definition": "int(10) unsigned DEFAULT NULL",
+          "nullable": true
+        },
+        {
+          "name": "location_floor_id",
+          "definition": "int(10) unsigned DEFAULT NULL",
+          "nullable": true
+        },
+        {
+          "name": "status_id",
+          "definition": "tinyint(3) unsigned NOT NULL DEFAULT 1",
+          "nullable": false
+        },
+        {
+          "name": "item_type",
+          "definition": "enum('LOST','FOUND') NOT NULL",
+          "nullable": false
+        },
+        {
+          "name": "title",
+          "definition": "varchar(150) NOT NULL",
+          "nullable": false
+        },
+        {
+          "name": "description",
+          "definition": "text NOT NULL",
+          "nullable": false
+        },
+        {
+          "name": "location_detail",
+          "definition": "text DEFAULT NULL",
+          "nullable": true
+        },
+        {
+          "name": "event_date",
+          "definition": "date NOT NULL",
+          "nullable": false
+        },
+        {
+          "name": "event_time",
+          "definition": "time DEFAULT NULL",
+          "nullable": true
+        },
+        {
+          "name": "verification_clue",
+          "definition": "text DEFAULT NULL",
+          "nullable": true
+        },
+        {
+          "name": "contact_preference",
+          "definition": "enum('IN_APP','IN_APP_EMAIL') NOT NULL DEFAULT 'IN_APP'",
+          "nullable": false
+        },
+        {
+          "name": "created_at",
+          "definition": "datetime NOT NULL DEFAULT current_timestamp()",
+          "nullable": false
+        },
+        {
+          "name": "updated_at",
+          "definition": "datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()",
+          "nullable": false
+        },
+        {
+          "name": "resolved_at",
+          "definition": "datetime DEFAULT NULL",
+          "nullable": true
+        }
+      ],
+      "primary": [
+        "item_id"
+      ],
+      "uniques": [],
+      "foreign_keys": [
+        {
+          "name": "fk_items_category",
+          "columns": [
+            "category_id"
+          ],
+          "parent": "categories",
+          "parent_columns": [
+            "category_id"
+          ],
+          "actions": "ON UPDATE CASCADE",
+          "child": "items",
+          "cardinality": "1:M",
+          "parent_per_child": "1",
+          "children_per_parent": "0..M"
+        },
+        {
+          "name": "fk_items_floor_location",
+          "columns": [
+            "location_floor_id",
+            "location_id"
+          ],
+          "parent": "location_floors",
+          "parent_columns": [
+            "location_floor_id",
+            "location_id"
+          ],
+          "actions": "RESTRICT (default)",
+          "child": "items",
+          "cardinality": "1:M",
+          "parent_per_child": "0..1",
+          "children_per_parent": "0..M"
+        },
+        {
+          "name": "fk_items_location",
+          "columns": [
+            "location_id"
+          ],
+          "parent": "campus_locations",
+          "parent_columns": [
+            "location_id"
+          ],
+          "actions": "RESTRICT (default)",
+          "child": "items",
+          "cardinality": "1:M",
+          "parent_per_child": "0..1",
+          "children_per_parent": "0..M"
+        },
+        {
+          "name": "fk_items_status",
+          "columns": [
+            "status_id"
+          ],
+          "parent": "item_statuses",
+          "parent_columns": [
+            "status_id"
+          ],
+          "actions": "ON UPDATE CASCADE",
+          "child": "items",
+          "cardinality": "1:M",
+          "parent_per_child": "1",
+          "children_per_parent": "0..M"
+        },
+        {
+          "name": "fk_items_user",
+          "columns": [
+            "reporter_user_id"
+          ],
+          "parent": "users",
+          "parent_columns": [
+            "user_id"
+          ],
+          "actions": "ON UPDATE CASCADE",
+          "child": "items",
+          "cardinality": "1:M",
+          "parent_per_child": "1",
+          "children_per_parent": "0..M"
+        }
+      ],
+      "checks": [
+        "CONSTRAINT `chk_item_floor_requires_location` CHECK (`location_floor_id` is null or `location_id` is not null)",
+        "CONSTRAINT `chk_item_location_detail` CHECK (`location_detail` is null or char_length(`location_detail`) <= 500)"
+      ]
+    },
+    "item_photos": {
+      "columns": [
+        {
+          "name": "photo_id",
+          "definition": "int(10) unsigned NOT NULL AUTO_INCREMENT",
+          "nullable": false
+        },
+        {
+          "name": "item_id",
+          "definition": "int(10) unsigned NOT NULL",
+          "nullable": false
+        },
+        {
+          "name": "photo_kind",
+          "definition": "enum('ITEM','OWNERSHIP') NOT NULL DEFAULT 'ITEM'",
+          "nullable": false
+        },
+        {
+          "name": "file_path",
+          "definition": "varchar(255) NOT NULL",
+          "nullable": false
+        },
+        {
+          "name": "is_primary",
+          "definition": "tinyint(1) NOT NULL DEFAULT 0",
+          "nullable": false
+        },
+        {
+          "name": "uploaded_at",
+          "definition": "datetime NOT NULL DEFAULT current_timestamp()",
+          "nullable": false
+        }
+      ],
+      "primary": [
+        "photo_id"
+      ],
+      "uniques": [],
+      "foreign_keys": [
+        {
+          "name": "fk_item_photos_item",
+          "columns": [
+            "item_id"
+          ],
+          "parent": "items",
+          "parent_columns": [
+            "item_id"
+          ],
+          "actions": "ON DELETE CASCADE ON UPDATE CASCADE",
+          "child": "item_photos",
+          "cardinality": "1:M",
+          "parent_per_child": "1",
+          "children_per_parent": "0..M"
+        }
+      ],
+      "checks": [
+        "CONSTRAINT `chk_item_photo_primary` CHECK (`is_primary` in (0,1) and (`photo_kind` = 'ITEM' or `is_primary` = 0))"
+      ]
+    },
+    "item_matches": {
+      "columns": [
+        {
+          "name": "match_id",
+          "definition": "int(10) unsigned NOT NULL AUTO_INCREMENT",
+          "nullable": false
+        },
+        {
+          "name": "lost_item_id",
+          "definition": "int(10) unsigned NOT NULL",
+          "nullable": false
+        },
+        {
+          "name": "found_item_id",
+          "definition": "int(10) unsigned NOT NULL",
+          "nullable": false
+        },
+        {
+          "name": "match_score",
+          "definition": "decimal(5,2) DEFAULT NULL",
+          "nullable": true
+        },
+        {
+          "name": "match_status",
+          "definition": "enum('SUGGESTED','CONFIRMED','REJECTED') NOT NULL DEFAULT 'SUGGESTED'",
+          "nullable": false
+        },
+        {
+          "name": "confirmed_by_user_id",
+          "definition": "int(10) unsigned DEFAULT NULL",
+          "nullable": true
+        },
+        {
+          "name": "created_at",
+          "definition": "datetime NOT NULL DEFAULT current_timestamp()",
+          "nullable": false
+        },
+        {
+          "name": "confirmed_at",
+          "definition": "datetime DEFAULT NULL",
+          "nullable": true
+        }
+      ],
+      "primary": [
+        "match_id"
+      ],
+      "uniques": [
+        {
+          "name": "uq_item_match",
+          "columns": [
+            "lost_item_id",
+            "found_item_id"
+          ]
+        }
+      ],
+      "foreign_keys": [
+        {
+          "name": "fk_match_confirmer",
+          "columns": [
+            "confirmed_by_user_id"
+          ],
+          "parent": "users",
+          "parent_columns": [
+            "user_id"
+          ],
+          "actions": "ON DELETE SET NULL ON UPDATE CASCADE",
+          "child": "item_matches",
+          "cardinality": "1:M",
+          "parent_per_child": "0..1",
+          "children_per_parent": "0..M"
+        },
+        {
+          "name": "fk_match_found_item",
+          "columns": [
+            "found_item_id"
+          ],
+          "parent": "items",
+          "parent_columns": [
+            "item_id"
+          ],
+          "actions": "ON DELETE CASCADE",
+          "child": "item_matches",
+          "cardinality": "1:M",
+          "parent_per_child": "1",
+          "children_per_parent": "0..M"
+        },
+        {
+          "name": "fk_match_lost_item",
+          "columns": [
+            "lost_item_id"
+          ],
+          "parent": "items",
+          "parent_columns": [
+            "item_id"
+          ],
+          "actions": "ON DELETE CASCADE",
+          "child": "item_matches",
+          "cardinality": "1:M",
+          "parent_per_child": "1",
+          "children_per_parent": "0..M"
+        }
+      ],
+      "checks": [
+        "CONSTRAINT `chk_match_score` CHECK (`match_score` is null or `match_score` between 0 and 100)",
+        "CONSTRAINT `chk_match_different_items` CHECK (`lost_item_id` <> `found_item_id`)"
+      ]
+    },
+    "claims": {
+      "columns": [
+        {
+          "name": "claim_id",
+          "definition": "int(10) unsigned NOT NULL AUTO_INCREMENT",
+          "nullable": false
+        },
+        {
+          "name": "item_id",
+          "definition": "int(10) unsigned NOT NULL",
+          "nullable": false
+        },
+        {
+          "name": "related_lost_item_id",
+          "definition": "int(10) unsigned DEFAULT NULL",
+          "nullable": true
+        },
+        {
+          "name": "claimant_user_id",
+          "definition": "int(10) unsigned NOT NULL",
+          "nullable": false
+        },
+        {
+          "name": "ownership_answer",
+          "definition": "text NOT NULL",
+          "nullable": false
+        },
+        {
+          "name": "claim_status",
+          "definition": "enum('PENDING','NEED_MORE_INFO','APPROVED','REJECTED','WITHDRAWN') NOT NULL DEFAULT 'PENDING'",
+          "nullable": false
+        },
+        {
+          "name": "reviewed_by_user_id",
+          "definition": "int(10) unsigned DEFAULT NULL",
+          "nullable": true
+        },
+        {
+          "name": "review_note",
+          "definition": "text DEFAULT NULL",
+          "nullable": true
+        },
+        {
+          "name": "reviewed_at",
+          "definition": "datetime DEFAULT NULL",
+          "nullable": true
+        },
+        {
+          "name": "created_at",
+          "definition": "datetime NOT NULL DEFAULT current_timestamp()",
+          "nullable": false
+        },
+        {
+          "name": "updated_at",
+          "definition": "datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()",
+          "nullable": false
+        }
+      ],
+      "primary": [
+        "claim_id"
+      ],
+      "uniques": [
+        {
+          "name": "uq_claim_user_item",
+          "columns": [
+            "item_id",
+            "claimant_user_id"
+          ]
+        }
+      ],
+      "foreign_keys": [
+        {
+          "name": "fk_claim_claimant",
+          "columns": [
+            "claimant_user_id"
+          ],
+          "parent": "users",
+          "parent_columns": [
+            "user_id"
+          ],
+          "actions": "ON UPDATE CASCADE",
+          "child": "claims",
+          "cardinality": "1:M",
+          "parent_per_child": "1",
+          "children_per_parent": "0..M"
+        },
+        {
+          "name": "fk_claim_item",
+          "columns": [
+            "item_id"
+          ],
+          "parent": "items",
+          "parent_columns": [
+            "item_id"
+          ],
+          "actions": "ON DELETE CASCADE ON UPDATE CASCADE",
+          "child": "claims",
+          "cardinality": "1:M",
+          "parent_per_child": "1",
+          "children_per_parent": "0..M"
+        },
+        {
+          "name": "fk_claim_related_lost",
+          "columns": [
+            "related_lost_item_id"
+          ],
+          "parent": "items",
+          "parent_columns": [
+            "item_id"
+          ],
+          "actions": "ON DELETE SET NULL ON UPDATE CASCADE",
+          "child": "claims",
+          "cardinality": "1:M",
+          "parent_per_child": "0..1",
+          "children_per_parent": "0..M"
+        },
+        {
+          "name": "fk_claim_reviewer",
+          "columns": [
+            "reviewed_by_user_id"
+          ],
+          "parent": "users",
+          "parent_columns": [
+            "user_id"
+          ],
+          "actions": "ON DELETE SET NULL ON UPDATE CASCADE",
+          "child": "claims",
+          "cardinality": "1:M",
+          "parent_per_child": "0..1",
+          "children_per_parent": "0..M"
+        }
+      ],
+      "checks": []
+    },
+    "claim_photos": {
+      "columns": [
+        {
+          "name": "claim_photo_id",
+          "definition": "int(10) unsigned NOT NULL AUTO_INCREMENT",
+          "nullable": false
+        },
+        {
+          "name": "claim_id",
+          "definition": "int(10) unsigned NOT NULL",
+          "nullable": false
+        },
+        {
+          "name": "file_path",
+          "definition": "varchar(255) NOT NULL",
+          "nullable": false
+        },
+        {
+          "name": "uploaded_at",
+          "definition": "datetime NOT NULL DEFAULT current_timestamp()",
+          "nullable": false
+        }
+      ],
+      "primary": [
+        "claim_photo_id"
+      ],
+      "uniques": [],
+      "foreign_keys": [
+        {
+          "name": "fk_claim_photos_claim",
+          "columns": [
+            "claim_id"
+          ],
+          "parent": "claims",
+          "parent_columns": [
+            "claim_id"
+          ],
+          "actions": "ON DELETE CASCADE ON UPDATE CASCADE",
+          "child": "claim_photos",
+          "cardinality": "1:M",
+          "parent_per_child": "1",
+          "children_per_parent": "0..M"
+        }
+      ],
+      "checks": []
+    },
+    "handovers": {
+      "columns": [
+        {
+          "name": "handover_id",
+          "definition": "int(10) unsigned NOT NULL AUTO_INCREMENT",
+          "nullable": false
+        },
+        {
+          "name": "claim_id",
+          "definition": "int(10) unsigned NOT NULL",
+          "nullable": false
+        },
+        {
+          "name": "pickup_location_id",
+          "definition": "int(10) unsigned DEFAULT NULL",
+          "nullable": true
+        },
+        {
+          "name": "scheduled_at",
+          "definition": "datetime DEFAULT NULL",
+          "nullable": true
+        },
+        {
+          "name": "completed_at",
+          "definition": "datetime DEFAULT NULL",
+          "nullable": true
+        },
+        {
+          "name": "handled_by_user_id",
+          "definition": "int(10) unsigned DEFAULT NULL",
+          "nullable": true
+        },
+        {
+          "name": "notes",
+          "definition": "varchar(500) DEFAULT NULL",
+          "nullable": true
+        },
+        {
+          "name": "handover_status",
+          "definition": "enum('PENDING','SCHEDULED','COMPLETED') NOT NULL DEFAULT 'PENDING'",
+          "nullable": false
+        },
+        {
+          "name": "created_at",
+          "definition": "datetime NOT NULL DEFAULT current_timestamp()",
+          "nullable": false
+        },
+        {
+          "name": "updated_at",
+          "definition": "datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()",
+          "nullable": false
+        }
+      ],
+      "primary": [
+        "handover_id"
+      ],
+      "uniques": [
+        {
+          "name": "uq_handover_claim",
+          "columns": [
+            "claim_id"
+          ]
+        }
+      ],
+      "foreign_keys": [
+        {
+          "name": "fk_handover_claim",
+          "columns": [
+            "claim_id"
+          ],
+          "parent": "claims",
+          "parent_columns": [
+            "claim_id"
+          ],
+          "actions": "ON DELETE CASCADE ON UPDATE CASCADE",
+          "child": "handovers",
+          "cardinality": "1:0..1",
+          "parent_per_child": "1",
+          "children_per_parent": "0..1"
+        },
+        {
+          "name": "fk_handover_handler",
+          "columns": [
+            "handled_by_user_id"
+          ],
+          "parent": "users",
+          "parent_columns": [
+            "user_id"
+          ],
+          "actions": "ON DELETE SET NULL ON UPDATE CASCADE",
+          "child": "handovers",
+          "cardinality": "1:M",
+          "parent_per_child": "0..1",
+          "children_per_parent": "0..M"
+        },
+        {
+          "name": "fk_handover_location",
+          "columns": [
+            "pickup_location_id"
+          ],
+          "parent": "campus_locations",
+          "parent_columns": [
+            "location_id"
+          ],
+          "actions": "ON DELETE SET NULL ON UPDATE CASCADE",
+          "child": "handovers",
+          "cardinality": "1:M",
+          "parent_per_child": "0..1",
+          "children_per_parent": "0..M"
+        }
+      ],
+      "checks": []
+    },
+    "notifications": {
+      "columns": [
+        {
+          "name": "notification_id",
+          "definition": "bigint(20) unsigned NOT NULL AUTO_INCREMENT",
+          "nullable": false
+        },
+        {
+          "name": "user_id",
+          "definition": "int(10) unsigned NOT NULL",
+          "nullable": false
+        },
+        {
+          "name": "claim_id",
+          "definition": "int(10) unsigned DEFAULT NULL",
+          "nullable": true
+        },
+        {
+          "name": "item_id",
+          "definition": "int(10) unsigned DEFAULT NULL",
+          "nullable": true
+        },
+        {
+          "name": "notification_type",
+          "definition": "varchar(50) NOT NULL",
+          "nullable": false
+        },
+        {
+          "name": "title",
+          "definition": "varchar(150) NOT NULL",
+          "nullable": false
+        },
+        {
+          "name": "message",
+          "definition": "varchar(500) NOT NULL",
+          "nullable": false
+        },
+        {
+          "name": "is_read",
+          "definition": "tinyint(1) NOT NULL DEFAULT 0",
+          "nullable": false
+        },
+        {
+          "name": "created_at",
+          "definition": "datetime NOT NULL DEFAULT current_timestamp()",
+          "nullable": false
+        }
+      ],
+      "primary": [
+        "notification_id"
+      ],
+      "uniques": [],
+      "foreign_keys": [
+        {
+          "name": "fk_notification_claim",
+          "columns": [
+            "claim_id"
+          ],
+          "parent": "claims",
+          "parent_columns": [
+            "claim_id"
+          ],
+          "actions": "ON DELETE SET NULL ON UPDATE CASCADE",
+          "child": "notifications",
+          "cardinality": "1:M",
+          "parent_per_child": "0..1",
+          "children_per_parent": "0..M"
+        },
+        {
+          "name": "fk_notification_item",
+          "columns": [
+            "item_id"
+          ],
+          "parent": "items",
+          "parent_columns": [
+            "item_id"
+          ],
+          "actions": "ON DELETE SET NULL ON UPDATE CASCADE",
+          "child": "notifications",
+          "cardinality": "1:M",
+          "parent_per_child": "0..1",
+          "children_per_parent": "0..M"
+        },
+        {
+          "name": "fk_notification_user",
+          "columns": [
+            "user_id"
+          ],
+          "parent": "users",
+          "parent_columns": [
+            "user_id"
+          ],
+          "actions": "ON DELETE CASCADE ON UPDATE CASCADE",
+          "child": "notifications",
+          "cardinality": "1:M",
+          "parent_per_child": "1",
+          "children_per_parent": "0..M"
+        }
+      ],
+      "checks": [
+        "CONSTRAINT `chk_notification_read` CHECK (`is_read` in (0,1))"
+      ]
+    },
+    "item_status_history": {
+      "columns": [
+        {
+          "name": "history_id",
+          "definition": "bigint(20) unsigned NOT NULL AUTO_INCREMENT",
+          "nullable": false
+        },
+        {
+          "name": "item_id",
+          "definition": "int(10) unsigned NOT NULL",
+          "nullable": false
+        },
+        {
+          "name": "status_id",
+          "definition": "tinyint(3) unsigned NOT NULL",
+          "nullable": false
+        },
+        {
+          "name": "changed_by_user_id",
+          "definition": "int(10) unsigned DEFAULT NULL",
+          "nullable": true
+        },
+        {
+          "name": "note",
+          "definition": "varchar(500) DEFAULT NULL",
+          "nullable": true
+        },
+        {
+          "name": "changed_at",
+          "definition": "datetime NOT NULL DEFAULT current_timestamp()",
+          "nullable": false
+        }
+      ],
+      "primary": [
+        "history_id"
+      ],
+      "uniques": [],
+      "foreign_keys": [
+        {
+          "name": "fk_history_item",
+          "columns": [
+            "item_id"
+          ],
+          "parent": "items",
+          "parent_columns": [
+            "item_id"
+          ],
+          "actions": "ON DELETE CASCADE ON UPDATE CASCADE",
+          "child": "item_status_history",
+          "cardinality": "1:M",
+          "parent_per_child": "1",
+          "children_per_parent": "0..M"
+        },
+        {
+          "name": "fk_history_status",
+          "columns": [
+            "status_id"
+          ],
+          "parent": "item_statuses",
+          "parent_columns": [
+            "status_id"
+          ],
+          "actions": "ON UPDATE CASCADE",
+          "child": "item_status_history",
+          "cardinality": "1:M",
+          "parent_per_child": "1",
+          "children_per_parent": "0..M"
+        },
+        {
+          "name": "fk_history_user",
+          "columns": [
+            "changed_by_user_id"
+          ],
+          "parent": "users",
+          "parent_columns": [
+            "user_id"
+          ],
+          "actions": "ON DELETE SET NULL ON UPDATE CASCADE",
+          "child": "item_status_history",
+          "cardinality": "1:M",
+          "parent_per_child": "0..1",
+          "children_per_parent": "0..M"
+        }
+      ],
+      "checks": []
+    }
+  },
+  "views": [
+    "v_items_overview",
+    "v_pending_claims"
+  ],
+  "target_deltas": [
+    {
+      "table": "handovers",
+      "column": "handover_status",
+      "baseline": [
+        "PENDING",
+        "SCHEDULED",
+        "COMPLETED",
+        "CANCELLED"
+      ],
+      "target": [
+        "PENDING",
+        "SCHEDULED",
+        "COMPLETED"
+      ],
+      "reason": "D05: cancellation of schedule returns to PENDING, ownership retained"
+    }
+  ]
+}

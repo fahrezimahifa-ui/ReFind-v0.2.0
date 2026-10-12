@@ -1,0 +1,3099 @@
+{
+  "lanes": [
+    "Student",
+    "Building Management"
+  ],
+  "flows": [
+    {
+      "id": "FC01-login-session-logout",
+      "title": "FC01 · Login, session, logout",
+      "sheets": [
+        {
+          "id": "FC01",
+          "title": "Login / session / logout",
+          "nodes": [
+            {
+              "id": "start",
+              "row": 0,
+              "lane": "shared",
+              "kind": "start",
+              "label": "Start"
+            },
+            {
+              "id": "open",
+              "row": 1,
+              "lane": "shared",
+              "kind": "input",
+              "label": "Buka halaman ReFind / protected route"
+            },
+            {
+              "id": "session",
+              "row": 2,
+              "lane": "shared",
+              "kind": "decision",
+              "label": "Session masih valid?"
+            },
+            {
+              "id": "credentials",
+              "row": 3,
+              "lane": "shared",
+              "kind": "input",
+              "label": "Student/BM: email + password pada Login"
+            },
+            {
+              "id": "authenticate",
+              "row": 4,
+              "lane": "shared",
+              "kind": "process",
+              "label": "(System) Verify hash, is_active, CSRF dan attempt limit"
+            },
+            {
+              "id": "valid",
+              "row": 5,
+              "lane": "shared",
+              "kind": "decision",
+              "label": "Credential diterima?"
+            },
+            {
+              "id": "error",
+              "row": 6,
+              "lane": "shared",
+              "kind": "input",
+              "label": "(System) Error generik / 429 + Retry-After"
+            },
+            {
+              "id": "retry",
+              "row": 7,
+              "lane": "shared",
+              "kind": "decision",
+              "label": "Aktor mencoba lagi saat diperbolehkan?"
+            },
+            {
+              "id": "denied",
+              "row": 8,
+              "lane": "shared",
+              "kind": "end",
+              "label": "End · Login tidak berhasil"
+            },
+            {
+              "id": "create",
+              "row": 9,
+              "lane": "shared",
+              "kind": "process",
+              "label": "(System) Session user_id; regenerate ID + CSRF"
+            },
+            {
+              "id": "role",
+              "row": 10,
+              "lane": "shared",
+              "kind": "decision",
+              "label": "Role dari akun DB?"
+            },
+            {
+              "id": "student_home",
+              "row": 11,
+              "lane": "student",
+              "kind": "process",
+              "label": "Student: Home / safe authorized return"
+            },
+            {
+              "id": "bm_home",
+              "row": 11,
+              "lane": "bm",
+              "kind": "process",
+              "label": "BM: Review Queue / safe authorized return"
+            },
+            {
+              "id": "merge",
+              "row": 12,
+              "lane": "shared",
+              "kind": "merge",
+              "label": "M1"
+            },
+            {
+              "id": "action",
+              "row": 13,
+              "lane": "shared",
+              "kind": "decision",
+              "label": "Aktivitas berikutnya?"
+            },
+            {
+              "id": "guard",
+              "row": 14,
+              "lane": "shared",
+              "kind": "process",
+              "label": "(System) Per-request session, role dan ownership guard"
+            },
+            {
+              "id": "access",
+              "row": 15,
+              "lane": "shared",
+              "kind": "decision",
+              "label": "Hasil guard?"
+            },
+            {
+              "id": "expired",
+              "row": 16,
+              "lane": "shared",
+              "kind": "input",
+              "label": "(System) 401; Login + safe return; tidak replay POST"
+            },
+            {
+              "id": "operate",
+              "row": 17,
+              "lane": "shared",
+              "kind": "process",
+              "label": "Aktor menjalankan fitur yang authorized"
+            },
+            {
+              "id": "forbidden",
+              "row": 18,
+              "lane": "shared",
+              "kind": "input",
+              "label": "(System) 403; tampilkan jalan kembali sesuai role"
+            },
+            {
+              "id": "destroy",
+              "row": 19,
+              "lane": "shared",
+              "kind": "process",
+              "label": "(System) CSRF logout; destroy session dan expire cookie"
+            },
+            {
+              "id": "logged_out",
+              "row": 20,
+              "lane": "shared",
+              "kind": "end",
+              "label": "End · Logged out"
+            },
+            {
+              "id": "finished",
+              "row": 21,
+              "lane": "shared",
+              "kind": "end",
+              "label": "End · Skenario selesai"
+            }
+          ],
+          "edges": [
+            {
+              "source": "start",
+              "target": "open",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "open",
+              "target": "session",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "session",
+              "target": "credentials",
+              "label": "Tidak",
+              "side": null
+            },
+            {
+              "source": "session",
+              "target": "role",
+              "label": "Ya",
+              "side": "right"
+            },
+            {
+              "source": "credentials",
+              "target": "authenticate",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "authenticate",
+              "target": "valid",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "valid",
+              "target": "error",
+              "label": "Tidak",
+              "side": null
+            },
+            {
+              "source": "error",
+              "target": "retry",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "retry",
+              "target": "credentials",
+              "label": "Ya; tunggu backoff",
+              "side": "left"
+            },
+            {
+              "source": "retry",
+              "target": "denied",
+              "label": "Tidak",
+              "side": null
+            },
+            {
+              "source": "valid",
+              "target": "create",
+              "label": "Ya",
+              "side": "right"
+            },
+            {
+              "source": "create",
+              "target": "role",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "role",
+              "target": "student_home",
+              "label": "STUDENT",
+              "side": null
+            },
+            {
+              "source": "role",
+              "target": "bm_home",
+              "label": "BUILDING_MANAGEMENT",
+              "side": null
+            },
+            {
+              "source": "student_home",
+              "target": "merge",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "bm_home",
+              "target": "merge",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "merge",
+              "target": "action",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "action",
+              "target": "guard",
+              "label": "Protected request",
+              "side": null
+            },
+            {
+              "source": "action",
+              "target": "destroy",
+              "label": "Logout",
+              "side": "right"
+            },
+            {
+              "source": "action",
+              "target": "finished",
+              "label": "Selesai",
+              "side": "left"
+            },
+            {
+              "source": "guard",
+              "target": "access",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "access",
+              "target": "expired",
+              "label": "Expired",
+              "side": null
+            },
+            {
+              "source": "expired",
+              "target": "credentials",
+              "label": "Kembali Login",
+              "side": "left"
+            },
+            {
+              "source": "access",
+              "target": "operate",
+              "label": "Allowed",
+              "side": "right"
+            },
+            {
+              "source": "operate",
+              "target": "merge",
+              "label": "Aksi selesai",
+              "side": "right"
+            },
+            {
+              "source": "access",
+              "target": "forbidden",
+              "label": "Forbidden",
+              "side": "left"
+            },
+            {
+              "source": "forbidden",
+              "target": "merge",
+              "label": "Kembali",
+              "side": "left"
+            },
+            {
+              "source": "destroy",
+              "target": "logged_out",
+              "label": "",
+              "side": null
+            }
+          ],
+          "note": "Shared blocks digunakan kedua aktor. Role berasal dari DB; Login tidak meminta pilihan role. Selesai skenario tidak otomatis logout."
+        }
+      ],
+      "connectors": [],
+      "implementation": {
+        "files": [
+          "app/auth.php",
+          "app/routes.php",
+          "page.php",
+          "api/auth.php",
+          "api/session.php"
+        ],
+        "functions": [
+          "auth_user",
+          "login_account",
+          "safe_return",
+          "verify_csrf"
+        ]
+      }
+    },
+    {
+      "id": "FC02-report",
+      "title": "FC02 · Student Lost / Found submission",
+      "sheets": [
+        {
+          "id": "FC02",
+          "title": "Student submit Lost / Found",
+          "nodes": [
+            {
+              "id": "start",
+              "row": 0,
+              "lane": "student",
+              "kind": "start",
+              "label": "Start"
+            },
+            {
+              "id": "choose",
+              "row": 1,
+              "lane": "student",
+              "kind": "input",
+              "label": "Student login: pilih Report Lost / Found"
+            },
+            {
+              "id": "type",
+              "row": 2,
+              "lane": "student",
+              "kind": "decision",
+              "label": "Jenis report?"
+            },
+            {
+              "id": "lost",
+              "row": 3,
+              "lane": "student",
+              "kind": "input",
+              "label": "Isi Lost: item, kategori, last seen, date/time"
+            },
+            {
+              "id": "found",
+              "row": 4,
+              "lane": "student",
+              "kind": "input",
+              "label": "Isi Found: item, kategori, found location, date/time"
+            },
+            {
+              "id": "merge",
+              "row": 5,
+              "lane": "student",
+              "kind": "merge",
+              "label": "M1"
+            },
+            {
+              "id": "photos",
+              "row": 6,
+              "lane": "student",
+              "kind": "input",
+              "label": "Foto publik ≤4; lihat / hapus preview"
+            },
+            {
+              "id": "private",
+              "row": 7,
+              "lane": "student",
+              "kind": "input",
+              "label": "Clue privat; Lost boleh tambah evidence ≤2"
+            },
+            {
+              "id": "validate",
+              "row": 8,
+              "lane": "shared",
+              "kind": "process",
+              "label": "(System) Client + server field/file/CSRF validation"
+            },
+            {
+              "id": "valid",
+              "row": 9,
+              "lane": "student",
+              "kind": "decision",
+              "label": "Input dan file valid?"
+            },
+            {
+              "id": "correct",
+              "row": 10,
+              "lane": "student",
+              "kind": "input",
+              "label": "Error per field; perbaiki draft dan submit ulang"
+            },
+            {
+              "id": "save",
+              "row": 11,
+              "lane": "shared",
+              "kind": "process",
+              "label": "(System) Save item/media/history/notifications; refresh suggestion; commit"
+            },
+            {
+              "id": "saved",
+              "row": 12,
+              "lane": "student",
+              "kind": "decision",
+              "label": "Save berhasil?"
+            },
+            {
+              "id": "save_error",
+              "row": 13,
+              "lane": "student",
+              "kind": "input",
+              "label": "(System) Rollback + cleanup new files; draft tersedia"
+            },
+            {
+              "id": "retry",
+              "row": 14,
+              "lane": "student",
+              "kind": "decision",
+              "label": "Retry submit?"
+            },
+            {
+              "id": "failed",
+              "row": 15,
+              "lane": "student",
+              "kind": "end",
+              "label": "End · Report belum tersimpan"
+            },
+            {
+              "id": "activity",
+              "row": 16,
+              "lane": "student",
+              "kind": "process",
+              "label": "Lihat My Activity, detail, possible matches dan status"
+            },
+            {
+              "id": "submitted",
+              "row": 17,
+              "lane": "student",
+              "kind": "end",
+              "label": "End · Report tersimpan"
+            }
+          ],
+          "edges": [
+            {
+              "source": "start",
+              "target": "choose",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "choose",
+              "target": "type",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "type",
+              "target": "lost",
+              "label": "Lost",
+              "side": null
+            },
+            {
+              "source": "type",
+              "target": "found",
+              "label": "Found",
+              "side": "left"
+            },
+            {
+              "source": "lost",
+              "target": "merge",
+              "label": "Gabung",
+              "side": "left"
+            },
+            {
+              "source": "found",
+              "target": "merge",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "merge",
+              "target": "photos",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "photos",
+              "target": "private",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "private",
+              "target": "validate",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "validate",
+              "target": "valid",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "valid",
+              "target": "correct",
+              "label": "Tidak",
+              "side": null
+            },
+            {
+              "source": "correct",
+              "target": "validate",
+              "label": "Submit ulang",
+              "side": "left"
+            },
+            {
+              "source": "valid",
+              "target": "save",
+              "label": "Ya",
+              "side": "right"
+            },
+            {
+              "source": "save",
+              "target": "saved",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "saved",
+              "target": "save_error",
+              "label": "Tidak",
+              "side": null
+            },
+            {
+              "source": "save_error",
+              "target": "retry",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "retry",
+              "target": "validate",
+              "label": "Ya",
+              "side": "left"
+            },
+            {
+              "source": "retry",
+              "target": "failed",
+              "label": "Tidak",
+              "side": null
+            },
+            {
+              "source": "saved",
+              "target": "activity",
+              "label": "Ya",
+              "side": "right"
+            },
+            {
+              "source": "activity",
+              "target": "submitted",
+              "label": "",
+              "side": null
+            }
+          ],
+          "note": "BM tidak melakukan aksi dalam submission ini; operational review dilanjutkan FC05. Found tidak menerima ownership-photo collection."
+        }
+      ],
+      "connectors": [],
+      "implementation": {
+        "files": [
+          "app/reports.php",
+          "app/uploads.php",
+          "api/items.php"
+        ],
+        "functions": [
+          "mutate_report",
+          "report_values",
+          "uploaded_images"
+        ]
+      }
+    },
+    {
+      "id": "FC03-browse-claim",
+      "title": "FC03 · Browse → ownership claim",
+      "sheets": [
+        {
+          "id": "FC03",
+          "title": "Student discovery dan claim",
+          "nodes": [
+            {
+              "id": "start",
+              "row": 0,
+              "lane": "student",
+              "kind": "start",
+              "label": "Start"
+            },
+            {
+              "id": "search",
+              "row": 1,
+              "lane": "student",
+              "kind": "input",
+              "label": "Student login: Explore; search / type / filter"
+            },
+            {
+              "id": "results",
+              "row": 2,
+              "lane": "student",
+              "kind": "decision",
+              "label": "Ada hasil?"
+            },
+            {
+              "id": "empty",
+              "row": 3,
+              "lane": "student",
+              "kind": "input",
+              "label": "Empty state + clear / ubah filter"
+            },
+            {
+              "id": "again",
+              "row": 4,
+              "lane": "student",
+              "kind": "decision",
+              "label": "Cari lagi?"
+            },
+            {
+              "id": "no_results",
+              "row": 5,
+              "lane": "student",
+              "kind": "end",
+              "label": "End · Tidak ada item dipilih"
+            },
+            {
+              "id": "detail",
+              "row": 6,
+              "lane": "student",
+              "kind": "process",
+              "label": "Buka detail; public photos/status/suggestion"
+            },
+            {
+              "id": "eligible",
+              "row": 7,
+              "lane": "student",
+              "kind": "decision",
+              "label": "Found orang lain dan eligible untuk claim?"
+            },
+            {
+              "id": "reason",
+              "row": 8,
+              "lane": "student",
+              "kind": "input",
+              "label": "Tampilkan alasan: own / locked / duplicate / terminal"
+            },
+            {
+              "id": "unavailable",
+              "row": 9,
+              "lane": "student",
+              "kind": "end",
+              "label": "End · Claim tidak diajukan"
+            },
+            {
+              "id": "answer",
+              "row": 10,
+              "lane": "student",
+              "kind": "input",
+              "label": "Submit eksplisit: identifying answer, own Lost opsional, evidence ≤2"
+            },
+            {
+              "id": "validate",
+              "row": 11,
+              "lane": "shared",
+              "kind": "process",
+              "label": "(System) Auth/CSRF, eligibility, own Lost, answer dan file validation"
+            },
+            {
+              "id": "valid",
+              "row": 12,
+              "lane": "student",
+              "kind": "decision",
+              "label": "Request valid?"
+            },
+            {
+              "id": "correct",
+              "row": 13,
+              "lane": "student",
+              "kind": "input",
+              "label": "Perbaiki error; evidence tetap privat"
+            },
+            {
+              "id": "save",
+              "row": 14,
+              "lane": "shared",
+              "kind": "process",
+              "label": "(System) Lock + save same/new claim PENDING; VERIFICATION; notify BM"
+            },
+            {
+              "id": "saved",
+              "row": 15,
+              "lane": "student",
+              "kind": "decision",
+              "label": "Transaction berhasil?"
+            },
+            {
+              "id": "rollback",
+              "row": 16,
+              "lane": "student",
+              "kind": "input",
+              "label": "(System) Rollback; tampilkan error dan draft"
+            },
+            {
+              "id": "retry",
+              "row": 17,
+              "lane": "student",
+              "kind": "decision",
+              "label": "Retry request?"
+            },
+            {
+              "id": "failed",
+              "row": 18,
+              "lane": "student",
+              "kind": "end",
+              "label": "End · Claim belum tersimpan"
+            },
+            {
+              "id": "pending",
+              "row": 19,
+              "lane": "student",
+              "kind": "process",
+              "label": "My Activity: Claim pending; tunggu review BM (FC04)"
+            },
+            {
+              "id": "submitted",
+              "row": 20,
+              "lane": "student",
+              "kind": "end",
+              "label": "End · Claim pending"
+            }
+          ],
+          "edges": [
+            {
+              "source": "start",
+              "target": "search",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "search",
+              "target": "results",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "results",
+              "target": "empty",
+              "label": "Tidak",
+              "side": null
+            },
+            {
+              "source": "empty",
+              "target": "again",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "again",
+              "target": "search",
+              "label": "Ya",
+              "side": "left"
+            },
+            {
+              "source": "again",
+              "target": "no_results",
+              "label": "Tidak",
+              "side": null
+            },
+            {
+              "source": "results",
+              "target": "detail",
+              "label": "Ya",
+              "side": "right"
+            },
+            {
+              "source": "detail",
+              "target": "eligible",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "eligible",
+              "target": "reason",
+              "label": "Tidak",
+              "side": null
+            },
+            {
+              "source": "reason",
+              "target": "unavailable",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "eligible",
+              "target": "answer",
+              "label": "Ya",
+              "side": "right"
+            },
+            {
+              "source": "answer",
+              "target": "validate",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "validate",
+              "target": "valid",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "valid",
+              "target": "correct",
+              "label": "Tidak",
+              "side": null
+            },
+            {
+              "source": "correct",
+              "target": "answer",
+              "label": "Perbaiki + retry",
+              "side": "left"
+            },
+            {
+              "source": "valid",
+              "target": "save",
+              "label": "Ya",
+              "side": "right"
+            },
+            {
+              "source": "save",
+              "target": "saved",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "saved",
+              "target": "rollback",
+              "label": "Tidak",
+              "side": null
+            },
+            {
+              "source": "rollback",
+              "target": "retry",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "retry",
+              "target": "validate",
+              "label": "Ya",
+              "side": "left"
+            },
+            {
+              "source": "retry",
+              "target": "failed",
+              "label": "Tidak",
+              "side": null
+            },
+            {
+              "source": "saved",
+              "target": "pending",
+              "label": "Ya",
+              "side": "right"
+            },
+            {
+              "source": "pending",
+              "target": "submitted",
+              "label": "",
+              "side": null
+            }
+          ],
+          "note": "Claim bukan gesture swipe. BM review terdapat di FC04; foto/clue ownership tidak tampil di discovery."
+        }
+      ],
+      "connectors": [],
+      "implementation": {
+        "files": [
+          "app/claims.php",
+          "app/repository.php",
+          "api/claims.php"
+        ],
+        "functions": [
+          "mutate_claim",
+          "safe_item",
+          "possible_matches"
+        ]
+      }
+    },
+    {
+      "id": "FC04-review-handover",
+      "title": "FC04 · Claim review dan handover",
+      "sheets": [
+        {
+          "id": "FC04-A",
+          "title": "Sheet 1 · Claim review / resubmit",
+          "nodes": [
+            {
+              "id": "start",
+              "row": 0,
+              "lane": "student",
+              "kind": "start",
+              "label": "Start"
+            },
+            {
+              "id": "submit",
+              "row": 1,
+              "lane": "student",
+              "kind": "input",
+              "label": "Student: submit identifying answer / proof (FC03)"
+            },
+            {
+              "id": "validate",
+              "row": 2,
+              "lane": "shared",
+              "kind": "process",
+              "label": "(System) Validate + transaction save PENDING"
+            },
+            {
+              "id": "valid",
+              "row": 3,
+              "lane": "student",
+              "kind": "decision",
+              "label": "Claim tersimpan dan eligible?"
+            },
+            {
+              "id": "error",
+              "row": 4,
+              "lane": "student",
+              "kind": "input",
+              "label": "Error / rollback; claim tidak tersimpan"
+            },
+            {
+              "id": "not_submitted",
+              "row": 5,
+              "lane": "student",
+              "kind": "end",
+              "label": "End · Claim tidak diajukan"
+            },
+            {
+              "id": "queue",
+              "row": 6,
+              "lane": "bm",
+              "kind": "process",
+              "label": "BM: buka queued claim yang tepat"
+            },
+            {
+              "id": "review",
+              "row": 7,
+              "lane": "bm",
+              "kind": "process",
+              "label": "BM: review private evidence; prepare note + confirmation"
+            },
+            {
+              "id": "decision",
+              "row": 8,
+              "lane": "bm",
+              "kind": "decision",
+              "label": "Keputusan BM?"
+            },
+            {
+              "id": "reject",
+              "row": 9,
+              "lane": "shared",
+              "kind": "process",
+              "label": "(System) REJECTED; history + private reason notification"
+            },
+            {
+              "id": "rejected",
+              "row": 10,
+              "lane": "student",
+              "kind": "end",
+              "label": "End · Claim rejected"
+            },
+            {
+              "id": "more_info",
+              "row": 11,
+              "lane": "shared",
+              "kind": "process",
+              "label": "(System) NEED_MORE_INFO; review note + notify Student"
+            },
+            {
+              "id": "resubmit",
+              "row": 12,
+              "lane": "student",
+              "kind": "input",
+              "label": "Student: baca note, tambah detail / proof; resubmit"
+            },
+            {
+              "id": "resave",
+              "row": 13,
+              "lane": "shared",
+              "kind": "process",
+              "label": "(System) Revalidate + save same claim PENDING"
+            },
+            {
+              "id": "resaved",
+              "row": 14,
+              "lane": "student",
+              "kind": "decision",
+              "label": "Resubmit berhasil?"
+            },
+            {
+              "id": "resubmit_error",
+              "row": 15,
+              "lane": "student",
+              "kind": "input",
+              "label": "Perbaiki error; draft dan next action tersedia"
+            },
+            {
+              "id": "approve",
+              "row": 16,
+              "lane": "shared",
+              "kind": "process",
+              "label": "(System) Atomic approval, pair/HANDOVER, one handover, competing rejection, audit/notif"
+            },
+            {
+              "id": "approved",
+              "row": 17,
+              "lane": "bm",
+              "kind": "decision",
+              "label": "Approval commit berhasil?"
+            },
+            {
+              "id": "conflict",
+              "row": 18,
+              "lane": "bm",
+              "kind": "input",
+              "label": "BM: draft tetap; refresh exact record dan reconfirm"
+            },
+            {
+              "id": "not_approved",
+              "row": 19,
+              "lane": "bm",
+              "kind": "end",
+              "label": "End · Approval tidak diterapkan"
+            },
+            {
+              "id": "a_out",
+              "row": 20,
+              "lane": "shared",
+              "kind": "connector",
+              "label": "A"
+            }
+          ],
+          "edges": [
+            {
+              "source": "start",
+              "target": "submit",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "submit",
+              "target": "validate",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "validate",
+              "target": "valid",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "valid",
+              "target": "error",
+              "label": "Tidak",
+              "side": null
+            },
+            {
+              "source": "error",
+              "target": "not_submitted",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "valid",
+              "target": "queue",
+              "label": "Ya",
+              "side": "right"
+            },
+            {
+              "source": "queue",
+              "target": "review",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "review",
+              "target": "decision",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "decision",
+              "target": "reject",
+              "label": "Reject + confirm",
+              "side": null
+            },
+            {
+              "source": "reject",
+              "target": "rejected",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "decision",
+              "target": "more_info",
+              "label": "More info + confirm",
+              "side": "left"
+            },
+            {
+              "source": "more_info",
+              "target": "resubmit",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "resubmit",
+              "target": "resave",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "resave",
+              "target": "resaved",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "resaved",
+              "target": "resubmit_error",
+              "label": "Tidak",
+              "side": null
+            },
+            {
+              "source": "resubmit_error",
+              "target": "resubmit",
+              "label": "Perbaiki + retry",
+              "side": "left"
+            },
+            {
+              "source": "resaved",
+              "target": "review",
+              "label": "Ya; merge review",
+              "side": "right"
+            },
+            {
+              "source": "decision",
+              "target": "approve",
+              "label": "Approve + confirmation",
+              "side": "right"
+            },
+            {
+              "source": "approve",
+              "target": "approved",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "approved",
+              "target": "conflict",
+              "label": "Tidak",
+              "side": null
+            },
+            {
+              "source": "conflict",
+              "target": "not_approved",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "approved",
+              "target": "a_out",
+              "label": "Ya → sheet 2",
+              "side": "right"
+            }
+          ],
+          "note": "Semua keputusan: note 8–500, CSRF, confirmation, fresh revision/state di bawah lock; error/409 mempertahankan draft dan explicit refresh. A ke sheet 2; resubmit merge ke review."
+        },
+        {
+          "id": "FC04-B",
+          "title": "Sheet 2 · Approved → pickup → returned",
+          "nodes": [
+            {
+              "id": "a_in",
+              "row": 0,
+              "lane": "shared",
+              "kind": "connector",
+              "label": "A"
+            },
+            {
+              "id": "prepare",
+              "row": 1,
+              "lane": "bm",
+              "kind": "process",
+              "label": "BM: buka handover approved; detail operasi di FC05"
+            },
+            {
+              "id": "action",
+              "row": 2,
+              "lane": "bm",
+              "kind": "decision",
+              "label": "Aksi pickup?"
+            },
+            {
+              "id": "schedule",
+              "row": 3,
+              "lane": "bm",
+              "kind": "input",
+              "label": "BM: pilih pickup location dan jadwal campus"
+            },
+            {
+              "id": "scheduled",
+              "row": 4,
+              "lane": "shared",
+              "kind": "process",
+              "label": "(System) Scheduling operation FC05: validation, transaction, audit/private notif"
+            },
+            {
+              "id": "schedule_saved",
+              "row": 5,
+              "lane": "bm",
+              "kind": "decision",
+              "label": "Schedule tersimpan?"
+            },
+            {
+              "id": "notice",
+              "row": 6,
+              "lane": "student",
+              "kind": "input",
+              "label": "Student: lihat pickup notice; siap mengambil barang"
+            },
+            {
+              "id": "schedule_error",
+              "row": 6,
+              "lane": "bm",
+              "kind": "input",
+              "label": "BM: error / rollback; ownership tetap approved"
+            },
+            {
+              "id": "received",
+              "row": 7,
+              "lane": "bm",
+              "kind": "decision",
+              "label": "Barang diserahkan sekarang?"
+            },
+            {
+              "id": "awaiting",
+              "row": 8,
+              "lane": "bm",
+              "kind": "end",
+              "label": "End · Awaiting pickup"
+            },
+            {
+              "id": "confirm",
+              "row": 9,
+              "lane": "bm",
+              "kind": "input",
+              "label": "BM: verifikasi serah-terima fisik + confirmation"
+            },
+            {
+              "id": "confirmed",
+              "row": 10,
+              "lane": "bm",
+              "kind": "decision",
+              "label": "Konfirmasi completion?"
+            },
+            {
+              "id": "complete",
+              "row": 11,
+              "lane": "shared",
+              "kind": "process",
+              "label": "(System) Atomic COMPLETED + RESOLVED item/pair; UTC timestamps/history/notif"
+            },
+            {
+              "id": "completed",
+              "row": 12,
+              "lane": "bm",
+              "kind": "decision",
+              "label": "Completion berhasil?"
+            },
+            {
+              "id": "error",
+              "row": 13,
+              "lane": "bm",
+              "kind": "input",
+              "label": "BM: error / rollback; refresh pickup state"
+            },
+            {
+              "id": "failed",
+              "row": 14,
+              "lane": "bm",
+              "kind": "end",
+              "label": "End · Completion belum diterapkan"
+            },
+            {
+              "id": "returned_notice",
+              "row": 15,
+              "lane": "student",
+              "kind": "input",
+              "label": "Student: Returned notification / read-only history"
+            },
+            {
+              "id": "returned",
+              "row": 16,
+              "lane": "student",
+              "kind": "end",
+              "label": "End · Returned"
+            }
+          ],
+          "edges": [
+            {
+              "source": "a_in",
+              "target": "prepare",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "prepare",
+              "target": "action",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "action",
+              "target": "schedule",
+              "label": "Schedule",
+              "side": null
+            },
+            {
+              "source": "schedule",
+              "target": "scheduled",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "scheduled",
+              "target": "schedule_saved",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "schedule_saved",
+              "target": "notice",
+              "label": "Ya",
+              "side": null
+            },
+            {
+              "source": "schedule_saved",
+              "target": "schedule_error",
+              "label": "Tidak",
+              "side": null
+            },
+            {
+              "source": "schedule_error",
+              "target": "awaiting",
+              "label": "State sebelum request",
+              "side": "right"
+            },
+            {
+              "source": "notice",
+              "target": "received",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "received",
+              "target": "awaiting",
+              "label": "Tidak",
+              "side": null
+            },
+            {
+              "source": "received",
+              "target": "confirm",
+              "label": "Ya",
+              "side": "right"
+            },
+            {
+              "source": "action",
+              "target": "confirm",
+              "label": "Complete tanpa jadwal",
+              "side": "right"
+            },
+            {
+              "source": "action",
+              "target": "awaiting",
+              "label": "Nanti",
+              "side": "left"
+            },
+            {
+              "source": "confirm",
+              "target": "confirmed",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "confirmed",
+              "target": "awaiting",
+              "label": "Tidak",
+              "side": "left"
+            },
+            {
+              "source": "confirmed",
+              "target": "complete",
+              "label": "Ya",
+              "side": null
+            },
+            {
+              "source": "complete",
+              "target": "completed",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "completed",
+              "target": "error",
+              "label": "Tidak",
+              "side": null
+            },
+            {
+              "source": "error",
+              "target": "failed",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "completed",
+              "target": "returned_notice",
+              "label": "Ya",
+              "side": "left"
+            },
+            {
+              "source": "returned_notice",
+              "target": "returned",
+              "label": "",
+              "side": null
+            }
+          ],
+          "note": "A berasal dari sheet 1; tidak ada Start baru. Schedule validation/conflicts, reschedule dan cancel_schedule lengkap di FC05. Awaiting pickup bukan status terminal DB."
+        }
+      ],
+      "connectors": [
+        [
+          "FC04-A:a_out",
+          "FC04-B:a_in",
+          "A"
+        ]
+      ],
+      "implementation": {
+        "files": [
+          "app/workflow.php",
+          "app/staff-read.php",
+          "api/staff.php"
+        ],
+        "functions": [
+          "review_claim",
+          "claim_revision",
+          "staff_claim"
+        ]
+      }
+    },
+    {
+      "id": "FC05-bm-operations",
+      "title": "FC05 · BM status, archive, pickup operations",
+      "sheets": [
+        {
+          "id": "FC05-A",
+          "title": "Sheet 1 · Operational status / archive",
+          "nodes": [
+            {
+              "id": "start",
+              "row": 0,
+              "lane": "bm",
+              "kind": "start",
+              "label": "Start"
+            },
+            {
+              "id": "select",
+              "row": 1,
+              "lane": "bm",
+              "kind": "input",
+              "label": "BM login: pilih report / approved handover"
+            },
+            {
+              "id": "operation",
+              "row": 2,
+              "lane": "bm",
+              "kind": "decision",
+              "label": "Jenis operasi?"
+            },
+            {
+              "id": "status",
+              "row": 3,
+              "lane": "bm",
+              "kind": "input",
+              "label": "BM: eligible status; note + explicit confirmation"
+            },
+            {
+              "id": "validate",
+              "row": 4,
+              "lane": "shared",
+              "kind": "process",
+              "label": "(System) Auth/CSRF/revision, lock, active claim/pair checks"
+            },
+            {
+              "id": "allowed",
+              "row": 5,
+              "lane": "bm",
+              "kind": "decision",
+              "label": "Transition diizinkan?"
+            },
+            {
+              "id": "denied",
+              "row": 6,
+              "lane": "bm",
+              "kind": "input",
+              "label": "BM: 403/409; alasan dan jalan kembali"
+            },
+            {
+              "id": "unchanged",
+              "row": 7,
+              "lane": "bm",
+              "kind": "end",
+              "label": "End · Status tidak berubah"
+            },
+            {
+              "id": "save",
+              "row": 8,
+              "lane": "shared",
+              "kind": "process",
+              "label": "(System) Transaction status + history + notification"
+            },
+            {
+              "id": "saved",
+              "row": 9,
+              "lane": "bm",
+              "kind": "decision",
+              "label": "Commit berhasil?"
+            },
+            {
+              "id": "rollback",
+              "row": 10,
+              "lane": "bm",
+              "kind": "input",
+              "label": "BM: error / rollback; refresh current state"
+            },
+            {
+              "id": "failed",
+              "row": 11,
+              "lane": "bm",
+              "kind": "end",
+              "label": "End · Update belum diterapkan"
+            },
+            {
+              "id": "updated",
+              "row": 12,
+              "lane": "bm",
+              "kind": "end",
+              "label": "End · Status / archive tersimpan"
+            },
+            {
+              "id": "b_out",
+              "row": 13,
+              "lane": "shared",
+              "kind": "connector",
+              "label": "B"
+            }
+          ],
+          "edges": [
+            {
+              "source": "start",
+              "target": "select",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "select",
+              "target": "operation",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "operation",
+              "target": "status",
+              "label": "Status / archive",
+              "side": null
+            },
+            {
+              "source": "operation",
+              "target": "b_out",
+              "label": "Handover → sheet 2",
+              "side": "left"
+            },
+            {
+              "source": "status",
+              "target": "validate",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "validate",
+              "target": "allowed",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "allowed",
+              "target": "denied",
+              "label": "Tidak",
+              "side": null
+            },
+            {
+              "source": "denied",
+              "target": "unchanged",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "allowed",
+              "target": "save",
+              "label": "Ya",
+              "side": "left"
+            },
+            {
+              "source": "save",
+              "target": "saved",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "saved",
+              "target": "rollback",
+              "label": "Tidak",
+              "side": null
+            },
+            {
+              "source": "rollback",
+              "target": "failed",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "saved",
+              "target": "updated",
+              "label": "Ya",
+              "side": "right"
+            }
+          ],
+          "note": "Found Returned wajib handover; unlinked Lost recovery boleh manual. Note 8–500 + confirmation/revision. Terminal read-only. Connector B ke pickup sheet 2."
+        },
+        {
+          "id": "FC05-B",
+          "title": "Sheet 2 · Schedule / reschedule / cancel / complete",
+          "nodes": [
+            {
+              "id": "b_in",
+              "row": 0,
+              "lane": "shared",
+              "kind": "connector",
+              "label": "B"
+            },
+            {
+              "id": "eligible",
+              "row": 1,
+              "lane": "bm",
+              "kind": "decision",
+              "label": "Approved claim + eligible handover tersedia?"
+            },
+            {
+              "id": "invalid",
+              "row": 2,
+              "lane": "bm",
+              "kind": "input",
+              "label": "BM: action unavailable / stale state"
+            },
+            {
+              "id": "invalid_end",
+              "row": 3,
+              "lane": "bm",
+              "kind": "end",
+              "label": "End · Tidak ada perubahan"
+            },
+            {
+              "id": "action",
+              "row": 4,
+              "lane": "bm",
+              "kind": "decision",
+              "label": "Operasi handover?"
+            },
+            {
+              "id": "schedule",
+              "row": 5,
+              "lane": "bm",
+              "kind": "input",
+              "label": "BM: active AREA, future campus time, note + confirm"
+            },
+            {
+              "id": "validate",
+              "row": 6,
+              "lane": "shared",
+              "kind": "process",
+              "label": "(System) Validate state/date/location; campus → UTC"
+            },
+            {
+              "id": "valid",
+              "row": 7,
+              "lane": "bm",
+              "kind": "decision",
+              "label": "Schedule valid?"
+            },
+            {
+              "id": "correct",
+              "row": 8,
+              "lane": "bm",
+              "kind": "input",
+              "label": "BM: perbaiki input dan retry"
+            },
+            {
+              "id": "schedule_tx",
+              "row": 9,
+              "lane": "shared",
+              "kind": "process",
+              "label": "(System) Lock + transaction SCHEDULED; private before/after notification; generic history"
+            },
+            {
+              "id": "cancel",
+              "row": 10,
+              "lane": "bm",
+              "kind": "input",
+              "label": "BM: alasan dan confirmation batal jadwal"
+            },
+            {
+              "id": "cancel_confirm",
+              "row": 11,
+              "lane": "bm",
+              "kind": "decision",
+              "label": "Batal jadwal dikonfirmasi?"
+            },
+            {
+              "id": "no_change",
+              "row": 12,
+              "lane": "bm",
+              "kind": "end",
+              "label": "End · Aksi dibatalkan, data tetap"
+            },
+            {
+              "id": "cancel_tx",
+              "row": 13,
+              "lane": "shared",
+              "kind": "process",
+              "label": "(System) Lock + transaction PENDING; scheduled_at NULL; audit/private notif; ownership tetap"
+            },
+            {
+              "id": "complete",
+              "row": 14,
+              "lane": "bm",
+              "kind": "input",
+              "label": "BM: verifikasi return fisik + completion confirmation"
+            },
+            {
+              "id": "complete_confirm",
+              "row": 15,
+              "lane": "bm",
+              "kind": "decision",
+              "label": "Complete dikonfirmasi?"
+            },
+            {
+              "id": "complete_tx",
+              "row": 16,
+              "lane": "shared",
+              "kind": "process",
+              "label": "(System) Lock + transaction COMPLETED; item/pair RESOLVED; history + notifications"
+            },
+            {
+              "id": "merge",
+              "row": 17,
+              "lane": "shared",
+              "kind": "merge",
+              "label": "M1"
+            },
+            {
+              "id": "saved",
+              "row": 18,
+              "lane": "bm",
+              "kind": "decision",
+              "label": "Transaction berhasil?"
+            },
+            {
+              "id": "error",
+              "row": 19,
+              "lane": "bm",
+              "kind": "input",
+              "label": "BM: rollback/error; reload current handover"
+            },
+            {
+              "id": "failed",
+              "row": 20,
+              "lane": "bm",
+              "kind": "end",
+              "label": "End · Update belum diterapkan"
+            },
+            {
+              "id": "updated",
+              "row": 21,
+              "lane": "bm",
+              "kind": "process",
+              "label": "BM: lihat state terbaru; Student menerima pickup update"
+            },
+            {
+              "id": "done",
+              "row": 22,
+              "lane": "bm",
+              "kind": "end",
+              "label": "End · Operasi pickup tersimpan"
+            }
+          ],
+          "edges": [
+            {
+              "source": "b_in",
+              "target": "eligible",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "eligible",
+              "target": "invalid",
+              "label": "Tidak",
+              "side": null
+            },
+            {
+              "source": "invalid",
+              "target": "invalid_end",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "eligible",
+              "target": "action",
+              "label": "Ya",
+              "side": "left"
+            },
+            {
+              "source": "action",
+              "target": "schedule",
+              "label": "Schedule / reschedule",
+              "side": null
+            },
+            {
+              "source": "schedule",
+              "target": "validate",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "validate",
+              "target": "valid",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "valid",
+              "target": "correct",
+              "label": "Tidak",
+              "side": null
+            },
+            {
+              "source": "correct",
+              "target": "schedule",
+              "label": "Perbaiki + retry",
+              "side": "right"
+            },
+            {
+              "source": "valid",
+              "target": "schedule_tx",
+              "label": "Ya",
+              "side": "left"
+            },
+            {
+              "source": "action",
+              "target": "cancel",
+              "label": "Cancel schedule",
+              "side": "left"
+            },
+            {
+              "source": "cancel",
+              "target": "cancel_confirm",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "cancel_confirm",
+              "target": "no_change",
+              "label": "Tidak",
+              "side": null
+            },
+            {
+              "source": "cancel_confirm",
+              "target": "cancel_tx",
+              "label": "Ya",
+              "side": "left"
+            },
+            {
+              "source": "action",
+              "target": "complete",
+              "label": "Complete",
+              "side": "right"
+            },
+            {
+              "source": "complete",
+              "target": "complete_confirm",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "complete_confirm",
+              "target": "no_change",
+              "label": "Tidak",
+              "side": "right"
+            },
+            {
+              "source": "complete_confirm",
+              "target": "complete_tx",
+              "label": "Ya",
+              "side": null
+            },
+            {
+              "source": "schedule_tx",
+              "target": "merge",
+              "label": "Commit outcome",
+              "side": "left"
+            },
+            {
+              "source": "cancel_tx",
+              "target": "merge",
+              "label": "Commit outcome",
+              "side": "left"
+            },
+            {
+              "source": "complete_tx",
+              "target": "merge",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "merge",
+              "target": "saved",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "saved",
+              "target": "error",
+              "label": "Tidak",
+              "side": null
+            },
+            {
+              "source": "error",
+              "target": "failed",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "saved",
+              "target": "updated",
+              "label": "Ya",
+              "side": "left"
+            },
+            {
+              "source": "updated",
+              "target": "done",
+              "label": "",
+              "side": null
+            }
+          ],
+          "note": "Cancel jadwal: SCHEDULED → PENDING; ownership tetap. Reason reschedule/cancel 8–250; unchanged reschedule 409. Semua operasi memeriksa fresh revision/state di bawah lock."
+        }
+      ],
+      "connectors": [
+        [
+          "FC05-A:b_out",
+          "FC05-B:b_in",
+          "B"
+        ]
+      ],
+      "implementation": {
+        "files": [
+          "app/workflow.php",
+          "api/handovers.php"
+        ],
+        "functions": [
+          "staff_status",
+          "allowed_manual_statuses",
+          "mutate_handover",
+          "valid_schedule",
+          "pickup_audit"
+        ]
+      }
+    },
+    {
+      "id": "FC06-profile-settings",
+      "title": "FC06 · Own profile dan account settings",
+      "sheets": [
+        {
+          "id": "FC06",
+          "title": "Profile / password / logout untuk kedua aktor",
+          "nodes": [
+            {
+              "id": "start",
+              "row": 0,
+              "lane": "shared",
+              "kind": "start",
+              "label": "Start"
+            },
+            {
+              "id": "profile",
+              "row": 1,
+              "lane": "shared",
+              "kind": "input",
+              "label": "Student/BM login: lihat own Profile / Settings"
+            },
+            {
+              "id": "action",
+              "row": 2,
+              "lane": "shared",
+              "kind": "decision",
+              "label": "Aksi akun?"
+            },
+            {
+              "id": "name",
+              "row": 3,
+              "lane": "shared",
+              "kind": "input",
+              "label": "Aktor: edit display name (email/NIM/role readonly)"
+            },
+            {
+              "id": "name_check",
+              "row": 4,
+              "lane": "shared",
+              "kind": "process",
+              "label": "(System) Own session, CSRF, nonempty name ≤120 chars"
+            },
+            {
+              "id": "name_valid",
+              "row": 5,
+              "lane": "shared",
+              "kind": "decision",
+              "label": "Nama valid?"
+            },
+            {
+              "id": "name_error",
+              "row": 6,
+              "lane": "shared",
+              "kind": "input",
+              "label": "Tampilkan field error; perbaiki nama"
+            },
+            {
+              "id": "name_save",
+              "row": 7,
+              "lane": "shared",
+              "kind": "process",
+              "label": "(System) Persist users.full_name; error tidak mengubah data"
+            },
+            {
+              "id": "name_saved",
+              "row": 8,
+              "lane": "shared",
+              "kind": "decision",
+              "label": "Save berhasil?"
+            },
+            {
+              "id": "name_view",
+              "row": 9,
+              "lane": "shared",
+              "kind": "input",
+              "label": "Lihat nama tersimpan sesudah reload/relogin"
+            },
+            {
+              "id": "password",
+              "row": 10,
+              "lane": "shared",
+              "kind": "input",
+              "label": "Aktor: password lama + baru + confirmation"
+            },
+            {
+              "id": "password_check",
+              "row": 11,
+              "lane": "shared",
+              "kind": "process",
+              "label": "(System) Verify old password, validate policy + confirmation"
+            },
+            {
+              "id": "password_valid",
+              "row": 12,
+              "lane": "shared",
+              "kind": "decision",
+              "label": "Password request valid?"
+            },
+            {
+              "id": "password_error",
+              "row": 13,
+              "lane": "shared",
+              "kind": "input",
+              "label": "Tampilkan error; password hash tetap"
+            },
+            {
+              "id": "password_save",
+              "row": 14,
+              "lane": "shared",
+              "kind": "process",
+              "label": "(System) Update hash, rotate session; invalidate other sessions"
+            },
+            {
+              "id": "password_saved",
+              "row": 15,
+              "lane": "shared",
+              "kind": "decision",
+              "label": "Password save berhasil?"
+            },
+            {
+              "id": "password_view",
+              "row": 16,
+              "lane": "shared",
+              "kind": "input",
+              "label": "Success; old login gagal, new password bekerja"
+            },
+            {
+              "id": "logout",
+              "row": 17,
+              "lane": "shared",
+              "kind": "process",
+              "label": "(System) CSRF logout; destroy session / expire cookie"
+            },
+            {
+              "id": "logged_out",
+              "row": 18,
+              "lane": "shared",
+              "kind": "end",
+              "label": "End · Logged out"
+            },
+            {
+              "id": "done",
+              "row": 19,
+              "lane": "shared",
+              "kind": "end",
+              "label": "End · Pengelolaan akun selesai"
+            }
+          ],
+          "edges": [
+            {
+              "source": "start",
+              "target": "profile",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "profile",
+              "target": "action",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "action",
+              "target": "name",
+              "label": "Edit name",
+              "side": null
+            },
+            {
+              "source": "name",
+              "target": "name_check",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "name_check",
+              "target": "name_valid",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "name_valid",
+              "target": "name_error",
+              "label": "Tidak",
+              "side": null
+            },
+            {
+              "source": "name_error",
+              "target": "name",
+              "label": "Perbaiki + retry",
+              "side": "left"
+            },
+            {
+              "source": "name_valid",
+              "target": "name_save",
+              "label": "Ya",
+              "side": "right"
+            },
+            {
+              "source": "name_save",
+              "target": "name_saved",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "name_saved",
+              "target": "name_error",
+              "label": "Tidak; retry",
+              "side": "left"
+            },
+            {
+              "source": "name_saved",
+              "target": "name_view",
+              "label": "Ya",
+              "side": null
+            },
+            {
+              "source": "name_view",
+              "target": "action",
+              "label": "Pilih aksi berikutnya",
+              "side": "right"
+            },
+            {
+              "source": "action",
+              "target": "password",
+              "label": "Change password",
+              "side": "left"
+            },
+            {
+              "source": "password",
+              "target": "password_check",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "password_check",
+              "target": "password_valid",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "password_valid",
+              "target": "password_error",
+              "label": "Tidak",
+              "side": null
+            },
+            {
+              "source": "password_error",
+              "target": "password",
+              "label": "Perbaiki + retry",
+              "side": "left"
+            },
+            {
+              "source": "password_valid",
+              "target": "password_save",
+              "label": "Ya",
+              "side": "right"
+            },
+            {
+              "source": "password_save",
+              "target": "password_saved",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "password_saved",
+              "target": "password_error",
+              "label": "Tidak; retry",
+              "side": "left"
+            },
+            {
+              "source": "password_saved",
+              "target": "password_view",
+              "label": "Ya",
+              "side": null
+            },
+            {
+              "source": "password_view",
+              "target": "action",
+              "label": "Pilih aksi berikutnya",
+              "side": "right"
+            },
+            {
+              "source": "action",
+              "target": "logout",
+              "label": "Logout",
+              "side": "right"
+            },
+            {
+              "source": "logout",
+              "target": "logged_out",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "action",
+              "target": "done",
+              "label": "Selesai",
+              "side": "left"
+            }
+          ],
+          "note": "Profile/settings adalah fitur kedua aktor: shared blocks melintasi batas lane. Auto work ditandai (System). Request expired/forbidden kembali ke kontrak FC01."
+        }
+      ],
+      "connectors": [],
+      "implementation": {
+        "files": [
+          "app/accounts.php",
+          "api/account.php"
+        ],
+        "functions": [
+          "account_profile",
+          "lock_own_account",
+          "verify_current_password"
+        ]
+      }
+    },
+    {
+      "id": "UF01-user-flow",
+      "title": "UF01 · Student / BM user flow",
+      "sheets": [
+        {
+          "id": "UF01",
+          "title": "Goals, actor handoff and outcomes",
+          "nodes": [
+            {
+              "id": "start",
+              "row": 0,
+              "lane": "shared",
+              "kind": "start",
+              "label": "Start"
+            },
+            {
+              "id": "login",
+              "row": 1,
+              "lane": "shared",
+              "kind": "process",
+              "label": "Credential login / valid session (FC01)"
+            },
+            {
+              "id": "role",
+              "row": 2,
+              "lane": "shared",
+              "kind": "decision",
+              "label": "Role dari akun DB?"
+            },
+            {
+              "id": "student_goal",
+              "row": 3,
+              "lane": "student",
+              "kind": "decision",
+              "label": "Tujuan Student?"
+            },
+            {
+              "id": "bm_goal",
+              "row": 3,
+              "lane": "bm",
+              "kind": "decision",
+              "label": "Tujuan BM?"
+            },
+            {
+              "id": "report",
+              "row": 4,
+              "lane": "student",
+              "kind": "input",
+              "label": "Report Lost/Found; public media + private clue (FC02)"
+            },
+            {
+              "id": "saved",
+              "row": 5,
+              "lane": "student",
+              "kind": "end",
+              "label": "End · Report + possible matches tersimpan"
+            },
+            {
+              "id": "discover",
+              "row": 6,
+              "lane": "student",
+              "kind": "process",
+              "label": "Explore/filter → detail → explicit claim (FC03)"
+            },
+            {
+              "id": "review",
+              "row": 7,
+              "lane": "bm",
+              "kind": "process",
+              "label": "Synced queue → focused detail; compare private proof"
+            },
+            {
+              "id": "decision",
+              "row": 8,
+              "lane": "bm",
+              "kind": "decision",
+              "label": "Keputusan dengan note + confirmation?"
+            },
+            {
+              "id": "more",
+              "row": 9,
+              "lane": "student",
+              "kind": "input",
+              "label": "Private request note → same-ID resubmit → Pending"
+            },
+            {
+              "id": "rejected",
+              "row": 10,
+              "lane": "student",
+              "kind": "end",
+              "label": "End · Rejected; eligible resubmit tersedia"
+            },
+            {
+              "id": "approved",
+              "row": 11,
+              "lane": "bm",
+              "kind": "process",
+              "label": "Approve → one handover; item/pair Ready for pickup"
+            },
+            {
+              "id": "pickup",
+              "row": 12,
+              "lane": "bm",
+              "kind": "process",
+              "label": "Handover: schedule/reschedule/cancel (FC05)"
+            },
+            {
+              "id": "returned",
+              "row": 13,
+              "lane": "bm",
+              "kind": "decision",
+              "label": "Konfirmasi physical return sekarang?"
+            },
+            {
+              "id": "waiting",
+              "row": 14,
+              "lane": "student",
+              "kind": "end",
+              "label": "End · Awaiting pickup; ownership approved"
+            },
+            {
+              "id": "complete",
+              "row": 15,
+              "lane": "shared",
+              "kind": "process",
+              "label": "(System) Atomic Completed + Returned; private notify"
+            },
+            {
+              "id": "history",
+              "row": 16,
+              "lane": "student",
+              "kind": "end",
+              "label": "End · Returned + completion time / read-only History"
+            },
+            {
+              "id": "status",
+              "row": 17,
+              "lane": "bm",
+              "kind": "process",
+              "label": "Reports: eligible status/archive/Lost recovery (FC05)"
+            },
+            {
+              "id": "status_end",
+              "row": 18,
+              "lane": "bm",
+              "kind": "end",
+              "label": "End · Operational outcome tercatat"
+            },
+            {
+              "id": "account",
+              "row": 19,
+              "lane": "shared",
+              "kind": "process",
+              "label": "Own Profile / Settings: name/password/logout (FC06)"
+            },
+            {
+              "id": "account_end",
+              "row": 20,
+              "lane": "shared",
+              "kind": "end",
+              "label": "End · Own account operation selesai"
+            }
+          ],
+          "edges": [
+            {
+              "source": "start",
+              "target": "login",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "login",
+              "target": "role",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "role",
+              "target": "student_goal",
+              "label": "STUDENT",
+              "side": null
+            },
+            {
+              "source": "role",
+              "target": "bm_goal",
+              "label": "BUILDING_MANAGEMENT",
+              "side": null
+            },
+            {
+              "source": "student_goal",
+              "target": "report",
+              "label": "Report",
+              "side": null
+            },
+            {
+              "source": "report",
+              "target": "saved",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "student_goal",
+              "target": "discover",
+              "label": "Find / claim",
+              "side": "left"
+            },
+            {
+              "source": "student_goal",
+              "target": "account",
+              "label": "Account",
+              "side": "left"
+            },
+            {
+              "source": "discover",
+              "target": "review",
+              "label": "Pending → BM handoff",
+              "side": null
+            },
+            {
+              "source": "bm_goal",
+              "target": "review",
+              "label": "Review claim",
+              "side": "right"
+            },
+            {
+              "source": "bm_goal",
+              "target": "pickup",
+              "label": "Pickup",
+              "side": "right"
+            },
+            {
+              "source": "bm_goal",
+              "target": "status",
+              "label": "Status / archive",
+              "side": "right"
+            },
+            {
+              "source": "bm_goal",
+              "target": "account",
+              "label": "Account",
+              "side": "right"
+            },
+            {
+              "source": "review",
+              "target": "decision",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "decision",
+              "target": "more",
+              "label": "Need more info",
+              "side": "left"
+            },
+            {
+              "source": "more",
+              "target": "review",
+              "label": "Validated resubmit",
+              "side": "left"
+            },
+            {
+              "source": "decision",
+              "target": "rejected",
+              "label": "Reject",
+              "side": "left"
+            },
+            {
+              "source": "decision",
+              "target": "approved",
+              "label": "Approve",
+              "side": "right"
+            },
+            {
+              "source": "approved",
+              "target": "pickup",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "pickup",
+              "target": "returned",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "returned",
+              "target": "waiting",
+              "label": "Tidak",
+              "side": null
+            },
+            {
+              "source": "returned",
+              "target": "complete",
+              "label": "Ya",
+              "side": "right"
+            },
+            {
+              "source": "complete",
+              "target": "history",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "status",
+              "target": "status_end",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "account",
+              "target": "account_end",
+              "label": "",
+              "side": null
+            }
+          ],
+          "note": "Goal-level user flow; detailed validation/errors remain FC01–FC06. Cancel appointment retains ownership. BM pickup requires an approved record; report/status eligibility is server-checked."
+        }
+      ],
+      "connectors": [],
+      "implementation": {
+        "files": [
+          "app/routes.php",
+          "app/pages/bm.html",
+          "js/student.js",
+          "js/bm.js"
+        ],
+        "functions": [
+          "page_routes"
+        ]
+      }
+    },
+    {
+      "id": "AF01-app-flow",
+      "title": "AF01 · As-built application / route flow",
+      "sheets": [
+        {
+          "id": "AF01",
+          "title": "Pages, protected endpoints and persistence",
+          "nodes": [
+            {
+              "id": "start",
+              "row": 0,
+              "lane": "shared",
+              "kind": "start",
+              "label": "Start"
+            },
+            {
+              "id": "entry",
+              "row": 1,
+              "lane": "shared",
+              "kind": "input",
+              "label": "Protected .html route via page.php; public entry in note"
+            },
+            {
+              "id": "session",
+              "row": 2,
+              "lane": "shared",
+              "kind": "decision",
+              "label": "Valid session + allowed role?"
+            },
+            {
+              "id": "login",
+              "row": 3,
+              "lane": "shared",
+              "kind": "process",
+              "label": "login.html → session.php + auth.php → safe return (FC01)"
+            },
+            {
+              "id": "role",
+              "row": 4,
+              "lane": "shared",
+              "kind": "decision",
+              "label": "Authenticated DB role?"
+            },
+            {
+              "id": "home",
+              "row": 5,
+              "lane": "student",
+              "kind": "process",
+              "label": "index.html Home → browse.html Explore"
+            },
+            {
+              "id": "queue",
+              "row": 5,
+              "lane": "bm",
+              "kind": "process",
+              "label": "admin.html: Claims / Reports / Handover tabs"
+            },
+            {
+              "id": "student_route",
+              "row": 6,
+              "lane": "student",
+              "kind": "decision",
+              "label": "Student route/action?"
+            },
+            {
+              "id": "bm_route",
+              "row": 6,
+              "lane": "bm",
+              "kind": "decision",
+              "label": "BM route/action?"
+            },
+            {
+              "id": "detail",
+              "row": 7,
+              "lane": "student",
+              "kind": "process",
+              "label": "item.html → claim.html → my-reports.html"
+            },
+            {
+              "id": "report",
+              "row": 8,
+              "lane": "student",
+              "kind": "process",
+              "label": "report.html: Lost/Found/create/eligible edit"
+            },
+            {
+              "id": "student_api",
+              "row": 9,
+              "lane": "shared",
+              "kind": "process",
+              "label": "items.php / claims.php: own object + eligibility/CSRF"
+            },
+            {
+              "id": "staff_api",
+              "row": 10,
+              "lane": "shared",
+              "kind": "process",
+              "label": "staff.php / handovers.php: BM + CSRF/confirm/revision"
+            },
+            {
+              "id": "transaction",
+              "row": 11,
+              "lane": "shared",
+              "kind": "process",
+              "label": "(System) Prepared SQL / locks / atomic records + media"
+            },
+            {
+              "id": "result",
+              "row": 12,
+              "lane": "shared",
+              "kind": "decision",
+              "label": "Request outcome?"
+            },
+            {
+              "id": "success",
+              "row": 13,
+              "lane": "shared",
+              "kind": "process",
+              "label": "Commit → refresh exact detail/activity/notifications"
+            },
+            {
+              "id": "error",
+              "row": 14,
+              "lane": "shared",
+              "kind": "input",
+              "label": "400/401/403/409/422/500: feedback; refresh/retry"
+            },
+            {
+              "id": "shared",
+              "row": 15,
+              "lane": "shared",
+              "kind": "process",
+              "label": "history.html / notifications.html / profile.html / settings.html"
+            },
+            {
+              "id": "shared_api",
+              "row": 16,
+              "lane": "shared",
+              "kind": "process",
+              "label": "Own account/notifs APIs; public history/photo projection"
+            },
+            {
+              "id": "next",
+              "row": 17,
+              "lane": "shared",
+              "kind": "decision",
+              "label": "Next navigation?"
+            },
+            {
+              "id": "logout",
+              "row": 18,
+              "lane": "shared",
+              "kind": "process",
+              "label": "auth.php CSRF logout → login.html"
+            },
+            {
+              "id": "end",
+              "row": 19,
+              "lane": "shared",
+              "kind": "end",
+              "label": "End · Route scenario selesai"
+            },
+            {
+              "id": "forbidden",
+              "row": 20,
+              "lane": "shared",
+              "kind": "input",
+              "label": "403: privileged HTML/data blocked; role-home link"
+            },
+            {
+              "id": "forbidden_end",
+              "row": 21,
+              "lane": "shared",
+              "kind": "end",
+              "label": "End · Forbidden route rejected"
+            }
+          ],
+          "edges": [
+            {
+              "source": "start",
+              "target": "entry",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "entry",
+              "target": "session",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "session",
+              "target": "login",
+              "label": "Guest / expired",
+              "side": null
+            },
+            {
+              "source": "login",
+              "target": "role",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "session",
+              "target": "role",
+              "label": "Allowed",
+              "side": "right"
+            },
+            {
+              "source": "session",
+              "target": "forbidden",
+              "label": "Wrong role",
+              "side": "left"
+            },
+            {
+              "source": "forbidden",
+              "target": "forbidden_end",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "role",
+              "target": "home",
+              "label": "STUDENT",
+              "side": null
+            },
+            {
+              "source": "role",
+              "target": "queue",
+              "label": "BUILDING_MANAGEMENT",
+              "side": null
+            },
+            {
+              "source": "home",
+              "target": "student_route",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "queue",
+              "target": "bm_route",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "student_route",
+              "target": "detail",
+              "label": "Discover / claim",
+              "side": null
+            },
+            {
+              "source": "student_route",
+              "target": "report",
+              "label": "Report",
+              "side": "left"
+            },
+            {
+              "source": "student_route",
+              "target": "shared",
+              "label": "Shared pages",
+              "side": "left"
+            },
+            {
+              "source": "detail",
+              "target": "student_api",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "report",
+              "target": "student_api",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "student_api",
+              "target": "transaction",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "bm_route",
+              "target": "staff_api",
+              "label": "Review / status / pickup",
+              "side": "right"
+            },
+            {
+              "source": "bm_route",
+              "target": "shared",
+              "label": "Explore / history / account",
+              "side": "right"
+            },
+            {
+              "source": "staff_api",
+              "target": "transaction",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "transaction",
+              "target": "result",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "result",
+              "target": "success",
+              "label": "Success",
+              "side": null
+            },
+            {
+              "source": "result",
+              "target": "error",
+              "label": "Rejected / stale / failure",
+              "side": "left"
+            },
+            {
+              "source": "success",
+              "target": "next",
+              "label": "Exact record refresh",
+              "side": "right"
+            },
+            {
+              "source": "error",
+              "target": "next",
+              "label": "No automatic POST replay",
+              "side": "left"
+            },
+            {
+              "source": "shared",
+              "target": "shared_api",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "shared_api",
+              "target": "next",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "next",
+              "target": "role",
+              "label": "Continue; guard again",
+              "side": "right"
+            },
+            {
+              "source": "next",
+              "target": "logout",
+              "label": "Logout",
+              "side": null
+            },
+            {
+              "source": "logout",
+              "target": "end",
+              "label": "",
+              "side": null
+            },
+            {
+              "source": "next",
+              "target": "end",
+              "label": "Finish scenario",
+              "side": "left"
+            }
+          ],
+          "note": "Guest index/login are public; Landing Login CTA is voluntary. All12 routes covered; shared Explore uses browse/item. Wrong role403 + role home; expired401/Login. Private API/photo guards precede data; no POST replay."
+        }
+      ],
+      "connectors": [],
+      "implementation": {
+        "files": [
+          "app/routes.php",
+          "app/auth.php",
+          "page.php",
+          "api/items.php",
+          "api/claims.php",
+          "api/staff.php",
+          "api/handovers.php"
+        ],
+        "functions": [
+          "page_routes",
+          "request_user"
+        ]
+      }
+    }
+  ]
+}

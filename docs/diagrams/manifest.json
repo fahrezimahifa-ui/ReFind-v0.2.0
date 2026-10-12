@@ -1,0 +1,196 @@
+{
+  "status": "As-built / B06",
+  "editable_format": "draw.io / diagrams.net",
+  "artifacts": [
+    {
+      "id": "SITEMAP",
+      "title": "SITEMAP · Page → Feature / role-specific routes",
+      "sheets": [
+        "SITEMAP"
+      ],
+      "kind": "graph",
+      "nodes": [
+        "landing",
+        "login",
+        "login_fields",
+        "student_home",
+        "explore",
+        "filters",
+        "detail",
+        "claim",
+        "proof",
+        "report",
+        "report_fields",
+        "activity",
+        "activity_tabs",
+        "student_history",
+        "student_notif",
+        "student_profile",
+        "name",
+        "student_settings",
+        "student_account",
+        "bm_queue",
+        "bm_reports",
+        "bm_claims",
+        "bm_handover",
+        "bm_history",
+        "bm_notif",
+        "bm_profile",
+        "bm_settings",
+        "bm_account"
+      ],
+      "foreign_keys": []
+    },
+    {
+      "id": "ERD01-operational",
+      "title": "ERD01 · Operational relations",
+      "sheets": [
+        "ERD01-operational"
+      ],
+      "kind": "graph",
+      "nodes": [
+        "claim_photos",
+        "claims",
+        "handovers",
+        "item_matches",
+        "item_photos",
+        "item_status_history",
+        "item_statuses",
+        "items",
+        "notifications",
+        "users"
+      ],
+      "foreign_keys": [
+        "fk_items_status",
+        "fk_items_user",
+        "fk_item_photos_item",
+        "fk_match_confirmer",
+        "fk_match_found_item",
+        "fk_match_lost_item",
+        "fk_claim_claimant",
+        "fk_claim_item",
+        "fk_claim_related_lost",
+        "fk_claim_reviewer",
+        "fk_claim_photos_claim",
+        "fk_handover_claim",
+        "fk_handover_handler",
+        "fk_notification_claim",
+        "fk_notification_item",
+        "fk_notification_user",
+        "fk_history_item",
+        "fk_history_status",
+        "fk_history_user"
+      ]
+    },
+    {
+      "id": "ERD02-reference",
+      "title": "ERD02 · Reference / location relations",
+      "sheets": [
+        "ERD02-reference"
+      ],
+      "kind": "graph",
+      "nodes": [
+        "buildings",
+        "campus_locations",
+        "categories",
+        "handovers",
+        "items",
+        "location_floors"
+      ],
+      "foreign_keys": [
+        "fk_location_building",
+        "fk_floor_location",
+        "fk_items_category",
+        "fk_items_floor_location",
+        "fk_items_location",
+        "fk_handover_location"
+      ]
+    },
+    {
+      "id": "FC01-login-session-logout",
+      "title": "FC01 · Login, session, logout",
+      "kind": "flow",
+      "sheets": [
+        "FC01"
+      ],
+      "connectors": []
+    },
+    {
+      "id": "FC02-report",
+      "title": "FC02 · Student Lost / Found submission",
+      "kind": "flow",
+      "sheets": [
+        "FC02"
+      ],
+      "connectors": []
+    },
+    {
+      "id": "FC03-browse-claim",
+      "title": "FC03 · Browse → ownership claim",
+      "kind": "flow",
+      "sheets": [
+        "FC03"
+      ],
+      "connectors": []
+    },
+    {
+      "id": "FC04-review-handover",
+      "title": "FC04 · Claim review dan handover",
+      "kind": "flow",
+      "sheets": [
+        "FC04-A",
+        "FC04-B"
+      ],
+      "connectors": [
+        [
+          "FC04-A:a_out",
+          "FC04-B:a_in",
+          "A"
+        ]
+      ]
+    },
+    {
+      "id": "FC05-bm-operations",
+      "title": "FC05 · BM status, archive, pickup operations",
+      "kind": "flow",
+      "sheets": [
+        "FC05-A",
+        "FC05-B"
+      ],
+      "connectors": [
+        [
+          "FC05-A:b_out",
+          "FC05-B:b_in",
+          "B"
+        ]
+      ]
+    },
+    {
+      "id": "FC06-profile-settings",
+      "title": "FC06 · Own profile dan account settings",
+      "kind": "flow",
+      "sheets": [
+        "FC06"
+      ],
+      "connectors": []
+    },
+    {
+      "id": "UF01-user-flow",
+      "title": "UF01 · Student / BM user flow",
+      "kind": "flow",
+      "sheets": [
+        "UF01"
+      ],
+      "connectors": []
+    },
+    {
+      "id": "AF01-app-flow",
+      "title": "AF01 · As-built application / route flow",
+      "kind": "flow",
+      "sheets": [
+        "AF01"
+      ],
+      "connectors": []
+    }
+  ]
+}

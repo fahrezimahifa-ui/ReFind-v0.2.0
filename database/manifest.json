@@ -1,0 +1,44 @@
+{
+  "source_sql_sha256": "8b2fe2c560b524c4e8710280c1a7222551f0e52ee047f0201e7993b09f0ae289",
+  "tables": [
+    "users",
+    "buildings",
+    "categories",
+    "item_statuses",
+    "campus_locations",
+    "location_floors",
+    "items",
+    "item_photos",
+    "item_matches",
+    "claims",
+    "claim_photos",
+    "handovers",
+    "notifications",
+    "item_status_history"
+  ],
+  "views": [
+    "v_items_overview",
+    "v_pending_claims"
+  ],
+  "reference_counts": {
+    "buildings": 4,
+    "categories": 8,
+    "item_statuses": 7,
+    "campus_locations": 40,
+    "location_floors": 91
+  },
+  "files": {
+    "schema.sql": "c32b9a38110ea7ab02884d11fb18f6ddc0704ba3b23a845bfdfe37c7705a8eba",
+    "views.sql": "f45f3e8aa53e6c4dd3fbcdb2f88da2bbebea3d3f1798ade1a109a953a58b4bc9",
+    "seed-reference.sql": "7013e963e0cea3fa9ddccfdeaca6d2508a8be33ed9ac5933cb28d503375157b8"
+  },
+  "asset_hashes": {
+    "vendor/jquery.min.js": "fc9a93dd241f6b045cbff0481cf4e1901becd0e12fb45166a8f17f95823f0b1a",
+    "vendor/bootstrap.min.css": "d85327d99c7a3ee1f9b5d0500d1370acea3ad2db39c163c2f51f232baedbdede",
+    "vendor/bootstrap.bundle.min.js": "e4fd49181388c48ec5040bd3fe66f57c29c8e67fcd8502b3354b96ec7ab47cc7",
+    "vendor/LICENSES.txt": "56638c70277024cd0ff4a4838c8570cf225d16ab27d84e1d2131aea70dda4217",
+    "vendor/README.md": "3663f648c82536a8e421b5c2b5ad107b2d994a84651de8ced382ae56c2603286",
+    "assets/refind-logo-horizontal.png": "44e9e4040d18fe1b16426bc89cfd9f85fc7a8ab8877318b3da8a81e8cf1cd434",
+    "assets/refind-logo-mark.png": "b66f14c58a9da34f4d7601720704022f14dc30149164d9a89b4d9f447ded6739"
+  }
+}

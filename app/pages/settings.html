@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="app-base" content="{{BASE_PATH}}">
+  <title>Account settings — ReFind</title><link rel="icon" href="assets/refind-logo-mark.png"><link rel="stylesheet" href="vendor/bootstrap.min.css"><link rel="stylesheet" href="css/auth.css"><link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="settings" data-requires-auth="true">
+  {{APP_NAVBAR}}
+  <main class="account-main">
+    <div class="account-heading"><span class="eyebrow">ACCOUNT SETTINGS</span><h1>Keep your account secure.</h1><p>Change your password using your current password, or end this session.</p></div>
+    <p class="loading-note" id="account-loading" role="status">Loading your account…</p>
+    <div class="feedback" id="account-load-error" role="alert" tabindex="-1" hidden></div><button class="btn btn-outline retry-load" id="retry-account" type="button" hidden>Retry loading account</button>
+    <div class="account-layout" id="account-content" hidden>
+      <div>
+        <section class="account-card profile-summary" aria-label="Account summary"><div class="profile-avatar" data-profile-initials aria-hidden="true"></div><h2 data-profile-name></h2><span class="role-chip" data-profile-role></span><a class="text-link" href="profile.html">Back to my profile</a></section>
+        <section class="account-card session-card" aria-labelledby="session-title"><h2 id="session-title">Your session</h2><p>Log out when you are finished, especially on a shared device.</p><button class="btn btn-outline" id="settings-logout" type="button" data-logout>Log out</button></section>
+      </div>
+      <section class="account-card" aria-labelledby="password-title">
+        <h2 id="password-title">Change password</h2><p>Your current session stays signed in. Other sessions will need to log in again.</p>
+        <form id="password-form" novalidate>
+          <fieldset id="password-fields" disabled>
+            <div class="field"><label for="current-password">Current password</label><input class="form-control" id="current-password" type="password" autocomplete="current-password" required aria-describedby="current-password-error"><span class="field-error" id="current-password-error" hidden></span></div>
+            <div class="field"><label for="new-password">New password</label><input class="form-control" id="new-password" type="password" autocomplete="new-password" required aria-describedby="password-policy new-password-error"><span class="policy-count" id="password-policy" aria-live="polite">At least 10 characters; maximum 72 UTF-8 bytes.</span><span class="field-error" id="new-password-error" hidden></span></div>
+            <div class="field"><label for="confirm-password">Confirm new password</label><input class="form-control" id="confirm-password" type="password" autocomplete="new-password" required aria-describedby="confirm-password-error"><span class="field-error" id="confirm-password-error" hidden></span></div>
+            <div class="account-actions"><button class="btn btn-primary" id="password-save" type="submit">Update password</button></div>
+          </fieldset>
+          <div class="feedback" id="password-feedback" role="status" tabindex="-1" hidden></div>
+        </form>
+        <p class="account-help">Passwords are not trimmed. A changed password replaces the original demo credential; the initial setup receipt is not updated.</p>
+      </section>
+    </div>
+  </main>
+  <footer class="footer">ReFind 0.2.0 · Account security</footer>
+  <script src="vendor/jquery.min.js"></script><script src="js/api.js"></script><script src="js/shell.js"></script><script src="js/account-ui.js"></script>
+</body>
+</html>

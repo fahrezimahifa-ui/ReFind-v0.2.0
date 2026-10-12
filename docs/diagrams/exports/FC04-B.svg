@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="2316" viewBox="0 0 1400 2316">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="700" y="34" text-anchor="middle" font-family="Arial" font-size="24" font-weight="700" fill="#17266d">FC04 · Claim review dan handover</text>
+<text x="700" y="62" text-anchor="middle" font-family="Arial" font-size="17" fill="#64748b">As-built / B06 · Sheet 2 · Approved → pickup → returned</text>
+<rect x="120" y="96" width="580" height="2146" fill="#f8fbfd" stroke="#cbd5e1"/>
+<rect x="120" y="96" width="580" height="50" fill="#17266d"/>
+<text x="410" y="128" text-anchor="middle" font-family="Arial" font-size="20" font-weight="700" fill="white">Student</text>
+<rect x="700" y="96" width="580" height="2146" fill="#f6f7fc" stroke="#cbd5e1"/>
+<rect x="700" y="96" width="580" height="50" fill="#17266d"/>
+<text x="990" y="128" text-anchor="middle" font-family="Arial" font-size="20" font-weight="700" fill="white">Building Management</text>
+<path d="M 700.0,230.0 L 700.0,261.0 L 990.0,261.0 L 990.0,292.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M 990.0,370.0 L 990.0,407.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M 990.0,507.0 L 990.0,544.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="974.2" y="511.5" width="71.6" height="20" fill="white" opacity=".97"/>
+<text x="1010.0" y="525.5" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">Schedule</text>
+<path d="M 990.0,622.0 L 990.0,646.0 L 700.0,646.0 L 700.0,670.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M 700.0,748.0 L 700.0,766.5 L 990.0,766.5 L 990.0,785.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M 990.0,885.0 L 990.0,903.5 L 410.0,903.5 L 410.0,922.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="687.3" y="881.5" width="25.4" height="20" fill="white" opacity=".97"/>
+<text x="700.0" y="895.5" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">Ya</text>
+<path d="M 990.0,885.0 L 990.0,922.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="985.8" y="889.5" width="48.5" height="20" fill="white" opacity=".97"/>
+<text x="1010.0" y="903.5" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">Tidak</text>
+<path d="M 1215.0,961.0 L 1311.0,961.0 L 1311.0,1213.0 L 1145.0,1213.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="1218.3" y="939.0" width="171.7" height="20" fill="white" opacity=".97"/>
+<text x="1304.2" y="953.0" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">State sebelum request</text>
+<path d="M 410.0,1000.0 L 410.0,1018.5 L 990.0,1018.5 L 990.0,1037.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M 990.0,1137.0 L 990.0,1187.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="985.8" y="1148.0" width="48.5" height="20" fill="white" opacity=".97"/>
+<text x="1010.0" y="1162.0" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">Tidak</text>
+<path d="M 1165.0,1087.0 L 1329.0,1087.0 L 1329.0,1339.0 L 1215.0,1339.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="1296.6" y="1138.0" width="25.4" height="20" fill="white" opacity=".97"/>
+<text x="1309.3" y="1152.0" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">Ya</text>
+<path d="M 1165.0,457.0 L 1311.0,457.0 L 1311.0,1339.0 L 1215.0,1339.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="1218.3" y="435.0" width="171.7" height="20" fill="white" opacity=".97"/>
+<text x="1304.2" y="449.0" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">Complete tanpa jadwal</text>
+<path d="M 815.0,457.0 L 35.0,457.0 L 35.0,1213.0 L 835.0,1213.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="42.0" y="508.0" width="48.5" height="20" fill="white" opacity=".97"/>
+<text x="66.2" y="522.0" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">Nanti</text>
+<path d="M 990.0,1378.0 L 990.0,1415.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M 815.0,1465.0 L 71.0,1465.0 L 71.0,1213.0 L 835.0,1213.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="78.0" y="1386.0" width="48.5" height="20" fill="white" opacity=".97"/>
+<text x="102.2" y="1400.0" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">Tidak</text>
+<path d="M 990.0,1515.0 L 990.0,1533.5 L 700.0,1533.5 L 700.0,1552.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="832.3" y="1523.5" width="25.4" height="20" fill="white" opacity=".97"/>
+<text x="845.0" y="1537.5" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">Ya</text>
+<path d="M 700.0,1630.0 L 700.0,1648.5 L 990.0,1648.5 L 990.0,1667.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M 990.0,1767.0 L 990.0,1804.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="985.8" y="1771.5" width="48.5" height="20" fill="white" opacity=".97"/>
+<text x="1010.0" y="1785.5" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">Tidak</text>
+<path d="M 990.0,1882.0 L 990.0,1943.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<path d="M 815.0,1717.0 L 89.0,1717.0 L 89.0,2095.0 L 185.0,2095.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="96.0" y="1768.0" width="25.4" height="20" fill="white" opacity=".97"/>
+<text x="108.7" y="1782.0" text-anchor="middle" font-family="Arial" font-size="14" fill="#334155">Ya</text>
+<path d="M 410.0,2134.0 L 410.0,2195.0" fill="none" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+<ellipse cx="700.0" cy="205.0" rx="25.0" ry="25.0" fill="#ffffff" stroke="#17266d" stroke-width="1.8"/>
+<text x="700.0" y="210.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">A</text>
+<rect x="765.0" y="292.0" width="450" height="78" fill="#eef1fb" stroke="#17266d" stroke-width="1.8"/>
+<text x="990.0" y="327.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">BM: buka handover approved; detail operasi di</text>
+<text x="990.0" y="345.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">FC05</text>
+<polygon points="990.0,407.0 1165.0,457.0 990.0,507.0 815.0,457.0" fill="#eef1fb" stroke="#17266d" stroke-width="1.8"/>
+<text x="990.0" y="462.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">Aksi pickup?</text>
+<polygon points="787.0,544.0 1215.0,544.0 1193.0,622.0 765.0,622.0" fill="#eef1fb" stroke="#17266d" stroke-width="1.8"/>
+<text x="990.0" y="588.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">BM: pilih pickup location dan jadwal campus</text>
+<rect x="475.0" y="670.0" width="450" height="78" fill="#ffffff" stroke="#17266d" stroke-width="1.8"/>
+<text x="700.0" y="705.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">(System) Scheduling operation FC05: validation,</text>
+<text x="700.0" y="723.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">transaction, audit/private notif</text>
+<polygon points="990.0,785.0 1165.0,835.0 990.0,885.0 815.0,835.0" fill="#eef1fb" stroke="#17266d" stroke-width="1.8"/>
+<text x="990.0" y="840.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">Schedule tersimpan?</text>
+<polygon points="207.0,922.0 635.0,922.0 613.0,1000.0 185.0,1000.0" fill="#edfafd" stroke="#16899b" stroke-width="1.8"/>
+<text x="410.0" y="957.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">Student: lihat pickup notice; siap mengambil</text>
+<text x="410.0" y="975.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">barang</text>
+<polygon points="787.0,922.0 1215.0,922.0 1193.0,1000.0 765.0,1000.0" fill="#eef1fb" stroke="#17266d" stroke-width="1.8"/>
+<text x="990.0" y="966.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">BM: error / rollback; ownership tetap approved</text>
+<polygon points="990.0,1037.0 1165.0,1087.0 990.0,1137.0 815.0,1087.0" fill="#eef1fb" stroke="#17266d" stroke-width="1.8"/>
+<text x="990.0" y="1092.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">Barang diserahkan sekarang?</text>
+<ellipse cx="990.0" cy="1213.0" rx="155.0" ry="26.0" fill="#eef1fb" stroke="#17266d" stroke-width="1.8"/>
+<text x="990.0" y="1218.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">End · Awaiting pickup</text>
+<polygon points="787.0,1300.0 1215.0,1300.0 1193.0,1378.0 765.0,1378.0" fill="#eef1fb" stroke="#17266d" stroke-width="1.8"/>
+<text x="990.0" y="1344.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">BM: verifikasi serah-terima fisik + confirmation</text>
+<polygon points="990.0,1415.0 1165.0,1465.0 990.0,1515.0 815.0,1465.0" fill="#eef1fb" stroke="#17266d" stroke-width="1.8"/>
+<text x="990.0" y="1470.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">Konfirmasi completion?</text>
+<rect x="475.0" y="1552.0" width="450" height="78" fill="#ffffff" stroke="#17266d" stroke-width="1.8"/>
+<text x="700.0" y="1587.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">(System) Atomic COMPLETED + RESOLVED item/pair;</text>
+<text x="700.0" y="1605.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">UTC timestamps/history/notif</text>
+<polygon points="990.0,1667.0 1165.0,1717.0 990.0,1767.0 815.0,1717.0" fill="#eef1fb" stroke="#17266d" stroke-width="1.8"/>
+<text x="990.0" y="1722.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">Completion berhasil?</text>
+<polygon points="787.0,1804.0 1215.0,1804.0 1193.0,1882.0 765.0,1882.0" fill="#eef1fb" stroke="#17266d" stroke-width="1.8"/>
+<text x="990.0" y="1848.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">BM: error / rollback; refresh pickup state</text>
+<ellipse cx="990.0" cy="1969.0" rx="155.0" ry="26.0" fill="#eef1fb" stroke="#17266d" stroke-width="1.8"/>
+<text x="990.0" y="1974.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">End · Completion belum diterapkan</text>
+<polygon points="207.0,2056.0 635.0,2056.0 613.0,2134.0 185.0,2134.0" fill="#edfafd" stroke="#16899b" stroke-width="1.8"/>
+<text x="410.0" y="2091.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">Student: Returned notification / read-only</text>
+<text x="410.0" y="2109.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">history</text>
+<ellipse cx="410.0" cy="2221.0" rx="155.0" ry="26.0" fill="#edfafd" stroke="#16899b" stroke-width="1.8"/>
+<text x="410.0" y="2226.0" text-anchor="middle" font-family="Arial" font-size="15" fill="#1e293b">End · Returned</text>
+<text x="120" y="2269" font-family="Arial" font-size="14" fill="#475569">A berasal dari sheet 1; tidak ada Start baru. Schedule validation/conflicts, reschedule dan cancel_schedule lengkap di FC05. Awaiting pickup bukan status</text>
+<text x="120" y="2287" font-family="Arial" font-size="14" fill="#475569">terminal DB.</text>
+</svg>

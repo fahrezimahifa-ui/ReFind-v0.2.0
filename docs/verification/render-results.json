@@ -1,0 +1,300 @@
+{
+  "scope": "B06 as-built diagram and conceptual wireframe render; application E2E is in separate runtime suites",
+  "browserVersion": "154.0.8037.98",
+  "diagrams": [
+    {
+      "id": "SITEMAP",
+      "width": 2444,
+      "height": 1391,
+      "textCount": 81,
+      "clippedTexts": []
+    },
+    {
+      "id": "ERD01-operational",
+      "width": 2080,
+      "height": 1776,
+      "textCount": 178,
+      "clippedTexts": []
+    },
+    {
+      "id": "ERD02-reference",
+      "width": 2035,
+      "height": 852,
+      "textCount": 71,
+      "clippedTexts": []
+    },
+    {
+      "id": "FC01",
+      "width": 1400,
+      "height": 2946,
+      "textCount": 50,
+      "clippedTexts": []
+    },
+    {
+      "id": "FC02",
+      "width": 1400,
+      "height": 2442,
+      "textCount": 38,
+      "clippedTexts": []
+    },
+    {
+      "id": "FC03",
+      "width": 1400,
+      "height": 2820,
+      "textCount": 45,
+      "clippedTexts": []
+    },
+    {
+      "id": "FC04-A",
+      "width": 1400,
+      "height": 2820,
+      "textCount": 44,
+      "clippedTexts": []
+    },
+    {
+      "id": "FC04-B",
+      "width": 1400,
+      "height": 2316,
+      "textCount": 41,
+      "clippedTexts": []
+    },
+    {
+      "id": "FC05-A",
+      "width": 1400,
+      "height": 1938,
+      "textCount": 27,
+      "clippedTexts": []
+    },
+    {
+      "id": "FC05-B",
+      "width": 1400,
+      "height": 3072,
+      "textCount": 53,
+      "clippedTexts": []
+    },
+    {
+      "id": "FC06",
+      "width": 1400,
+      "height": 2694,
+      "textCount": 47,
+      "clippedTexts": []
+    },
+    {
+      "id": "UF01",
+      "width": 1400,
+      "height": 2820,
+      "textCount": 56,
+      "clippedTexts": []
+    },
+    {
+      "id": "AF01",
+      "width": 1400,
+      "height": 2946,
+      "textCount": 56,
+      "clippedTexts": []
+    }
+  ],
+  "wireframes": [
+    {
+      "id": "WF01",
+      "width": 1420,
+      "height": 1040,
+      "frames": [
+        {
+          "type": "mobile",
+          "width": 390,
+          "height": 844,
+          "withinBoard": true,
+          "horizontalOverflow": false,
+          "contentScrollable": true,
+          "lastElementReachable": true
+        },
+        {
+          "type": "mobile",
+          "width": 390,
+          "height": 844,
+          "withinBoard": true,
+          "horizontalOverflow": false,
+          "contentScrollable": true,
+          "lastElementReachable": true
+        }
+      ],
+      "editableComponents": 63
+    },
+    {
+      "id": "WF02",
+      "width": 1420,
+      "height": 1040,
+      "frames": [
+        {
+          "type": "mobile",
+          "width": 390,
+          "height": 844,
+          "withinBoard": true,
+          "horizontalOverflow": false,
+          "contentScrollable": true,
+          "lastElementReachable": true
+        },
+        {
+          "type": "mobile",
+          "width": 390,
+          "height": 844,
+          "withinBoard": true,
+          "horizontalOverflow": false,
+          "contentScrollable": true,
+          "lastElementReachable": true
+        }
+      ],
+      "editableComponents": 52
+    },
+    {
+      "id": "WF03",
+      "width": 1420,
+      "height": 1040,
+      "frames": [
+        {
+          "type": "mobile",
+          "width": 390,
+          "height": 844,
+          "withinBoard": true,
+          "horizontalOverflow": false,
+          "contentScrollable": true,
+          "lastElementReachable": true
+        },
+        {
+          "type": "mobile",
+          "width": 390,
+          "height": 844,
+          "withinBoard": true,
+          "horizontalOverflow": false,
+          "contentScrollable": true,
+          "lastElementReachable": true
+        }
+      ],
+      "editableComponents": 63
+    },
+    {
+      "id": "WF04",
+      "width": 1420,
+      "height": 1040,
+      "frames": [
+        {
+          "type": "mobile",
+          "width": 390,
+          "height": 844,
+          "withinBoard": true,
+          "horizontalOverflow": false,
+          "contentScrollable": true,
+          "lastElementReachable": true
+        },
+        {
+          "type": "mobile",
+          "width": 390,
+          "height": 844,
+          "withinBoard": true,
+          "horizontalOverflow": false,
+          "contentScrollable": true,
+          "lastElementReachable": true
+        },
+        {
+          "type": "mobile",
+          "width": 390,
+          "height": 844,
+          "withinBoard": true,
+          "horizontalOverflow": false,
+          "contentScrollable": true,
+          "lastElementReachable": true
+        }
+      ],
+      "editableComponents": 67
+    },
+    {
+      "id": "WF05",
+      "width": 1420,
+      "height": 1040,
+      "frames": [
+        {
+          "type": "mobile",
+          "width": 390,
+          "height": 844,
+          "withinBoard": true,
+          "horizontalOverflow": false,
+          "contentScrollable": true,
+          "lastElementReachable": true
+        },
+        {
+          "type": "mobile",
+          "width": 390,
+          "height": 844,
+          "withinBoard": true,
+          "horizontalOverflow": false,
+          "contentScrollable": true,
+          "lastElementReachable": true
+        }
+      ],
+      "editableComponents": 63
+    },
+    {
+      "id": "WF06",
+      "width": 1420,
+      "height": 1040,
+      "frames": [
+        {
+          "type": "mobile",
+          "width": 390,
+          "height": 844,
+          "withinBoard": true,
+          "horizontalOverflow": false,
+          "contentScrollable": true,
+          "lastElementReachable": true
+        },
+        {
+          "type": "mobile",
+          "width": 390,
+          "height": 844,
+          "withinBoard": true,
+          "horizontalOverflow": false,
+          "contentScrollable": true,
+          "lastElementReachable": true
+        }
+      ],
+      "editableComponents": 59
+    },
+    {
+      "id": "WF07",
+      "width": 1420,
+      "height": 1040,
+      "frames": [
+        {
+          "type": "desktop",
+          "width": 1280,
+          "height": 800,
+          "withinBoard": true,
+          "horizontalOverflow": false,
+          "contentScrollable": true,
+          "lastElementReachable": true
+        }
+      ],
+      "editableComponents": 43
+    },
+    {
+      "id": "WF08",
+      "width": 1420,
+      "height": 1040,
+      "frames": [
+        {
+          "type": "desktop",
+          "width": 1280,
+          "height": 800,
+          "withinBoard": true,
+          "horizontalOverflow": false,
+          "contentScrollable": true,
+          "lastElementReachable": true
+        }
+      ],
+      "editableComponents": 49
+    }
+  ],
+  "browserErrors": [],
+  "networkRequests": []
+}
